@@ -1,0 +1,26 @@
+{
+  "calendar": {
+    "title": "Calendar"
+  },
+  "courses": {
+    "title": "Courses"
+  },
+  "enrollment-history": {
+    "title": "Enrollment History"
+  },
+  "grades": {
+    "title": "Grades"
+  },
+  "instructors": {
+    "title": "Instructors"
+  },
+  "larc": {
+    "title": "LARC"
+  },
+  "websoc": {
+    "title": "WebSoc"
+  },
+  "week": {
+    "title": "Week"
+  }
+}

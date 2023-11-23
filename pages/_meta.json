@@ -1,15 +1,35 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
-  "about": {
-    "title": "About",
+  "index": {
+    "title": "Overview",
+    "type": "page",
+    "display": "hidden"
+  },
+  "antalmanac": {
+    "title": "AntAlmanac",
     "type": "page"
   },
-  "contact": {
-    "title": "Contact ↗",
-    "type": "page",
-    "href": "https://twitter.com/shuding_",
-    "newWindow": true
+  "peterportal": {
+    "title": "PeterPortal",
+    "type": "page"
+  },
+  "ppapi": {
+    "title": "API",
+    "type": "page"
+  },
+  "zotistics": {
+    "title": "Zotistics",
+    "type": "page"
+  },
+  "zotmeal": {
+    "title": "ZotMeal",
+    "type": "page"
+  },
+  "zotnfound": {
+    "title": "ZotNFound",
+    "type": "page"
+  },
+  "zotmeet": {
+    "title": "ZotMeet",
+    "type": "page"
   }
 }

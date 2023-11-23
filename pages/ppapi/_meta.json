@@ -1,0 +1,19 @@
+{
+  "index": {
+    "title": "Overview"
+  },
+  "-- Developer's Guide": {
+    "type": "separator",
+    "title": "Developer's Guide"
+  },
+  "developer": {
+    "display": "children"
+  },
+  "-- Contributor's Guide": {
+    "type": "separator",
+    "title": "Contributor's Guide"
+  },
+  "contributor": {
+    "display": "children"
+  }
+}
