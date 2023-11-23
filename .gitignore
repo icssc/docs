@@ -1,3 +1,11 @@
 .next
 node_modules
 .idea/
+
+# sst
+.sst
+
+# open-next
+.open-next
+
+cdk.context.json
