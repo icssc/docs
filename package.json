@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/shuding/nextra-docs-template#readme",
   "dependencies": {
+    "@apollo/sandbox": "^2.5.1",
     "lucide-react": "^0.292.0",
     "next": "^13.5.6",
     "nextra": "2.13.2",
@@ -27,10 +28,10 @@
   },
   "devDependencies": {
     "@types/node": "18.11.10",
-    "prettier": "3.1.0",
-    "typescript": "^5.3.2",
-    "sst": "^2.36.3",
     "aws-cdk-lib": "2.101.1",
-    "constructs": "10.2.69"
+    "constructs": "10.2.69",
+    "prettier": "3.1.0",
+    "sst": "^2.36.3",
+    "typescript": "^5.3.2"
   }
 }

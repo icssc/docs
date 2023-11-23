@@ -13,5 +13,8 @@
   },
   "graphql-api": {
     "title": "GraphQL API"
+  },
+  "sandbox": {
+    "title": "Sandbox"
   }
 }
