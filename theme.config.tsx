@@ -22,7 +22,7 @@ const config: DocsThemeConfig = {
   chat: {
     link: "https://discord.gg/GzF76D7UhY",
   },
-  docsRepositoryBase: "https://github.com/icssc/docs",
+  docsRepositoryBase: "https://github.com/icssc/docs/tree/main",
   head: (
     <>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
