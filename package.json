@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@types/node": "18.11.10",
-    "aws-cdk-lib": "2.101.1",
+    "aws-cdk-lib": "2.114.1",
     "constructs": "10.2.69",
     "prettier": "3.1.0",
     "sst": "^2.36.3",
