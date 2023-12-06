@@ -4,6 +4,10 @@
     "type": "page",
     "display": "hidden"
   },
+  "guidebook": {
+    "title": "Guidebook",
+    "type": "page"
+  },
   "projects": {
     "title": "Projects",
     "type": "menu",
@@ -70,6 +74,21 @@
   },
   "zotmeet": {
     "title": "ZotMeet",
+    "type": "page",
+    "display": "hidden"
+  },
+  "special-projects": {
+    "title": "Special Projects",
+    "type": "menu",
+    "items": {
+      "corporate-dashboard": {
+        "title": "Corporate Dashboard",
+        "href": "/corporate-dashboard"
+      }
+    }
+  },
+  "corporate-dashboard": {
+    "title": "Corporate Dashboard",
     "type": "page",
     "display": "hidden"
   }
