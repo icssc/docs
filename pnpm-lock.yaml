@@ -6,7 +6,7 @@ settings:
 
 dependencies:
   '@apollo/sandbox':
-    specifier: ^2.5.1
+    specifier: 2.5.1
     version: 2.5.1(graphql@16.8.1)(react-dom@18.2.0)(react@18.2.0)
   lucide-react:
     specifier: 0.292.0
