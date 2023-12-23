@@ -15,8 +15,10 @@ export default {
         customDomain: {
           domainName: stack.stage === "prod" ? "docs.icssc.club" : undefined,
           hostedZone: "icssc.club",
-          cdk: { certificate: Certificate.fromCertificateArn(stack, "cert", process.env.CERTIFICATE_ARN) },
-        }
+          cdk: {
+            certificate: Certificate.fromCertificateArn(stack, "cert", process.env.CERTIFICATE_ARN),
+          },
+        },
       });
       stack.addOutputs({
         SiteUrl: site.url,

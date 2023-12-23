@@ -14,10 +14,7 @@ The following is a code snippet that uses the Fetch API to make requests, but th
 <summary>Code</summary>
 
 ```ts
-import type {
-  RawResponse,
-  WebsocAPIResponse,
-} from "peterportal-api-next-types";
+import type { RawResponse, WebsocAPIResponse } from "peterportal-api-next-types";
 import { isErrorResponse } from "peterportal-api-next-types";
 
 try {
@@ -32,7 +29,7 @@ try {
       headers: {
         Referer: "https://docs.api-next.peterportal.org",
       },
-    }
+    },
   );
   const json: RawResponse<WebsocAPIResponse> = await res.json();
   // These fields are always available regardless of whether the request

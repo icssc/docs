@@ -42,7 +42,7 @@ const res = await fetch(
       // other headers
     },
     // other options
-  }
+  },
 );
 ```
 
