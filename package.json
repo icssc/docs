@@ -31,7 +31,7 @@
     "husky": "8.0.3",
     "lint-staged": "15.2.0",
     "prettier": "3.1.0",
-    "prettier-plugin-packagejson": "2.4.7",
+    "prettier-plugin-packagejson": "2.4.9",
     "sst": "2.36.3",
     "typescript": "5.3.3"
   }
