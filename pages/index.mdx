@@ -1,0 +1,33 @@
+---
+title: Home
+---
+
+import { Cards, Card } from "nextra/components";
+import { Utensils, Bird, CalendarRange } from "lucide-react";
+import { AntAlmanac, PeterPortal, Zotistics } from "../components/logos";
+
+{
+// wrapped with {} to mark it as javascript so mdx will not put it under a p tag
+
+<h1
+  style={{
+    textAlign: "center",
+    fontSize: 32,
+    fontWeight: "bolder",
+    marginTop: 48,
+    marginBottom: 24,
+  }}
+>
+  ICSSC Projects
+</h1>
+}
+
+<Cards>
+  <Card icon={<AntAlmanac />} title="AntAlmanac" href="/antalmanac" />
+  <Card icon={<PeterPortal />} title="PeterPortal" href="/peterportal" />
+  <Card icon={<PeterPortal />} title="API" href="/ppapi" />
+  <Card icon={<Zotistics />} title="Zotistics" href="/zotistics" />
+  <Card icon={<Utensils />} title="ZotMeal" href="/zotmeal" />
+  <Card icon={<Bird />} title="ZotNFound" href="/zotnfound" />
+  <Card icon={<CalendarRange />} title="ZotMeet" href="/zotmeet" />
+</Cards>

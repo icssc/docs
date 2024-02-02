@@ -1,0 +1,21 @@
+{
+  "extends": "@tsconfig/node20/tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "baseUrl": ".",
+    "declaration": true,
+    "declarationMap": true,
+    "incremental": true,
+    "inlineSourceMap": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "module": "esnext",
+    "moduleResolution": "Node",
+    "noEmit": true,
+    "noImplicitReturns": true,
+    "outDir": "dist",
+    "resolveJsonModule": true,
+  },
+  "include": ["*.ts", "*.tsx", "components/**/*"],
+  "exclude": ["node_modules"],
+}

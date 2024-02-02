@@ -1,0 +1,20 @@
+{
+  "getting-started-developer": {
+    "title": "Getting Started"
+  },
+  "fair-use-policy": {
+    "title": "Fair Use Policy"
+  },
+  "api-versioning": {
+    "title": "API Versioning"
+  },
+  "rest-api": {
+    "title": "REST API"
+  },
+  "graphql-api": {
+    "title": "GraphQL API"
+  },
+  "sandbox": {
+    "title": "Sandbox"
+  }
+}

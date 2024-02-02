@@ -1,0 +1,95 @@
+{
+  "index": {
+    "title": "Overview",
+    "type": "page",
+    "display": "hidden"
+  },
+  "guidebook": {
+    "title": "Guidebook",
+    "type": "page"
+  },
+  "projects": {
+    "title": "Projects",
+    "type": "menu",
+    "items": {
+      "antalmanac": {
+        "title": "AntAlmanac",
+        "href": "/antalmanac"
+      },
+      "peterportal": {
+        "title": "PeterPortal",
+        "href": "/peterportal"
+      },
+      "ppapi": {
+        "title": "API",
+        "href": "/ppapi"
+      },
+      "zotistics": {
+        "title": "Zotistics",
+        "href": "/zotistics"
+      },
+      "zotmeal": {
+        "title": "ZotMeal",
+        "href": "/zotmeal"
+      },
+      "zotnfound": {
+        "title": "ZotNFound",
+        "href": "/zotnfound"
+      },
+      "zotmeet": {
+        "title": "ZotMeet",
+        "href": "/zotmeet"
+      }
+    }
+  },
+  "antalmanac": {
+    "title": "AntAlmanac",
+    "type": "page",
+    "display": "hidden"
+  },
+  "peterportal": {
+    "title": "PeterPortal",
+    "type": "page",
+    "display": "hidden"
+  },
+  "ppapi": {
+    "title": "API",
+    "type": "page",
+    "display": "hidden"
+  },
+  "zotistics": {
+    "title": "Zotistics",
+    "type": "page",
+    "display": "hidden"
+  },
+  "zotmeal": {
+    "title": "ZotMeal",
+    "type": "page",
+    "display": "hidden"
+  },
+  "zotnfound": {
+    "title": "ZotNFound",
+    "type": "page",
+    "display": "hidden"
+  },
+  "zotmeet": {
+    "title": "ZotMeet",
+    "type": "page",
+    "display": "hidden"
+  },
+  "special-projects": {
+    "title": "Special Projects",
+    "type": "menu",
+    "items": {
+      "corporate-dashboard": {
+        "title": "Corporate Dashboard",
+        "href": "/corporate-dashboard"
+      }
+    }
+  },
+  "corporate-dashboard": {
+    "title": "Corporate Dashboard",
+    "type": "page",
+    "display": "hidden"
+  }
+}

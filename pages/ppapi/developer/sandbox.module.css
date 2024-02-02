@@ -1,0 +1,4 @@
+.apolloSandbox {
+  height: calc(100vh - 3.75rem);
+  overflow: hidden;
+}
