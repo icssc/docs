@@ -83,13 +83,8 @@
     "items": {
       "corporate-dashboard": {
         "title": "Corporate Dashboard",
-        "href": "/corporate-dashboard"
+        "href": "/special-projects/corporate-dashboard"
       }
     }
-  },
-  "corporate-dashboard": {
-    "title": "Corporate Dashboard",
-    "type": "page",
-    "display": "hidden"
   }
 }
