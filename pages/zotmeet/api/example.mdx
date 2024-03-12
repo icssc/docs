@@ -8,74 +8,113 @@ The following is to assist those who want to edit or implement their own documen
 
 <Tabs items={['Raw Code', 'Display']} defaultIndex="0">
     <Tabs.Tab>
-        #### Create New User
+        # Get User Information
+
+        ------------------------------------------------------------------------------------------
+        ### Get Users
 
         <details>
             <summary>
-                `POST`
-                `/`
-                `(creates a new user)`
+                `GET`
+                `/users/{id}`
+                `(gets user matching id)`
             </summary>
 
             ##### Parameters
             > | name      |  type     | data type               | description                                                           |
             > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
-            > | None      |  required | object (JSON or YAML)   | N/A  |
+            > | id      |  required | uuid / string  | N/A  |
 
             ##### Responses
+            <Tabs items={["201", "400"]}>
+                <Tabs.Tab>
+                    > Content-Type: `application/json`
+                    > | name       | data type               | description                                                           |
+                    > |------------|-------------------------|----|
+                    > | id         |  uuid / string  | N/A   | N/A  |
+                    > | username   | string  | N/A  |
+                    > | email      | string   | N/A  |
+                    > | created_at | string   | N/A  |
+                </Tabs.Tab>
 
-            > | http code     | content-type                      | response                                                            |
-            > |---------------|-----------------------------------|---------------------------------------------------------------------|
-            > | `201`         | `text/plain;charset=UTF-8`        | `Configuration created successfully`                                |
-            > | `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
-            > | `405`         | `text/html;charset=utf-8`         | None                                                                |
+                <Tabs.Tab>
+                    > Content-Type: `application/json`
+                    > | name       | data type               | description                                                           |
+                    > |------------|-------------------------|----|
+                    > | code         | string  | "400"  |
+                    > | message   | string  | "Bad Request"  |
 
-            ##### Example cURL
+                </Tabs.Tab>
+            </Tabs>
 
-            > ```javascript
-            >  curl -X POST -H "Content-Type: application/json" --data @post.json http://localhost:8889/
-            > ```
+            ##### Example Request
+            ```js
+            const id = "0000-0000-0000-0000"
+            const res = await fetch(`api/users/${id}`,
+            {
+                method: 'GET',
+                headers: { "Content-Type": "application/json"}
+            })
+
+            user = res.json()
+            ```
 
         </details>
         ------------------------------------------------------------------------------------------
     </Tabs.Tab>
-    <Tabs.Tab>
-        ```md copy
-        ------------------------------------------------------------------------------------------
-        #### Create New User
 
+   <Tabs.Tab>
+     ```md copy
+       <details>
+           <summary>
+               `GET`
+               `/users/{id}`
+               `(gets user matching id)`
+           </summary>
 
+           ##### Parameters
+           > | name      |  type     | data type               | description                                                           |
+           > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+           > | id      |  required | uuid / string  | N/A  |
 
-        <details>
-            <summary>
-                `POST`
-                `/`
-                `(creates a new user)`
-            </summary>
+           ##### Responses
+           <Tabs items={["201", "400"]}>
+               <Tabs.Tab>
+                   > Content-Type: `application/json`
+                   > | name       | data type               | description                                                           |
+                   > |------------|-------------------------|----|
+                   > | id         |  uuid / string  | N/A   | N/A  |
+                   > | username   | string  | N/A  |
+                   > | email      | string   | N/A  |
+                   > | created_at | string   | N/A  |
+               </Tabs.Tab>
 
-            ##### Parameters
-            > | name      |  type     | data type               | description                                                           |
-            > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
-            > | None      |  required | object (JSON or YAML)   | N/A  |
+               <Tabs.Tab>
+                   > Content-Type: `application/json`
+                   > | name       | data type               | description                                                           |
+                   > |------------|-------------------------|----|
+                   > | code         | string  | "400"  |
+                   > | message   | string  | "Bad Request"  |
 
-            ##### Responses
+               </Tabs.Tab>
+           </Tabs>
 
-            > | http code     | content-type                      | response                                                            |
-            > |---------------|-----------------------------------|---------------------------------------------------------------------|
-            > | `201`         | `text/plain;charset=UTF-8`        | `Configuration created successfully`                                |
-            > | `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
-            > | `405`         | `text/html;charset=utf-8`         | None                                                                |
+           ##### Example Request
+           ```js
+           const id = "0000-0000-0000-0000"
+           const res = await fetch(`api/users/${id}`,
+           {
+               method: 'GET',
+               headers: { "Content-Type": "application/json"}
+           })
 
-            ##### Example cURL
+           user = res.json()
+          !```
 
-            > ```javascript
-            >  curl -X POST -H "Content-Type: application/json" --data @post.json http://localhost:8889/
-            > ```
+       </details>
+    ```
 
-        </details>
-        ------------------------------------------------------------------------------------------
-        ```
-    </Tabs.Tab>
+   </Tabs.Tab>
 
 </Tabs>
 

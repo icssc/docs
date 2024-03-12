@@ -1,1 +1,109 @@
+import { Tabs } from "nextra/components";
+
 # Get User Information
+
+---
+
+## Get Users
+
+<details>
+    <summary>
+        `GET`
+        `/users`
+        `(gets users matching parameters)`
+    </summary>
+
+    ##### Parameters
+    > | name      |  type     | data type               | description                                                           |
+    > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+    > | id      |  optional | uuid / string  | N/A  |
+    > | username      |  optional |  string  | N/A  |
+    > | email      |  optional |  string  | N/A  |
+    > | created_at      |  optional | string  | N/A  |
+
+    ##### Responses
+    <Tabs items={["201", "400"]}>
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | id         |  uuid / string  | N/A   | N/A  |
+            > | username   | string  | N/A  |
+            > | email      | string   | N/A  |
+            > | created_at | string   | N/A  |
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | code         | string  | "400"  |
+            > | message   | string  | "Bad Request"  |
+
+        </Tabs.Tab>
+    </Tabs>
+
+    ##### Example fetch
+    ```js
+    const res = await fetch(`api/users?created_at=3213214`,
+    {
+        method: 'GET',
+        headers: { "Content-Type": "application/json"}
+    })
+
+    user = res.json()
+    ```
+
+</details>
+
+---
+
+## Get User from ID
+
+<details>
+    <summary>
+        `GET`
+        `/users/{id}`
+        `(gets user matching id)`
+    </summary>
+
+    ##### Parameters
+    > | name      |  type     | data type               | description                                                           |
+    > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+    > | id      |  required | uuid / string  | N/A  |
+
+    ##### Responses
+    <Tabs items={["201", "400"]}>
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | id         |  uuid / string  | N/A   | N/A  |
+            > | username   | string  | N/A  |
+            > | email      | string   | N/A  |
+            > | created_at | string   | N/A  |
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | code         | string  | "400"  |
+            > | message   | string  | "Bad Request"  |
+
+        </Tabs.Tab>
+    </Tabs>
+
+    ##### Example fetch
+    ```js
+    const id = "0000-0000-0000-0000"
+    const res = await fetch(`api/users/${id}`,
+    {
+        method: 'GET',
+        headers: { "Content-Type": "application/json"}
+    })
+
+    user = res.json()
+    ```
+
+ </details>
