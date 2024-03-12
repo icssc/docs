@@ -1,9 +1,0 @@
-{
-  "index": {
-    "title": "Specification",
-    "display": "hidden"
-  },
-  "get_user": {
-    "title": "Get User Information"
-  }
-}

@@ -1,0 +1,204 @@
+import { Tabs } from "nextra/components";
+
+# Meeting API Specification
+
+---
+
+## Gets Meetings
+
+<details>
+    <summary>
+        `GET`
+        `/meetings`
+        `(gets meetings matching parameters)`
+    </summary>
+
+    ##### Parameters
+    > | name      |  type     | data type               | description                                                           |
+    > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+    > | id      |  optional | uuid / string  | N/A  |
+    > | title      |  optional |  string  | N/A  |
+    > | date      |  optional |  date  | N/A  |
+    > | description      |  optional | string  | N/A  |
+    > | location      |  optional | string  | N/A  |
+    > | from_time      |  optional | date  | N/A  |
+    > | to_time      |  optional | date  | N/A  |
+    > | group_id      |  optional | uuid / string  | N/A  |
+    > | host_id      |  optional | uuid / string  | N/A  |
+
+    ##### Responses
+    <Tabs items={["201", "400"]}>
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | id         |  uuid / string  | N/A   | N/A  |
+            > | title   | string  | N/A  |
+            > | date      | date   | N/A  |
+            > | description | string   | N/A  |
+            > | location | string   | N/A  |
+            > | from_time | date   | N/A  |
+            > | to_time | date   | N/A  |
+            > | group_id | uuid / string   | N/A  |
+            > | host_id | uuid / string   | N/A  |
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | code         | string  | "400"  |
+            > | message   | string  | "Bad Request"  |
+
+        </Tabs.Tab>
+    </Tabs>
+
+    ##### Example fetch
+    ```js
+    const res = await fetch(`api/meetings?title=ZotMeeting`,
+    {
+        method: 'GET',
+        headers: { "Content-Type": "application/json"}
+    })
+
+    user = res.json()
+    ```
+
+</details>
+
+---
+
+## Gets Specific Meeting
+
+<details>
+    <summary>
+        `GET`
+        `/meetings/{id}`
+        `(gets meeting matching specific id)`
+    </summary>
+
+    ##### Parameters
+    > | name      |  type     | data type               | description                                                           |
+    > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+    > | id      |  required | uuid / string  | N/A  |
+
+    ##### Responses
+    <Tabs items={["201", "400"]}>
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | id         |  uuid / string  | N/A   | N/A  |
+            > | title   | string  | N/A  |
+            > | date      | date   | N/A  |
+            > | description | string   | N/A  |
+            > | location | string   | N/A  |
+            > | from_time | date   | N/A  |
+            > | to_time | date   | N/A  |
+            > | group_id | uuid / string   | N/A  |
+            > | host_id | uuid / string   | N/A  |
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | code         | string  | "400"  |
+            > | message   | string  | "Bad Request"  |
+
+        </Tabs.Tab>
+    </Tabs>
+
+    ##### Example fetch
+    ```js
+    const id = "0000-0000-0000-0000"
+    const res = await fetch(`api/meetings/${id}`,
+    {
+        method: 'GET',
+        headers: { "Content-Type": "application/json"}
+    })
+
+    user = res.json()
+    ```
+
+</details>
+
+---
+
+## Creates a Meeting
+
+<details>
+    <summary>
+        `POST`
+        `/meetings`
+        `(creates a new meeting with host id of creator)`
+    </summary>
+
+    ##### Parameters
+    > | name      |  type     | data type               | description                                                           |
+    > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+    > | id      |  optional | uuid / string  | N/A  |
+    > | title      |  optional |  string  | N/A  |
+    > | date      |  optional |  date  | N/A  |
+    > | description      |  optional | string  | N/A  |
+    > | location      |  optional | string  | N/A  |
+    > | from_time      |  optional | date  | N/A  |
+    > | to_time      |  optional | date  | N/A  |
+    > | group_id      |  optional | uuid / string  | N/A  |
+    > | host_id      |  optional | uuid / string  | N/A  |
+
+    ##### Responses
+    <Tabs items={["201", "400"]}>
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | id         |  uuid / string  | Created meeting id |
+            > | title   | string  | N/A  |
+            > | date      | date   | N/A  |
+            > | description | string   | N/A  |
+            > | location | string   | N/A  |
+            > | from_time | string   | N/A  |
+            > | to_time | string   | N/A  |
+            > | group_id | uuid / string   | N/A  |
+            > | host_id | uuid / string   | N/A  |
+
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | code         | string  | "400"  |
+            > | message   | string  | "Bad Request"  |
+
+        </Tabs.Tab>
+    </Tabs>
+
+    ##### Example fetch
+    ```js
+    const body = {
+    "id": "3333-333-333-3333",
+    "title": "meeting",
+    "date": Date("2024-02-03").toDateString(),
+    "description": "meeting 1",
+    "location": "science library",
+    "from_time": "08:00",
+    "to_time": "15:00",
+    "group_id": "4444-2214-f2qw-2239"
+    "host_id": "2144-1214-fcqw-2439"
+    }
+
+    const res = await fetch(`api/meetings?title=ZotMeeting`,
+    {
+        method: 'POST',
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify(body)
+    })
+
+    user = res.json()
+    ```
+
+</details>
+
+---
