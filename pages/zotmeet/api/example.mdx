@@ -1,0 +1,84 @@
+import { Tabs } from "nextra/components";
+
+# Example API Documentation Structure
+
+## Overview
+
+The following is to assist those who want to edit or implement their own documentation for the ZotMeet API. The template can be found below.
+
+<Tabs items={['Raw Code', 'Display']} defaultIndex="0">
+    <Tabs.Tab>
+        #### Create New User
+
+        <details>
+            <summary>
+                `POST`
+                `/`
+                `(creates a new user)`
+            </summary>
+
+            ##### Parameters
+            > | name      |  type     | data type               | description                                                           |
+            > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+            > | None      |  required | object (JSON or YAML)   | N/A  |
+
+            ##### Responses
+
+            > | http code     | content-type                      | response                                                            |
+            > |---------------|-----------------------------------|---------------------------------------------------------------------|
+            > | `201`         | `text/plain;charset=UTF-8`        | `Configuration created successfully`                                |
+            > | `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+            > | `405`         | `text/html;charset=utf-8`         | None                                                                |
+
+            ##### Example cURL
+
+            > ```javascript
+            >  curl -X POST -H "Content-Type: application/json" --data @post.json http://localhost:8889/
+            > ```
+
+        </details>
+        ------------------------------------------------------------------------------------------
+    </Tabs.Tab>
+    <Tabs.Tab>
+        ```md copy
+        ------------------------------------------------------------------------------------------
+        #### Create New User
+
+
+
+        <details>
+            <summary>
+                `POST`
+                `/`
+                `(creates a new user)`
+            </summary>
+
+            ##### Parameters
+            > | name      |  type     | data type               | description                                                           |
+            > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+            > | None      |  required | object (JSON or YAML)   | N/A  |
+
+            ##### Responses
+
+            > | http code     | content-type                      | response                                                            |
+            > |---------------|-----------------------------------|---------------------------------------------------------------------|
+            > | `201`         | `text/plain;charset=UTF-8`        | `Configuration created successfully`                                |
+            > | `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+            > | `405`         | `text/html;charset=utf-8`         | None                                                                |
+
+            ##### Example cURL
+
+            > ```javascript
+            >  curl -X POST -H "Content-Type: application/json" --data @post.json http://localhost:8889/
+            > ```
+
+        </details>
+        ------------------------------------------------------------------------------------------
+        ```
+    </Tabs.Tab>
+
+</Tabs>
+
+#### Sources
+
+- Inspired by: https://gist.github.com/azagniotov/a4b16faf0febd12efbc6c3d7370383a6
