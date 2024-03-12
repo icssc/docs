@@ -1,5 +1,18 @@
 {
   "index": {
-    "title": "Overview"
+    "title": "Overview",
+    "display": "hidden"
+  },
+  "user": {
+    "title": "User"
+  },
+  "meeting": {
+    "title": "Meeting"
+  },
+  "group": {
+    "title": "Group"
+  },
+  "availability": {
+    "title": "Availability"
   }
 }

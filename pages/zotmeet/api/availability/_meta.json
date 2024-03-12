@@ -1,0 +1,9 @@
+{
+  "index": {
+    "title": "Specification",
+    "display": "hidden"
+  },
+  "get_shared_availability": {
+    "title": "Get Shared Availability"
+  }
+}
