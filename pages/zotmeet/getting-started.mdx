@@ -1,0 +1,107 @@
+import { Callout, Steps } from "nextra/components";
+
+# Getting Started
+
+## Local Setup
+
+<Steps>
+    ### Clone the repository to a local machine
+
+    `git clone https://github.com/icssc/ZotMeet.git`
+
+    ### Navigate to root directory and install the dependencies
+    <Callout type="warning"> Make sure to use only pnpm as your version manager for this project! </Callout>
+    1. `cd ZotMeet`
+    2. `pnpm install`
+
+    ### Start the server
+
+     `pnpm start` (run `pnpm start --host` if you want to access the server from other devices on your network)
+
+    ### Open the website
+
+    The app should be viewable at `localhost:5173` by default. Changes to the code will automatically update the page. If you ran `pnpm start --host`, you can access the app from other devices on your network at `host-ip:5173`.
+
+</Steps>
+
+### Environment Variables
+
+If you need credentials for the `.env` file, contact the project lead ([Minh](https://github.com/minhxNguyen7/)).
+
+After changes to the .env file, run `pnpm run check` to update SvelteKit's auto-generated environment variable types.
+
+## Local Database Setup
+
+<Steps>
+    ### Download Postgres locally
+    Go to the [postgres official website](https://www.postgresql.org/download/) and download the database for your specific OS. \([Here](https://www.postgresql.org/docs/16/tutorial-start.html) is more information, if you get stuck)
+    Be sure to install pgAdmin alongside Postgres!
+    ### Create local database
+    Once connected to the Postgres Server, Right click on databases -> create -> database, and name it `zotmeet`.
+    ### Generate migrations folder
+    In the ZotMeet project root directory, running `drizzle kit generate:pg` will generate a migrations folder which contain scripts you can run to update your database schema.
+    ### Configure env file
+    Create a .env file, and set `DATABASE_URL=postgres://yourusername:yourpassword@localhost:5432/zotmeet`
+    ### Run all migration files
+    Using pgAdmin, run all the migration files in order of creation. This can be done using the query tool.
+    1. Right click on the `zotmeet` database in pgAdmin, and click 'Query Tool'
+    2. Once opened, click on the folder button. Select the files in migration.
+    3. Click the triangle run button to execute all the scripts.
+    4. Your schema is now set up!
+
+    Alternatively, you can use the `psql` command line tool to execute these scripts.
+
+</Steps>
+
+## Commands
+
+### Dev
+
+#### Start Website
+
+```bash
+pnpm run start
+```
+
+#### Start Website as Host
+
+```bash
+pnpm run start --host
+```
+
+#### Format
+
+```bash
+pnpm run format
+```
+
+#### Lint
+
+```bash
+pnpm run lint
+```
+
+#### Run Tests
+
+```bash
+pnpm run test
+```
+
+#### Update Variables
+
+```bash
+pnpm run check
+```
+
+#### Run Drizzle Studio
+
+<Callout type="info">
+  Drizzle studio is a visual tool for Drizzle, allowing you to visualize your queries and data.{" "}
+</Callout>
+```bash pnpm run studio ```
+
+#### Create Schema Migration
+
+```bash
+pnpm run migrate
+```
