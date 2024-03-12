@@ -7,17 +7,23 @@ import { Callout, Steps } from "nextra/components";
 <Steps>
     ### Clone the repository to a local machine
 
-    `git clone https://github.com/icssc/ZotMeet.git`
+    ```bash
+    git clone https://github.com/icssc/ZotMeet.git
+    ```
+
 
     ### Navigate to root directory and install the dependencies
     <Callout type="warning"> Make sure to use only pnpm as your version manager for this project! </Callout>
-    1. `cd ZotMeet`
-    2. `pnpm install`
+    ```bash
+    cd ZotMeet
+    pnpm Install
+    ```
 
     ### Start the server
 
-     `pnpm start` (run `pnpm start --host` if you want to access the server from other devices on your network)
-
+     ```bash
+    pnpm start # add --host if you want to access the server from other devices in your network
+    ```
     ### Open the website
 
     The app should be viewable at `localhost:5173` by default. Changes to the code will automatically update the page. If you ran `pnpm start --host`, you can access the app from other devices on your network at `host-ip:5173`.
@@ -98,7 +104,10 @@ pnpm run check
 <Callout type="info">
   Drizzle studio is a visual tool for Drizzle, allowing you to visualize your queries and data.{" "}
 </Callout>
-```bash pnpm run studio ```
+
+```bash
+pnpm run studio
+```
 
 #### Create Schema Migration
 
