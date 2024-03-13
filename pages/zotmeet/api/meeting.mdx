@@ -4,200 +4,398 @@ import { Tabs } from "nextra/components";
 
 ---
 
-## Gets Meetings
+## Get Multiple Meetings
 
 <details>
     <summary>
         `GET`
         `/meetings`
-        `(gets meetings matching parameters)`
     </summary>
 
     ##### Parameters
-    > | name      |  type     | data type               | description                                                           |
-    > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
-    > | id      |  optional | uuid / string  | N/A  |
-    > | title      |  optional |  string  | N/A  |
-    > | date      |  optional |  date  | N/A  |
-    > | description      |  optional | string  | N/A  |
-    > | location      |  optional | string  | N/A  |
-    > | from_time      |  optional | date  | N/A  |
-    > | to_time      |  optional | date  | N/A  |
-    > | group_id      |  optional | uuid / string  | N/A  |
-    > | host_id      |  optional | uuid / string  | N/A  |
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id         | string  | optional |
+    > | title         | string  | optional |
+    > | dates         | Date[]  | optional |
+    > | description         | string  | optional |
+    > | location         | string  | optional |
+    > | from_time         | string  | optional |
+    > | to_time         | string  | optional |
+    > | group_id         | string  | optional |
+    > | host_id         | string  | optional |
 
     ##### Responses
-    <Tabs items={["201", "400"]}>
+    <Tabs items={["200", "400"]}>
         <Tabs.Tab>
-            > Content-Type: `application/json`
-            > | name       | data type               | description                                                           |
-            > |------------|-------------------------|----|
-            > | id         |  uuid / string  | N/A   | N/A  |
-            > | title   | string  | N/A  |
-            > | date      | date   | N/A  |
-            > | description | string   | N/A  |
-            > | location | string   | N/A  |
-            > | from_time | date   | N/A  |
-            > | to_time | date   | N/A  |
-            > | group_id | uuid / string   | N/A  |
-            > | host_id | uuid / string   | N/A  |
+            ```json copy
+            {
+            	"meetings": [
+            		{
+            			"id": "string",
+            			"title": "string",
+            			"dates": ["Date"],
+            			"description": "string",
+            			"location": "string",
+            			"from_time": "string",
+            			"to_time": "string",
+            			"group": {
+            				"id": "string",
+            				"name": "string",
+            				"description": "string",
+            				"created_at": "Date"
+            			},
+            			"host": {
+            				"id": "string",
+            				"username": "string",
+            				"email": "string",
+            				"created_at": "Date"
+            			}
+            		}
+            	]
+            }
+            ```
+
         </Tabs.Tab>
 
         <Tabs.Tab>
-            > Content-Type: `application/json`
-            > | name       | data type               | description                                                           |
-            > |------------|-------------------------|----|
-            > | code         | string  | "400"  |
-            > | message   | string  | "Bad Request"  |
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
 
         </Tabs.Tab>
     </Tabs>
-
-    ##### Example fetch
-    ```js
-    const res = await fetch(`api/meetings?title=ZotMeeting`,
-    {
-        method: 'GET',
-        headers: { "Content-Type": "application/json"}
-    })
-
-    user = res.json()
-    ```
 
 </details>
 
 ---
 
-## Gets Specific Meeting
+## Gets Meeting
 
 <details>
     <summary>
         `GET`
         `/meetings/{id}`
-        `(gets meeting matching specific id)`
     </summary>
 
     ##### Parameters
-    > | name      |  type     | data type               | description                                                           |
-    > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
-    > | id      |  required | uuid / string  | N/A  |
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id         | string  | required |
 
     ##### Responses
-    <Tabs items={["201", "400"]}>
+    <Tabs items={["200", "400"]}>
         <Tabs.Tab>
-            > Content-Type: `application/json`
-            > | name       | data type               | description                                                           |
-            > |------------|-------------------------|----|
-            > | id         |  uuid / string  | N/A   | N/A  |
-            > | title   | string  | N/A  |
-            > | date      | date   | N/A  |
-            > | description | string   | N/A  |
-            > | location | string   | N/A  |
-            > | from_time | date   | N/A  |
-            > | to_time | date   | N/A  |
-            > | group_id | uuid / string   | N/A  |
-            > | host_id | uuid / string   | N/A  |
+            ```json copy
+            {
+            	"meeting": {
+            		"id": "string",
+            		"title": "string",
+            		"dates": ["Date"],
+            		"description": "string",
+            		"location": "string",
+            		"from_time": "string",
+            		"to_time": "string",
+            		"group": {
+            			"id": "string",
+            			"name": "string",
+            			"description": "string",
+            			"created_at": "Date"
+            		},
+            		"host": {
+            			"id": "string",
+            			"username": "string",
+            			"email": "string",
+            			"created_at": "Date"
+            		}
+            	}
+            }
+            ```
         </Tabs.Tab>
 
         <Tabs.Tab>
-            > Content-Type: `application/json`
-            > | name       | data type               | description                                                           |
-            > |------------|-------------------------|----|
-            > | code         | string  | "400"  |
-            > | message   | string  | "Bad Request"  |
-
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
         </Tabs.Tab>
     </Tabs>
-
-    ##### Example fetch
-    ```js
-    const id = "0000-0000-0000-0000"
-    const res = await fetch(`api/meetings/${id}`,
-    {
-        method: 'GET',
-        headers: { "Content-Type": "application/json"}
-    })
-
-    user = res.json()
-    ```
 
 </details>
 
 ---
 
-## Creates a Meeting
+## Gets Meeting's Users
+
+<details>
+    <summary>
+        `GET`
+        `/meetings/{id}/users`
+    </summary>
+
+    ##### Parameters
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id         | string  | required |
+
+    ##### Responses
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```json copy
+            {
+                "users": [
+                    {
+                        "id": "string",
+                        "username": "string",
+                        "email": "string",
+                        "created_at": "Date"
+                    }
+                ]
+            }
+            ```
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+
+---
+
+## Gets Meeting's Shared Availability
+
+<details>
+    <summary>
+        `GET`
+        `/meetings/{id}/shared-availability`
+    </summary>
+
+    ##### Parameters
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id         | string  | required |
+
+    ##### Responses
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```json copy
+            {
+            	"availabilities": [
+            		{
+            			"day": "Date",
+            			"availability_string": "string",
+            			"block_length": "number",
+            			"meeting": {
+            				"id": "string",
+            				"title": "string",
+            				"dates": "array of Date",
+            				"description": "string",
+            				"location": "string",
+            				"from_time": "string",
+            				"to_time": "string",
+            				"group": {
+            					"id": "string",
+            					"name": "string",
+            					"description": "string",
+            					"created_at": "Date"
+            				},
+            				"host": {
+            					"id": "string",
+            					"username": "string",
+            					"email": "string",
+            					"created_at": "Date"
+            				}
+            			}
+            		}
+            	]
+            }
+            ```
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            ```json copy
+                {
+                	"error": {
+                		"status": "number",
+                		"message": "string"
+                	}
+                }
+
+                ```
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+
+---
+
+## Create Meeting
 
 <details>
     <summary>
         `POST`
         `/meetings`
-        `(creates a new meeting with host id of creator)`
     </summary>
 
     ##### Parameters
-    > | name      |  type     | data type               | description                                                           |
-    > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
-    > | id      |  optional | uuid / string  | N/A  |
-    > | title      |  optional |  string  | N/A  |
-    > | date      |  optional |  date  | N/A  |
-    > | description      |  optional | string  | N/A  |
-    > | location      |  optional | string  | N/A  |
-    > | from_time      |  optional | date  | N/A  |
-    > | to_time      |  optional | date  | N/A  |
-    > | group_id      |  optional | uuid / string  | N/A  |
-    > | host_id      |  optional | uuid / string  | N/A  |
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | title         | string  | required |
+    > | dates         | Date[]  | required |
+    > | description         | string  | optional |
+    > | location         | string  | optional |
+    > | from_time         | string  | required |
+    > | to_time         | string  | required |
+    > | group_id         | string  | optional |
+    > | host_id         | string  | required |
+
 
     ##### Responses
-    <Tabs items={["201", "400"]}>
+    <Tabs items={["200", "400"]}>
         <Tabs.Tab>
-            > Content-Type: `application/json`
-            > | name       | data type               | description                                                           |
-            > |------------|-------------------------|----|
-            > | id         |  uuid / string  | Created meeting id |
-            > | title   | string  | N/A  |
-            > | date      | date   | N/A  |
-            > | description | string   | N/A  |
-            > | location | string   | N/A  |
-            > | from_time | string   | N/A  |
-            > | to_time | string   | N/A  |
-            > | group_id | uuid / string   | N/A  |
-            > | host_id | uuid / string   | N/A  |
+            ```json copy
+            {
+            	"meeting": {
+            		"id": "string",
+            		"title": "string",
+            		"dates": ["Date"],
+            		"description": "string",
+            		"location": "string",
+            		"from_time": "string",
+            		"to_time": "string",
+            		"group": {
+            			"id": "string",
+            			"name": "string",
+            			"description": "string",
+            			"created_at": "Date"
+            		},
+            		"host": {
+            			"id": "string",
+            			"username": "string",
+            			"email": "string",
+            			"created_at": "Date"
+            		}
+            	}
+            }
 
+            ```
         </Tabs.Tab>
 
         <Tabs.Tab>
-            > Content-Type: `application/json`
-            > | name       | data type               | description                                                           |
-            > |------------|-------------------------|----|
-            > | code         | string  | "400"  |
-            > | message   | string  | "Bad Request"  |
+        ```json copy
+            {
+            	"error": {
+            		"status": "number",
+            		"message": "string"
+            	}
+            }
 
+            ```
         </Tabs.Tab>
     </Tabs>
 
-    ##### Example fetch
-    ```js
-    const body = {
-    "id": "3333-333-333-3333",
-    "title": "meeting",
-    "date": Date("2024-02-03").toDateString(),
-    "description": "meeting 1",
-    "location": "science library",
-    "from_time": "08:00",
-    "to_time": "15:00",
-    "group_id": "4444-2214-f2qw-2239"
-    "host_id": "2144-1214-fcqw-2439"
-    }
+</details>
 
-    const res = await fetch(`api/meetings?title=ZotMeeting`,
-    {
-        method: 'POST',
-        headers: { "Content-Type": "application/json"},
-        body: JSON.stringify(body)
-    })
+---
 
-    user = res.json()
-    ```
+## Update Meeting
+
+<details>
+    <summary>
+        `PUT`
+        `/meetings/{id}`
+    </summary>
+
+    ##### Parameters
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id          | string    | required |
+    > | title         | string  | optional |
+    > | dates         | Date[]  | required |
+    > | description         | string  | optional |
+    > | location         | string  | optional |
+    > | from_time         | string  | required |
+    > | to_time         | string  | required |
+    > | group_id         | string  | optional |
+    > | host_id         | string  | required |
+
+    ##### Responses
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```text copy
+            Modified Meeting Information
+            ```
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            ```json copy
+                {
+                	"error": {
+                		"status": "number",
+                		"message": "string"
+                	}
+                }
+
+                ```
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+
+---
+
+## Delete Meeting
+
+<details>
+    <summary>
+        `DELETE`
+        `/meetings/{id}`
+    </summary>
+
+    ##### Parameters
+    > | name      |  type     | data type
+    > |-----------|-----------|-------------------------|
+    > | id      |  required | string  | N/A  |
+
+    ##### Responses
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```text copy
+            Deleted Meeting Successfully
+            ```
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            ```json copy
+            {
+                "error":
+                {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+        </Tabs.Tab>
+    </Tabs>
 
 </details>
 
