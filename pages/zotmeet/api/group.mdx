@@ -1,1 +1,312 @@
+import { Tabs } from "nextra/components";
+
 # Group API Specification
+
+### Get Multiple Groups
+
+<details>
+    <summary>
+        `GET`
+        `/groups`
+    </summary>
+
+    ##### Request
+
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id         | string  | optional  |
+    > | name         | string  | optional |
+    > | created_at         | Date  | optional |
+
+    ##### Response
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```json copy
+            {
+                "groups": [
+                    {
+                        "id": "string",
+                        "name": "string",
+                        "description": "string",
+                        "created_at": "Date"
+                    }
+                ]
+            }
+
+            ```
+        </Tabs.Tab>
+        <Tabs.Tab>
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+
+### Get Group
+
+<details>
+    <summary>
+        `GET`
+        `/groups`
+    </summary>
+
+    ##### Request
+
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id         | string  | optional  |
+    > | name         | string  | optional |
+    > | created_at         | Date  | optional |
+
+    ##### Response
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```json copy
+            {
+                "groups": [
+                    {
+                        "id": "string",
+                        "name": "string",
+                        "description": "string",
+                        "created_at": "Date"
+                    }
+                ]
+            }
+
+            ```
+        </Tabs.Tab>
+        <Tabs.Tab>
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+
+### Get Group's Meetings
+
+<details>
+    <summary>
+        `GET`
+        `/groups/{id}/meetings`
+    </summary>
+
+    ##### Request
+
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id         | string  | required  |
+
+    ##### Response
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```json copy
+            {
+            	"meetings": [
+            		{
+            			"id": "string",
+            			"title": "string",
+            			"dates": ["Date"],
+            			"description": "string",
+            			"location": "string",
+            			"from_time": "string",
+            			"to_time": "string",
+            			"host": {
+            				"id": "string",
+            				"username": "string",
+            				"email": "string",
+            				"created_at": "Date"
+            			}
+            		}
+            	]
+            }
+
+            ```
+        </Tabs.Tab>
+        <Tabs.Tab>
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+
+### Get Group's Users
+
+<details>
+    <summary>
+        `GET`
+        `/groups/{id}/users`
+    </summary>
+
+    ##### Request
+
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id         | string  | required  |
+
+    ##### Response
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```json copy
+            {
+                "users": [
+                    {
+                        "id": "string",
+                        "username": "string",
+                        "email": "string",
+                        "created_at": "Date"
+                    }
+                ]
+            }
+            ```
+        </Tabs.Tab>
+        <Tabs.Tab>
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+
+### Create Group
+
+<details>
+    <summary>
+        `POST`
+        `/groups/{id}`
+    </summary>
+
+    ##### Request
+
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | name         | string  | required |
+    > | description         | Date  | optional |
+
+    ##### Response
+    <Tabs items={["201", "400"]}>
+        <Tabs.Tab>
+            ```json copy
+            {
+            	"group": {
+            		"id": "string",
+            		"name": "string",
+            		"description": "string",
+            		"created_at": "Date"
+            	}
+            }
+            ```
+        </Tabs.Tab>
+        <Tabs.Tab>
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+
+### Update Group
+
+<details>
+    <summary>
+        `PUT`
+        `/groups/{id}`
+    </summary>
+
+    ##### Request
+
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id         | string  | required  |
+    > | name         | string  | optional
+    > | description | string | optional
+    > | created_at         | Date  | optional |
+
+    ##### Response
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```text copy
+            Group Information Successfully Modified
+            ```
+        </Tabs.Tab>
+        <Tabs.Tab>
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+
+### Delete Group
+
+<details>
+    <summary>
+        `DELETE`
+        `/groups/{id}`
+    </summary>
+
+    ##### Request
+
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id         | string  | required  |
+
+
+    ##### Response
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```text copy
+            Group Information Successfully Deleted
+            ```
+        </Tabs.Tab>
+        <Tabs.Tab>
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
