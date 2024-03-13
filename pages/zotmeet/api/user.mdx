@@ -1,0 +1,641 @@
+import { Tabs } from "nextra/components";
+
+# User API Specification
+
+### Get Multiple Users
+
+<details>
+    <summary>
+        `GET`
+        `/users`
+    </summary>
+
+    ##### Request
+
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id         | string  | optional  |
+    > | username         | string  | optional |
+    > | email         | string  | optional  |
+    > | created_at         | Date  | optional |
+
+    ##### Response
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```json copy
+            {
+                "users": [
+                    {
+                        "id": "string",
+                        "username": "string",
+                        "email": "string",
+                        "created_at": "Date"
+                    }
+                ]
+            }
+
+            ```
+        </Tabs.Tab>
+        <Tabs.Tab>
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+
+### Get User
+
+<details>
+    <summary>
+        `GET`
+        `/users/{id}`
+    </summary>
+
+    ##### Request
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id         | string  | required |
+
+    ##### Response
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```json copy
+            {
+            	"user": {
+            		"id": "string",
+            		"username": "string",
+            		"email": "string",
+            		"created_at": "Date"
+            	}
+            }
+            ```
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+### Get User's Groups
+
+<details>
+    <summary>
+        `GET`
+        `/users/{id}/groups`
+    </summary>
+
+    ##### Request
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id         | string  | required |
+
+
+    ##### Response
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```json copy
+            {
+                "groups": [
+                    {
+                        "id": "string",
+                        "name": "string",
+                        "description": "string",
+                        "created_at": "Date"
+                    }
+                ]
+            }
+            ```
+        </Tabs.Tab>
+        <Tabs.Tab>
+
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+### Get User's Meetings
+
+<details>
+    <summary>
+        `GET`
+        `/users/{id}/meetings`
+    </summary>
+
+    ##### Request
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id         | string  | required |
+
+
+    ##### Response
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```json copy
+            {
+                "meetings": [
+                    {
+                        "id": "string",
+                        "title": "string",
+                        "dates": "array of Date",
+                        "description": "string",
+                        "location": "string",
+                        "from_time": "string",
+                        "to_time": "string",
+                        "group": {
+                            "id": "string",
+                            "name": "string",
+                            "description": "string",
+                            "created_at": "Date"
+                        },
+                        "host": {
+                            "id": "string",
+                            "username": "string",
+                            "email": "string",
+                            "created_at": "Date"
+                        }
+                    }
+                ]
+            }
+            ```
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+### Get User's Availabilities
+
+<details>
+    <summary>
+        `GET`
+        `/users/{id}/availabilities`
+    </summary>
+
+    ##### Request
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id         | string  | required |
+
+    ##### Response
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```json copy
+            {
+                "availabilities": [
+                    {
+                        "day": "Date",
+                        "user": {
+                            "id": "string",
+                            "username": "string",
+                            "email": "string",
+                            "created_at": "Date"
+                        },
+                        "block_length": "number",
+                        "meeting": {
+                            "id": "string",
+                            "title": "string",
+                            "dates": "array of Date",
+                            "description": "string",
+                            "location": "string",
+                            "from_time": "string",
+                            "to_time": "string",
+                            "group": {
+                                "id": "string",
+                                "name": "string",
+                                "description": "string",
+                                "created_at": "Date"
+                            },
+                            "host": {
+                                "id": "string",
+                                "username": "string",
+                                "email": "string",
+                                "created_at": "Date"
+                            }
+                        }
+                    }
+                ]
+            }
+
+            ```
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+
+
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+
+### Get User's Availabilities for Meeting
+
+<details>
+    <summary>
+        `GET`
+        `/users/{id}/availabilities/{meeting_id}`
+    </summary>
+
+    ##### Request
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id         | string  | required |
+    > | meeting_id         | string  | required |
+
+
+    ##### Response
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```json copy
+            {
+            	"availabilities": [
+            		{
+            			"day": "Date",
+            			"user": {
+            				"id": "string",
+            				"username": "string",
+            				"email": "string",
+            				"created_at": "Date"
+            			},
+            			"availability_string": "string",
+            			"block_length": "number",
+            			"meeting": {
+            				"id": "string",
+            				"title": "string",
+            				"dates": "array of Date",
+            				"description": "string",
+            				"location": "string",
+            				"from_time": "string",
+            				"to_time": "string",
+            				"group": {
+            					"id": "string",
+            					"name": "string",
+            					"description": "string",
+            					"created_at": "Date"
+            				},
+            				"host": {
+            					"id": "string",
+            					"username": "string",
+            					"email": "string",
+            					"created_at": "Date"
+            				}
+            			}
+            		}
+            	]
+            }
+            ```
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            ```json copy
+            {
+            	"error": {
+            		"status": "number",
+            		"message": "string"
+            	}
+            }
+            ```
+
+
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+
+### Create User
+
+<details>
+
+    <summary>
+        `POST`
+        `/users`
+    </summary>
+
+
+    ##### Request
+
+    > | name      | type               | required                                                           |
+    > |-----------|-------------------------|-----------------------------------------------------------------------|
+    > | username      |    string  | True  |
+    > | email      |   string  | True  |
+    > | guest      |   boolean  | True  |
+
+    ##### Response
+    <Tabs items={["201", "400"]}>
+        <Tabs.Tab>
+
+            ```json copy
+            {
+            	"user": {
+            		"id": "string",
+            		"username": "string",
+            		"email": "string",
+            		"created_at": "Date",
+            		"guest": "boolean"
+            	}
+            }
+            ```
+
+        </Tabs.Tab>
+
+
+        <Tabs.Tab>
+
+            ```json copy
+            {
+            	"error": {
+            		"status": "number",
+            		"message": "string"
+            	}
+            }
+            ```
+
+
+        </Tabs.Tab>
+
+    </Tabs>
+
+</details>
+
+### Create User Availabilities
+
+<details>
+    <summary>
+        `POST`
+        `/users/{id}/availabilities`
+    </summary>
+
+    ##### Request
+    > Availability Parameters
+    >> | name      | type               | description                                                           |
+    >> |-----------|-------------------------|-----------------------------------------------------------------------|
+    >> | id      |  string | Required  |
+    >> | block_length | number | Required
+    >> | availability_string | string | Required
+    >> | day | Date | Required
+    >> | meeting_id      |   string  | False  |
+    > List of Availabilities
+    >> | name      | type               | description                                                           |
+    >> |-----------|-------------------------|-----------------------------------------------------------------------|
+    >> | availabilities      | Availability[] | optional |
+
+    ##### Response
+    <Tabs items={["201", "400"]}>
+        <Tabs.Tab>
+            ```json copy
+            {
+            	"availabilities": [
+            		{
+            			"day": "Date",
+            			"user": {
+            				"id": "string",
+            				"username": "string",
+            				"email": "string",
+            				"created_at": "Date"
+            			},
+            			"block_length": "number",
+            			"meeting": {
+            				"id": "string",
+            				"title": "string",
+            				"dates": "array of Date",
+            				"description": "string",
+            				"location": "string",
+            				"from_time": "string",
+            				"to_time": "string",
+            				"group": {
+            					"id": "string",
+            					"name": "string",
+            					"description": "string",
+            					"created_at": "Date"
+            				},
+            				"host": {
+            					"id": "string",
+            					"username": "string",
+            					"email": "string",
+            					"created_at": "Date"
+            				}
+            			}
+            		}
+            	]
+            }
+            ```
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            ```json copy
+            {
+            	"error": {
+            		"status": "number",
+            		"message": "string"
+            	}
+            }
+            ```
+
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+### Update User
+
+<details>
+
+    <summary>
+        `PUT`
+        `/users/{id}`
+    </summary>
+
+
+    ##### Request
+
+    > | name      | type               | required                                                           |
+    > |-----------|-------------------------|-----------------------------------------------------------------------|
+    > | user_id      |    string  | True  |
+    > | username      |    string  | False  |
+    > | email      |   string  | False  |
+    > | guest      |   string  | False  |
+
+    ##### Response
+
+    <Tabs items={["201", "400"]}>
+
+        <Tabs.Tab>
+            ```text copy
+            Saved User Information
+            ```
+
+
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+
+
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+### Update User Availabilities for Meeting
+
+<details>
+    <summary>
+        `PUT`
+        `/users/{id}/availabilities/{meeting_id}`
+    </summary>
+
+    ##### Request
+    > Availability Parameters
+    >> | name      | type               | description                                                           |
+    >> |-----------|-------------------------|-----------------------------------------------------------------------|
+    >> | id      |  string | Required  |
+    >> | block_length | number | Required
+    >> | availability_string | string | Required
+    >> | day | Date | Required
+    >> | meeting_id      |   string  | False  |
+    > List of Availabilities
+    >> | name      | type               | description                                                           |
+    >> |-----------|-------------------------|-----------------------------------------------------------------------|
+    >> | availabilities      | Availability[] | optional |
+
+    ##### Response
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```text copy
+            User-Meeting availability successfully modified
+            ```
+
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+### Delete User
+
+<details>
+    <summary>
+        `DELETE`
+        `/users/{id}`
+    </summary>
+
+    ##### Request
+    > | name      | type               | description                                                           |
+    > |-----------|-------------------------|-----------------------------------------------------------------------|
+    > | id      |  string | Required  |
+
+    ##### Response
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```text copy
+            User successfully deleted
+            ```
+
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+### Delete User's Availabilities for Meeting
+
+<details>
+    <summary>
+        `DELETE`
+        `/users/{id}/availabilities/{meeting_id}`
+    </summary>
+
+    ##### Request required
+    > | name      | type               | description                                                           |
+    > |-----------|-------------------------|-----------------------------------------------------------------------|
+    > | id      |  string | Required  |
+    > | meeting_id      |  string | Required  |
+
+    ##### Response
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```text copy
+            Availability Deleted
+            ```
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
