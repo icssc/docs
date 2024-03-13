@@ -1,55 +1,56 @@
-# APIs to Write:
+# s to Write:
 
-# Whittle down to essential ones
+APIs marked with an X are completed
 
--[ ] `GET api/users` [Get all users]
+- [ ] `GET /users` `Get Multiple Users`
 
--[ ] `GET api/users/{id}` [Get specific user]
+- [ ] `POST /users` `Create User`
 
--[ ] `GET api/users/{id}/groups` [Get all of user's groups]
+- [ ] `GET /users/{id}` `Get User`
 
--[ ] `GET api/users/{id}/meetings` [Get all of user's meetings]
+- [ ] `PUT /users/{id}` `Update User`
 
--[ ] `GET api/users/{id}/availabilities` [Personal Availability]
+- [ ] `DELETE /users/{id}` `Delete User`
 
--[ ] `PUT api/users/{id}` [Update user id]
+- [ ] `GET /users/{id}/groups` `Get User's Groups`
 
--[ ] `PUT api/users/{id}/availabilities` [Update user availability]
+- [ ] `GET /users/{id}/meetings` `Get User's Meetings
+`
 
--[ ] `POST api/users` Add user
+- [ ] `GET /users/{id}/availabilities` `Get User's Availabilities`
 
--[ ] `POST api/users/availability` Add user availability
+- [ ] `POST /users/{id}/availabilities` `Add User's Availabilities`
 
--[ ] `PUT api/users/availability` Update user availability
+- [ ] `GET /users/{id}/availabilities/{meeting_id}` `Get User's Availabilities for Meeting`
 
--[ ] `DELETE api/users/{id}` Delete user
+- [ ] `PUT /users/{id}/availabilities/{meeting_id}` `Update User's Availabilities for Meeting`
 
--[ ] `GET api/meetings` Get meetings
+- [ ] `DELETE /users/{id}/availabilities/{meeting_id}` `Deletes User's Availabilities for Meeting`
 
--[ ] `GET api/meetings/{id}` Get meeting with id
+- [ ] `GET /meetings` `Get Multiple Meetings`
 
--[ ] `GET api/meetings/{id}/users` Get meeting with id's specific users
+- [ ] `POST /meetings` `Create Meeting`
 
--[ ] `GET api/meetings/{id}/availabilities` Get meeting with id's specific availabilities
+- [ ] `GET /meetings/{id}` `Get Meeting`
 
--[ ] `GET api/meetings/{id}/availabilities/{user_id}` Get meeting with id's specific availabilities for certain user
+- [ ] `PUT /meetings/{id}` `Update meeting`
 
--[ ] `POST api/meetings` Add meeting
+- [ ] `DELETE /meetings/{id}` `Delete Meeting`
 
--[ ] `POST api/meetings/{id}/availabilities` Add meeting availability
+- [ ] `GET /meetings/{id}/users` `Get Meeting's Users`
 
--[ ] `PUT api/meetings/{id}` Update meeting
+- [ ] `GET /meetings/{id}/shared-availability` `Get Meeting's Shared Availability`
 
--[ ] `PUT api/meetings/{id}/availabilities/{user_id}` Update meeting-specific availability
+- [ ] `GET /groups` `Get Multiple Groups`
 
--[ ] `DELETE api/meetings/{id}` Delete meeting
+- [ ] `POST /groups` `Create Group`
 
--[ ] `GET api/availabilities/{user_id}` Get specific user availability
+- [ ] `GET /groups/{id}` `Get Group`
 
--[ ] `GET api/availabilities/{user_id}/meetings/{meeting_id}`
+- [ ] `PUT /groups/{id}` `Update Group`
 
--[ ] `POST api/availabilities/` Adds availability
+- [ ] `DELETE /groups/{id}` `Delete Group`
 
--[ ] `PUT api/availabilities/{user_id}` Edits availability for user
+- [ ] `GET /groups/{id}/meetings` `Get Group's Meetings`
 
--[ ] `DELETE api/availabilities/{user_id}` Deletes availabilities for user
+- [ ] `GET /groups/{id}/users` `Get Group's Users`

@@ -2,15 +2,49 @@ import { Tabs } from "nextra/components";
 
 # User API Specification
 
----
-
-## Get Users
+### Get Multiple Users
 
 <details>
     <summary>
         `GET`
         `/users`
-        `(gets users matching parameters)`
+    </summary>
+
+    ##### Parameters
+    > | name      |  type     | data type               | description                                                           |
+    > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+    > | id      |  optional | string  | N/A  |
+    > | username      |  optional |  string  | N/A  |
+    > | email      |  optional |  string  | N/A  |
+    > | created_at      |  optional | string  | N/A  |
+
+    ##### Responses
+    <Tabs items={["201", "400"]}>
+        <Tabs.Tab>
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | id         |  string  | N/A   | N/A  |
+            > | username   | string  | N/A  |
+            > | email      | string   | N/A  |
+            > | created_at | string   | N/A  |
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | code         | string  | "400"  |
+            > | message   | string  | "Bad Request"  |
+
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+### Get User
+
+<details>
+    <summary>
+        `GET`
+        `/users/{id}`
     </summary>
 
     ##### Parameters
@@ -43,34 +77,22 @@ import { Tabs } from "nextra/components";
         </Tabs.Tab>
     </Tabs>
 
-    ##### Example fetch
-    ```js
-    const res = await fetch(`api/users?created_at=3213214`,
-    {
-        method: 'GET',
-        headers: { "Content-Type": "application/json"}
-    })
-
-    user = res.json()
-    ```
-
 </details>
-
----
-
-## Get User from ID
+### Get User's Groups
 
 <details>
     <summary>
         `GET`
-        `/users/{id}`
-        `(gets user matching id)`
+        `/users/{id}/groups`
     </summary>
 
     ##### Parameters
     > | name      |  type     | data type               | description                                                           |
     > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
-    > | id      |  required | uuid / string  | N/A  |
+    > | id      |  optional | uuid / string  | N/A  |
+    > | username      |  optional |  string  | N/A  |
+    > | email      |  optional |  string  | N/A  |
+    > | created_at      |  optional | string  | N/A  |
 
     ##### Responses
     <Tabs items={["201", "400"]}>
@@ -94,16 +116,357 @@ import { Tabs } from "nextra/components";
         </Tabs.Tab>
     </Tabs>
 
-    ##### Example fetch
-    ```js
-    const id = "0000-0000-0000-0000"
-    const res = await fetch(`api/users/${id}`,
-    {
-        method: 'GET',
-        headers: { "Content-Type": "application/json"}
-    })
+</details>
+### Get User's Meetings
 
-    user = res.json()
-    ```
+<details>
+    <summary>
+        `GET`
+        `/users/{id}/meetings`
+    </summary>
+
+    ##### Parameters
+    > | name      |  type     | data type               | description                                                           |
+    > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+    > | id      |  optional | uuid / string  | N/A  |
+    > | username      |  optional |  string  | N/A  |
+    > | email      |  optional |  string  | N/A  |
+    > | created_at      |  optional | string  | N/A  |
+
+    ##### Responses
+    <Tabs items={["201", "400"]}>
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | id         |  uuid / string  | N/A   | N/A  |
+            > | username   | string  | N/A  |
+            > | email      | string   | N/A  |
+            > | created_at | string   | N/A  |
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | code         | string  | "400"  |
+            > | message   | string  | "Bad Request"  |
+
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+### Get User's Availabilities
+
+<details>
+    <summary>
+        `GET`
+        `/users/{id}/availabilities`
+    </summary>
+
+    ##### Parameters
+    > | name      |  type     | data type               | description                                                           |
+    > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+    > | id      |  optional | uuid / string  | N/A  |
+    > | username      |  optional |  string  | N/A  |
+    > | email      |  optional |  string  | N/A  |
+    > | created_at      |  optional | string  | N/A  |
+
+    ##### Responses
+    <Tabs items={["201", "400"]}>
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | id         |  uuid / string  | N/A   | N/A  |
+            > | username   | string  | N/A  |
+            > | email      | string   | N/A  |
+            > | created_at | string   | N/A  |
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | code         | string  | "400"  |
+            > | message   | string  | "Bad Request"  |
+
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+
+### Get User's Availabilities for Meeting
+
+<details>
+    <summary>
+        `GET`
+        `/users/{id}/availabilities/{meeting_id}`
+    </summary>
+
+    ##### Parameters
+    > | name      |  type     | data type               | description                                                           |
+    > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+    > | id      |  optional | uuid / string  | N/A  |
+    > | username      |  optional |  string  | N/A  |
+    > | email      |  optional |  string  | N/A  |
+    > | created_at      |  optional | string  | N/A  |
+
+    ##### Responses
+    <Tabs items={["201", "400"]}>
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | id         |  uuid / string  | N/A   | N/A  |
+            > | username   | string  | N/A  |
+            > | email      | string   | N/A  |
+            > | created_at | string   | N/A  |
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | code         | string  | "400"  |
+            > | message   | string  | "Bad Request"  |
+
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+
+### Create User
+
+<details>
+    <summary>
+        `POST`
+        `/users`
+    </summary>
+
+    ##### Parameters
+    > | name      |  type     | data type               | description                                                           |
+    > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+    > | id      |  optional | uuid / string  | N/A  |
+    > | username      |  optional |  string  | N/A  |
+    > | email      |  optional |  string  | N/A  |
+    > | created_at      |  optional | string  | N/A  |
+
+    ##### Responses
+    <Tabs items={["201", "400"]}>
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | id         |  uuid / string  | N/A   | N/A  |
+            > | username   | string  | N/A  |
+            > | email      | string   | N/A  |
+            > | created_at | string   | N/A  |
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | code         | string  | "400"  |
+            > | message   | string  | "Bad Request"  |
+
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+### Create User Availabilities
+
+<details>
+    <summary>
+        `POST`
+        `/users/{id}/availabilities`
+    </summary>
+
+    ##### Parameters
+    > | name      |  type     | data type               | description                                                           |
+    > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+    > | id      |  optional | uuid / string  | N/A  |
+    > | username      |  optional |  string  | N/A  |
+    > | email      |  optional |  string  | N/A  |
+    > | created_at      |  optional | string  | N/A  |
+
+    ##### Responses
+    <Tabs items={["201", "400"]}>
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | id         |  uuid / string  | N/A   | N/A  |
+            > | username   | string  | N/A  |
+            > | email      | string   | N/A  |
+            > | created_at | string   | N/A  |
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | code         | string  | "400"  |
+            > | message   | string  | "Bad Request"  |
+
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+### Update User
+
+<details>
+    <summary>
+        `PUT`
+        `/users/{id}`
+    </summary>
+
+    ##### Parameters
+    > | name      |  type     | data type               | description                                                           |
+    > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+    > | id      |  optional | uuid / string  | N/A  |
+    > | username      |  optional |  string  | N/A  |
+    > | email      |  optional |  string  | N/A  |
+    > | created_at      |  optional | string  | N/A  |
+
+    ##### Responses
+    <Tabs items={["201", "400"]}>
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | id         |  uuid / string  | N/A   | N/A  |
+            > | username   | string  | N/A  |
+            > | email      | string   | N/A  |
+            > | created_at | string   | N/A  |
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | code         | string  | "400"  |
+            > | message   | string  | "Bad Request"  |
+
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+### Update User Availabilities for Meeting
+
+<details>
+    <summary>
+        `PUT`
+        `/users/{id}/availabilities/{meeting_id}`
+    </summary>
+
+    ##### Parameters
+    > | name      |  type     | data type               | description                                                           |
+    > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+    > | id      |  optional | uuid / string  | N/A  |
+    > | username      |  optional |  string  | N/A  |
+    > | email      |  optional |  string  | N/A  |
+    > | created_at      |  optional | string  | N/A  |
+
+    ##### Responses
+    <Tabs items={["201", "400"]}>
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | id         |  uuid / string  | N/A   | N/A  |
+            > | username   | string  | N/A  |
+            > | email      | string   | N/A  |
+            > | created_at | string   | N/A  |
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | code         | string  | "400"  |
+            > | message   | string  | "Bad Request"  |
+
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+### Delete User
+
+<details>
+    <summary>
+        `DELETE`
+        `/users/{id}`
+    </summary>
+
+    ##### Parameters
+    > | name      |  type     | data type               | description                                                           |
+    > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+    > | id      |  optional | uuid / string  | N/A  |
+    > | username      |  optional |  string  | N/A  |
+    > | email      |  optional |  string  | N/A  |
+    > | created_at      |  optional | string  | N/A  |
+
+    ##### Responses
+    <Tabs items={["201", "400"]}>
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | id         |  uuid / string  | N/A   | N/A  |
+            > | username   | string  | N/A  |
+            > | email      | string   | N/A  |
+            > | created_at | string   | N/A  |
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | code         | string  | "400"  |
+            > | message   | string  | "Bad Request"  |
+
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+### Delete User's Availabilities for Meeting
+
+<details>
+    <summary>
+        `DELETE`
+        `/users/{id}/availabilities/{meeting_id}`
+    </summary>
+
+    ##### Parameters
+    > | name      |  type     | data type               | description                                                           |
+    > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+    > | id      |  optional | uuid / string  | N/A  |
+    > | username      |  optional |  string  | N/A  |
+    > | email      |  optional |  string  | N/A  |
+    > | created_at      |  optional | string  | N/A  |
+
+    ##### Responses
+    <Tabs items={["201", "400"]}>
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | id         |  uuid / string  | N/A   | N/A  |
+            > | username   | string  | N/A  |
+            > | email      | string   | N/A  |
+            > | created_at | string   | N/A  |
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            > Content-Type: `application/json`
+            > | name       | data type               | description                                                           |
+            > |------------|-------------------------|----|
+            > | code         | string  | "400"  |
+            > | message   | string  | "Bad Request"  |
+
+        </Tabs.Tab>
+    </Tabs>
 
 </details>
