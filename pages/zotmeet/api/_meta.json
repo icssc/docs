@@ -1,0 +1,14 @@
+{
+  "index": {
+    "title": "Overview"
+  },
+  "user": {
+    "title": "User"
+  },
+  "meeting": {
+    "title": "Meeting"
+  },
+  "group": {
+    "title": "Group"
+  }
+}

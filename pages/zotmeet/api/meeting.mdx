@@ -1,0 +1,401 @@
+import { Tabs } from "nextra/components";
+
+# Meeting API Specification
+
+---
+
+## Get Multiple Meetings
+
+<details>
+    <summary>
+        `GET`
+        `/meetings`
+    </summary>
+
+    ##### Parameters
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id         | string  | optional |
+    > | title         | string  | optional |
+    > | dates         | Date[]  | optional |
+    > | location         | string  | optional |
+    > | from_time         | string  | optional |
+    > | to_time         | string  | optional |
+    > | group_id         | string  | optional |
+    > | host_id         | string  | optional |
+
+    ##### Responses
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```json copy
+            {
+            	"meetings": [
+            		{
+            			"id": "string",
+            			"title": "string",
+            			"dates": ["Date"],
+            			"description": "string",
+            			"location": "string",
+            			"from_time": "string",
+            			"to_time": "string",
+            			"group": {
+            				"id": "string",
+            				"name": "string",
+            				"description": "string",
+            				"created_at": "Date"
+            			},
+            			"host": {
+            				"id": "string",
+            				"username": "string",
+            				"email": "string",
+            				"created_at": "Date"
+            			}
+            		}
+            	]
+            }
+            ```
+
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+
+---
+
+## Gets Meeting
+
+<details>
+    <summary>
+        `GET`
+        `/meetings/{id}`
+    </summary>
+
+    ##### Parameters
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id         | string  | required |
+
+    ##### Responses
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```json copy
+            {
+            	"meeting": {
+            		"id": "string",
+            		"title": "string",
+            		"dates": ["Date"],
+            		"description": "string",
+            		"location": "string",
+            		"from_time": "string",
+            		"to_time": "string",
+            		"group": {
+            			"id": "string",
+            			"name": "string",
+            			"description": "string",
+            			"created_at": "Date"
+            		},
+            		"host": {
+            			"id": "string",
+            			"username": "string",
+            			"email": "string",
+            			"created_at": "Date"
+            		}
+            	}
+            }
+            ```
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+
+---
+
+## Gets Meeting's Users
+
+<details>
+    <summary>
+        `GET`
+        `/meetings/{id}/users`
+    </summary>
+
+    ##### Parameters
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id         | string  | required |
+
+    ##### Responses
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```json copy
+            {
+                "users": [
+                    {
+                        "id": "string",
+                        "username": "string",
+                        "email": "string",
+                        "created_at": "Date"
+                    }
+                ]
+            }
+            ```
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            ```json copy
+            {
+                "error": {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+
+---
+
+## Gets Meeting's Shared Availability
+
+<details>
+    <summary>
+        `GET`
+        `/meetings/{id}/shared-availability`
+    </summary>
+
+    ##### Parameters
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id         | string  | required |
+
+    ##### Responses
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```json copy
+            {
+            	"availabilities": [
+            		{
+            			"day": "Date",
+            			"availability_string": "string",
+            			"block_length": "number",
+            			"meeting": {
+            				"id": "string",
+            				"title": "string",
+            				"dates": "array of Date",
+            				"description": "string",
+            				"location": "string",
+            				"from_time": "string",
+            				"to_time": "string",
+            				"group": {
+            					"id": "string",
+            					"name": "string",
+            					"description": "string",
+            					"created_at": "Date"
+            				},
+            				"host": {
+            					"id": "string",
+            					"username": "string",
+            					"email": "string",
+            					"created_at": "Date"
+            				}
+            			}
+            		}
+            	]
+            }
+            ```
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            ```json copy
+                {
+                	"error": {
+                		"status": "number",
+                		"message": "string"
+                	}
+                }
+
+                ```
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+
+---
+
+## Create Meeting
+
+<details>
+    <summary>
+        `POST`
+        `/meetings`
+    </summary>
+
+    ##### Parameters
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | title         | string  | required |
+    > | dates         | Date[]  | required |
+    > | description         | string  | optional |
+    > | location         | string  | optional |
+    > | from_time         | string  | required |
+    > | to_time         | string  | required |
+    > | group_id         | string  | optional |
+    > | host_id         | string  | required |
+
+
+    ##### Responses
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```json copy
+            {
+            	"meeting": {
+            		"id": "string",
+            		"title": "string",
+            		"dates": ["Date"],
+            		"description": "string",
+            		"location": "string",
+            		"from_time": "string",
+            		"to_time": "string",
+            		"group": {
+            			"id": "string",
+            			"name": "string",
+            			"description": "string",
+            			"created_at": "Date"
+            		},
+            		"host": {
+            			"id": "string",
+            			"username": "string",
+            			"email": "string",
+            			"created_at": "Date"
+            		}
+            	}
+            }
+
+            ```
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+        ```json copy
+            {
+            	"error": {
+            		"status": "number",
+            		"message": "string"
+            	}
+            }
+
+            ```
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+
+---
+
+## Update Meeting
+
+<details>
+    <summary>
+        `PUT`
+        `/meetings/{id}`
+    </summary>
+
+    ##### Parameters
+    > | name       | type               | description
+    > |------------|-------------------------|------|
+    > | id          | string    | required |
+    > | title         | string  | optional |
+    > | dates         | Date[]  | required |
+    > | description         | string  | optional |
+    > | location         | string  | optional |
+    > | from_time         | string  | required |
+    > | to_time         | string  | required |
+    > | group_id         | string  | optional |
+    > | host_id         | string  | required |
+
+    ##### Responses
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```text copy
+            Modified Meeting Information
+            ```
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            ```json copy
+                {
+                	"error": {
+                		"status": "number",
+                		"message": "string"
+                	}
+                }
+
+                ```
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+
+---
+
+## Delete Meeting
+
+<details>
+    <summary>
+        `DELETE`
+        `/meetings/{id}`
+    </summary>
+
+    ##### Parameters
+    > | name      |  type     | data type
+    > |-----------|-----------|-------------------------|
+    > | id      |  required | string  | N/A  |
+
+    ##### Responses
+    <Tabs items={["200", "400"]}>
+        <Tabs.Tab>
+            ```text copy
+            Deleted Meeting Successfully
+            ```
+        </Tabs.Tab>
+
+        <Tabs.Tab>
+            ```json copy
+            {
+                "error":
+                {
+                    "status": "number",
+                    "message": "string"
+                }
+            }
+            ```
+        </Tabs.Tab>
+    </Tabs>
+
+</details>
+
+---
