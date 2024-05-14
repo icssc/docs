@@ -1,0 +1,36 @@
+import { Steps, Callout } from "nextra/components";
+
+# How to Provision a Postgres Database
+
+This guide shows you how to provision a new Postgres database within our [RDS database server](/guidebook/infrastructure/reference/rds-postgres).
+
+{/* This guide is written with the assumption that user is familiar with SQL and / or a management tool like pgAdmin. */}
+
+## Steps:
+
+<Steps>
+### Create Database
+
+<Callout type="info">
+  The root postgres user credentials can be accessed by Project Chairs via the password manager.
+</Callout>
+
+Create a Postgres database within our RDS database server, with the owner being the `postgres` user.
+
+### Creating Roles and Users
+
+The `<project>_dev` group is the parent group of devs and should be created with READ, WRITE, and EXECUTE permissions on the dev / public schema.
+
+#### `<project>_lead` Group
+
+**This group should exist for all databases.**
+
+This is the parent group that project leads' database users inherit their permission from.
+
+#### `<project>_prod` User
+
+**This group should exist for all databases.**
+
+This is the databse user used to connect from the production deployment.
+
+</Steps>
