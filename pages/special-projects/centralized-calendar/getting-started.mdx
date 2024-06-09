@@ -1,0 +1,61 @@
+import { Steps, Callout } from "nextra/components";
+
+# Getting Started
+
+<Callout type="error">
+  This project is currently private, and only available to ICSSC Projects internal members.
+</Callout>
+
+## Setup
+
+<Steps>
+### Clone Repository
+ 
+```bash
+git clone https://github.com/icssc/ics-centralized-calendar.git
+cd corporate-dashboard
+```
+ 
+### Install Dependencies
+
+<Callout type="warning">
+  This project uses pnpm. Use pnpm to install dependencies to avoid mismatching lockfiles.
+</Callout>
+
+```bash
+pnpm install
+```
+
+### Setup IAM Credentials _Optional_
+
+This is an optional step only available for ICSSC Projects internal members. If this is your first time setting up an ICSSC project using SST, request credentials from your project lead. If you've already set up IAM Credentials for another ICSSC project, this step is not necessary.
+
+```
+[default]
+aws_access_key_id = <YOUR_ACCESS_KEY_ID>
+aws_secret_access_key = <YOUR_SECRET_ACCESS_KEY>
+```
+
+</Steps>
+
+## Commands
+
+### Dev
+
+#### With SST
+
+```bash
+pnpm dev
+```
+
+#### Without SST
+
+```bash
+pnpm exec next dev
+```
+
+### Build
+
+```bash
+pnpm build
+```

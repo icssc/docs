@@ -84,6 +84,10 @@
       "corporate-dashboard": {
         "title": "Corporate Dashboard",
         "href": "/special-projects/corporate-dashboard"
+      },
+      "centralized-calendar": {
+        "title": "Centralized Calendar",
+        "href": "/special-projects/centralized-calendar"
       }
     }
   }

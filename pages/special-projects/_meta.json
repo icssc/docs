@@ -3,5 +3,10 @@
     "title": "Corporate Dashboard",
     "type": "page",
     "display": "hidden"
+  },
+  "centralized-calendar": {
+    "title": "Centralized Calendar",
+    "type": "page",
+    "display": "hidden"
   }
 }
