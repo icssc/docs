@@ -36,6 +36,14 @@ aws_access_key_id = <YOUR_ACCESS_KEY_ID>
 aws_secret_access_key = <YOUR_SECRET_ACCESS_KEY>
 ```
 
+### Setup postgres environment variable
+
+You can request database credentials from you project lead or you can just create your own database server on your local machine for local development purposes. Whichever you choose, you will need to set the `DATABASE_URL` environment variable in a `.env` file in the root of the project. The `.env` file should look like this:
+
+```
+DATABASE_URL=postgres://yourusername:yourpassword@localhost:5432/calendar
+```
+
 </Steps>
 
 ## Commands
