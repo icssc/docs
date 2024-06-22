@@ -1,0 +1,24 @@
+{
+  "index": {
+    "title": "Overview"
+  },
+  "end-user": {
+    "title": "End User Guide"
+  },
+  "---": {
+    "type": "separator"
+  },
+  "-- Technical Documentation": {
+    "type": "separator",
+    "title": "Technical Documentation"
+  },
+  "getting-started": {
+    "title": "Getting Started"
+  },
+  "api-reference": {
+    "title": "API Reference"
+  },
+  "architecture": {
+    "title": "Architecture"
+  }
+}
