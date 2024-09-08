@@ -2,16 +2,17 @@
   "index": {
     "title": "Overview"
   },
-  "getting-started": {
-    "title": "Getting Started"
+  "Introduction": {
+    "title": "Introduction",
+    "display": "children"
   },
-  "rest-api": {
+  "REST-API": {
     "title": "REST API"
   },
-  "graphql-api": {
+  "GraphQL-API": {
     "title": "GraphQL API"
   },
-  "contributing": {
+  "Contributing": {
     "title": "Contributing"
   }
 }
