@@ -1,6 +1,6 @@
 # Application Architecture
 
-PeterPortal API consists of four main components:
+Anteater API consists of four main components:
 
 - the API,
 - the maintenance tooling used to keep the API's data up to date,
