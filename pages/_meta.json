@@ -57,6 +57,11 @@
     "type": "page",
     "display": "hidden"
   },
+  "ppapi-legacy": {
+    "title": "PeterPortal API (Legacy)",
+    "type": "page",
+    "display": "hidden"
+  },
   "zotistics": {
     "title": "Zotistics",
     "type": "page",

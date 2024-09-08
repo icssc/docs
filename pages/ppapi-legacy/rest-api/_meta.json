@@ -1,0 +1,17 @@
+{
+  "start-here": {
+    "title": "Start Here"
+  },
+  "courses": {
+    "title": "Courses"
+  },
+  "instructors": {
+    "title": "Instructors"
+  },
+  "grades": {
+    "title": "Grades"
+  },
+  "schedule": {
+    "title": "Schedule of Classes"
+  }
+}

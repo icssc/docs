@@ -1,0 +1,17 @@
+{
+  "index": {
+    "title": "Overview"
+  },
+  "getting-started": {
+    "title": "Getting Started"
+  },
+  "rest-api": {
+    "title": "REST API"
+  },
+  "graphql-api": {
+    "title": "GraphQL API"
+  },
+  "contributing": {
+    "title": "Contributing"
+  }
+}
