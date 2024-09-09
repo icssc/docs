@@ -1,14 +1,14 @@
 # Getting Started
 
-Welcome to the **Contributor's Guide** for PeterPortal API. This part of the documentation covers how to contribute to the project, as well as some technical details that may aid you in your journey in doing so.
+Welcome to the **Contributor's Guide** for Anteater API. This part of the documentation covers how to contribute to the project, as well as some technical details that may aid you in your journey in doing so.
 
-If you're a developer who's interested in using PeterPortal API in your next project, welcome! We've got you covered in the Developer's Guide [here](/docs/developers-guide/getting-started).
+If you're a developer who's interested in using Anteater API in your next project, welcome! We've got you covered in the Developer's Guide [here](/docs/developers-guide/getting-started).
 
 ## Setting up your development environment
 
 To begin, you'll need to install the correct version of Node.js. We recommend using the [Node Version Manager (`nvm`)](https://github.com/nvm-sh/nvm), which is a painless way to ensure that you will always be using the correct version of Node.js.
 
-As of the time of writing, PeterPortal API targets the latest version of Node.js 18 (Hydrogen). If you choose not to use `nvm`, please be aware that code tested with other versions of Node.js may not work as expected during our testing and deployment procedures. The rest of this guide will assume that you will be using `nvm`.
+As of the time of writing, Anteater API targets the latest version of Node.js 18 (Hydrogen). If you choose not to use `nvm`, please be aware that code tested with other versions of Node.js may not work as expected during our testing and deployment procedures. The rest of this guide will assume that you will be using `nvm`.
 
 After installing nvm per the instructions in its repository, execute the following command:
 
@@ -38,7 +38,7 @@ If you're a returning contributor, it's a good idea to synchronize your fork and
 
 ## Committing your changes
 
-Once you've made some changes to the code using your favorite text editor or IDE, you'll want to commit your changes to your branch or fork. PeterPortal API uses a tool called [Commitizen](https://commitizen.github.io/cz-cli/), which helps you automatically format your commit message according to the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
+Once you've made some changes to the code using your favorite text editor or IDE, you'll want to commit your changes to your branch or fork. Anteater API uses a tool called [Commitizen](https://commitizen.github.io/cz-cli/), which helps you automatically format your commit message according to the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
 
 To use Commitizen, simply run the following command after staging your changes using `git add`:
 
@@ -60,10 +60,10 @@ Once you've completed all the changes that you believe to be within scope of the
 
 If your first attempt isn't approved immediately, don't fret! Very few changes pass code review on the first try, and the review process helps you and us by ensuring that we write good code. Please respond to any requests for changes in a timely manner and re-request reviews when necessary.
 
-Your changes will typically be merged shortly after getting approved, and the changes should be deployed soon after that. Congratulations on making your first contribution to PeterPortal API!
+Your changes will typically be merged shortly after getting approved, and the changes should be deployed soon after that. Congratulations on making your first contribution to Anteater API!
 
 ## Contact us
 
 Still lost after reading this guide? If you ever need help, please don't hesitate to ask around on our [Discord server](https://discord.gg/Zu8KZHERtJ).
 
-If you'd like to learn more about the technical details of PeterPortal API, feel free to read on!
+If you'd like to learn more about the technical details of Anteater API, feel free to read on!

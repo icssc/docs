@@ -1,16 +1,16 @@
 # Fair Use Policy
 
-Thank you for considering PeterPortal API for your next project! We're glad to be able to help you in your endeavors.
+Thank you for considering Anteater API for your next project! We're glad to be able to help you in your endeavors.
 
 Before proceeding, please read through this page in its entirety. By sending a request to the API, it means that you have done so and accept all of its terms.
 
 ## Rate Limits
 
-PeterPortal API does not currently have strict rate limits. We understand that student projects—especially those made for a hackathon—may experience sudden traffic spikes, and we do not want these applications to stop working due to circumstances outside the developers' control.
+Anteater API does not currently have strict rate limits. We understand that student projects—especially those made for a hackathon—may experience sudden traffic spikes, and we do not want these applications to stop working due to circumstances outside the developers' control.
 
 With that being said, we ask that all developers refrain from purposefully sending large amounts of requests in a short interval, or making malicious requests with the intent to exploit vulnerabilities in the API. We reserve the right to blacklist IP addresses making such requests.
 
-If you do believe you have discovered a security vulnerability in PeterPortal API, please open an issue [here](https://github.com/icssc/peterportal-api-next). Since we do not serve sensitive data, there is no need to report such issues separately, nor is there an email address for such purposes.
+If you do believe you have discovered a security vulnerability in Anteater API, please open an issue [here](https://github.com/icssc/peterportal-api-next). Since we do not serve sensitive data, there is no need to report such issues separately, nor is there an email address for such purposes.
 
 ## Setting the `Referer` header
 

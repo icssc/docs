@@ -1,0 +1,18 @@
+{
+  "index": {
+    "title": "Overview"
+  },
+  "Introduction": {
+    "title": "Introduction",
+    "display": "children"
+  },
+  "REST-API": {
+    "title": "REST API"
+  },
+  "GraphQL-API": {
+    "title": "GraphQL API"
+  },
+  "Contributing": {
+    "title": "Contributing"
+  }
+}
