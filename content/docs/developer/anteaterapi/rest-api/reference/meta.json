@@ -1,0 +1,13 @@
+{
+  "name": "Reference",
+  "pages": [
+    "calendar",
+    "courses",
+    "enrollment-history",
+    "grades",
+    "instructors",
+    "larc",
+    "websoc",
+    "week"
+  ]
+}

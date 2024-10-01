@@ -1,23 +1,10 @@
-// @ts-check
+import { createMDX } from "fumadocs-mdx/next";
 
-import nextra from "nextra";
+const withMDX = createMDX();
 
-/**
- * @type {(nextConfig: import('next').NextConfig) => NextConfig}
- */
-const withNextra = nextra({
-  theme: "nextra-theme-docs",
-  themeConfig: "./theme.config.tsx",
-});
+/** @type {import('next').NextConfig} */
+const config = {
+  reactStrictMode: true,
+};
 
-export default withNextra({
-  async redirects() {
-    return [
-      {
-        source: "/ppapi/:slug*",
-        destination: "/anteaterapi/:slug*",
-        permanent: true,
-      },
-    ];
-  },
-});
+export default withMDX(config);

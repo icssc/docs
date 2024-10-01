@@ -1,0 +1,12 @@
+{
+  "title": "Anteater API",
+  "icon": "Workflow",
+  "pages": [
+    "getting-started",
+    "fair-use-policy",
+    "api-versioning",
+    "rest-api",
+    "graphql-api",
+    "[Sandbox](https://studio.apollographql.com/sandbox/explorer?endpoint=https://api-next.peterportal.org/v1/graphql)"
+  ]
+}

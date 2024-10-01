@@ -13,12 +13,10 @@ const config = {
   plugins: ["import", "@typescript-eslint"],
   extends: [
     "eslint:recommended",
-    "plugin:@next/next/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:react/recommended",
-    "plugin:react/jsx-runtime",
     "prettier",
+    "next/core-web-vitals",
   ],
   rules: {
     "no-unused-vars": "off",

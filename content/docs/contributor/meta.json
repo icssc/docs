@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "index",
+    "---Projects---",
+    "antalmanac",
+    "peterportal",
+    "anteaterapi",
+    "zotistics",
+    "zotmeal",
+    "zotnfound",
+    "zotmeet"
+  ],
+  "root": true
+}

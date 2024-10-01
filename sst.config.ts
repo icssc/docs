@@ -12,7 +12,10 @@ const sstConfig: SSTConfig = {
     app.stack(function Site({ stack }) {
       const site = new NextjsSite(stack, "site", {
         customDomain: {
-          domainName: stack.stage === "prod" ? "docs.icssc.club" : `docs-${stack.stage}.icssc.club`,
+          domainName:
+            stack.stage === "prod"
+              ? "docs.icssc.club"
+              : `docs-${stack.stage}.icssc.club`,
           hostedZone: "icssc.club",
         },
       });
