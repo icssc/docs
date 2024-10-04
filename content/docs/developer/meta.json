@@ -1,4 +1,10 @@
 {
-  "pages": ["index", "---Projects---", "anteaterapi"],
+  "pages": [
+    "index",
+    "---Projects---",
+    "anteaterapi",
+    "---Special Projects---",
+    "centralized-calendar"
+  ],
   "root": true
 }
