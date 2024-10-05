@@ -4,9 +4,13 @@
   "description": "The official documentation site for ICSSC projects",
   "scripts": {
     "build": "next build",
+    "build:worker": "cloudflare",
     "dev": "next dev",
+    "dev:worker": "wrangler dev --port 8771",
     "lint": "next lint",
     "start": "next start",
+    "preview:worker": "npm run build:worker && npm run dev:worker",
+    "deploy:worker": "npm run build:worker && wrangler deploy",
     "postinstall": "fumadocs-mdx",
     "prepare": "husky"
   },
@@ -20,10 +24,10 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "1.13.5",
     "@commitlint/cli": "19.5.0",
     "@commitlint/config-conventional": "19.5.0",
     "@commitlint/types": "19.5.0",
+    "@opennextjs/cloudflare": "0.0.0-59a1d9e",
     "@types/mdx": "2.0.13",
     "@types/node": "22.7.4",
     "@types/react": "18.3.11",
