@@ -1,9 +1,18 @@
-pages/antalmanac @icssc/antalmanac
-pages/guidebook @alexanderl19 @ecxyzzy
-pages/peterportal @icssc/peterportal
-pages/ppapi @icssc/api
-pages/zotistics @icssc/zotistics
-pages/zotmeal @icssc/zotmeal
-pages/zotmeet @icssc/zotmeet
-pages/zotnfound @icssc/zotnfound
-pages/special-projects @icssc/special-projects
+content/docs/contributor/antalmanac @icssc/antalmanac
+
+content/docs/contributor/peterportal @icssc/peterportal
+
+content/docs/contributor/anteaterapi @icssc/api
+content/docs/contributor/developer @icssc/api
+
+content/docs/contributor/zotistics @icssc/zotistics
+
+content/docs/contributor/zotmeal @icssc/zotmeal
+
+content/docs/contributor/zotmeet @icssc/zotmeet
+
+content/docs/contributor/zotnfound @icssc/zotnfound
+
+content/docs/contributor/developer/centralized-calendar @icssc/special-projects
+
+content/docs/brand @alexanderl19 @ecxyzzy @MinhxNguyen7
