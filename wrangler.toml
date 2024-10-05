@@ -5,3 +5,5 @@ compatibility_date = "2024-10-05"
 compatibility_flags = ["nodejs_compat"]
 
 assets = { directory = ".worker-next/assets", binding = "ASSETS" }
+
+routes = [{ pattern = "docs.icssc.club", custom_domain = true }]
