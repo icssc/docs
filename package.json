@@ -27,7 +27,7 @@
     "@commitlint/cli": "19.5.0",
     "@commitlint/config-conventional": "19.5.0",
     "@commitlint/types": "19.5.0",
-    "@opennextjs/cloudflare": "0.0.0-59a1d9e",
+    "@opennextjs/cloudflare": "0.0.0-fd3c2b9",
     "@types/mdx": "2.0.13",
     "@types/node": "22.7.4",
     "@types/react": "18.3.11",
@@ -37,17 +37,17 @@
     "clsx": "2.1.1",
     "cz-conventional-changelog": "3.3.0",
     "devmoji": "2.3.0",
-    "eslint": "8.57.1",
+    "eslint": "9.12.0",
     "eslint-config-next": "14.2.14",
-    "eslint-config-prettier": "8.10.0",
+    "eslint-config-prettier": "9.1.0",
     "husky": "9.1.6",
     "lint-staged": "15.2.10",
     "postcss": "8.4.47",
     "prettier": "3.3.3",
     "prettier-plugin-packagejson": "2.5.2",
     "tailwindcss": "3.4.13",
-    "typescript": "5.5.4",
+    "typescript": "5.6.2",
     "wrangler": "3.80.0"
   },
-  "packageManager": "pnpm@9.4.0"
+  "packageManager": "pnpm@9.12.0"
 }
