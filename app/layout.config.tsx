@@ -1,4 +1,4 @@
-import { type HomeLayoutProps } from "fumadocs-ui/home-layout";
+import type { HomeLayoutProps } from "fumadocs-ui/home-layout";
 
 import { ICSSC } from "@/components/logos/ICSSC";
 
@@ -14,9 +14,7 @@ export const baseOptions: HomeLayoutProps = {
     title: (
       <>
         <ICSSC />
-        <span className="font-medium [header_&]:text-[15px]">
-          ICS Student Council
-        </span>
+        <span className="font-medium [header_&]:text-[15px]">ICS Student Council</span>
       </>
     ),
   },

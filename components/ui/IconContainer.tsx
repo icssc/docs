@@ -3,7 +3,7 @@
 import { clsx } from "clsx";
 import type { LucideIcon } from "lucide-react";
 import { TerminalIcon } from "lucide-react";
-import { type ElementType, type HTMLAttributes } from "react";
+import type { ElementType, HTMLAttributes } from "react";
 
 export function IconContainer({
   icon: Icon,
