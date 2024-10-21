@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { source } from "@/app/source";
-import { openapiAnteaterAPI } from "@/app/source";
 
 export default async function Page({
   params,
@@ -25,7 +24,6 @@ export default async function Page({
         <MDX
           components={{
             ...defaultMdxComponents,
-            APIPage: openapiAnteaterAPI.APIPage,
           }}
         />
       </DocsBody>
