@@ -9,8 +9,8 @@
     "dev:worker": "wrangler dev --port 8771",
     "lint": "next lint",
     "start": "next start",
-    "preview:worker": "npm run build:worker && npm run dev:worker",
-    "deploy:worker": "npm run build:worker && wrangler deploy",
+    "preview:worker": "pnpm run build:worker && pnpm run dev:worker",
+    "deploy:worker": "pnpm run build:worker && wrangler deploy",
     "postinstall": "fumadocs-mdx",
     "prepare": "husky"
   },
