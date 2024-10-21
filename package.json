@@ -28,7 +28,7 @@
     "@commitlint/cli": "19.5.0",
     "@commitlint/config-conventional": "19.5.0",
     "@commitlint/types": "19.5.0",
-    "@opennextjs/cloudflare": "0.0.0-59a1d9e",
+    "@opennextjs/cloudflare": "0.2.1",
     "@types/mdx": "2.0.13",
     "@types/node": "22.7.4",
     "@types/react": "18.3.11",

@@ -42,8 +42,8 @@ importers:
         specifier: 19.5.0
         version: 19.5.0
       "@opennextjs/cloudflare":
-        specifier: 0.0.0-59a1d9e
-        version: 0.0.0-59a1d9e(wrangler@3.80.0)
+        specifier: 0.2.1
+        version: 0.2.1(wrangler@3.80.0)
       "@types/mdx":
         specifier: 2.0.13
         version: 2.0.13
@@ -1042,10 +1042,10 @@ packages:
       }
     engines: { node: ">=12.4.0" }
 
-  "@opennextjs/cloudflare@0.0.0-59a1d9e":
+  "@opennextjs/cloudflare@0.2.1":
     resolution:
       {
-        integrity: sha512-CW26SZ98PE8fLJdRwS+viU61tt2ng/cuLdGsA5v/qYfpmKwi8v3KPuGEQzstoDrGYksvRP636O87enh2Z6DQQQ==,
+        integrity: sha512-jHFz6wLcdvdedqVPmfgr3T0/twSw0ck7pupCD9uquuK63tevepXSbcwMSaymLCdFO0UTCMCBvY2D43tRXeueng==,
       }
     hasBin: true
     peerDependencies:
@@ -7505,7 +7505,7 @@ snapshots:
 
   "@nolyfill/is-core-module@1.0.39": {}
 
-  "@opennextjs/cloudflare@0.0.0-59a1d9e(wrangler@3.80.0)":
+  "@opennextjs/cloudflare@0.2.1(wrangler@3.80.0)":
     dependencies:
       ts-morph: 23.0.0
       wrangler: 3.80.0
