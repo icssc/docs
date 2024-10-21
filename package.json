@@ -17,7 +17,7 @@
   "dependencies": {
     "fumadocs-core": "13.4.10",
     "fumadocs-mdx": "10.0.2",
-    "fumadocs-openapi": "^5.4.14",
+    "fumadocs-openapi": "5.4.14",
     "fumadocs-ui": "13.4.10",
     "lucide-react": "0.447.0",
     "next": "14.2.14",
