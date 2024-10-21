@@ -8,6 +8,3 @@ assets = { directory = ".worker-next/assets", binding = "ASSETS" }
 
 workers_dev = false
 routes = [{ pattern = "docs.icssc.club", custom_domain = true }]
-
-[alias]
-"prettier" = "./node_modules/prettier/standalone.js"
