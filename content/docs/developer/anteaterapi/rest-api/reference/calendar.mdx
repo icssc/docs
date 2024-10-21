@@ -1,51 +1,42 @@
 ---
 title: Calendar
+full: true
+_openapi:
+  toc:
+    - depth: 2
+      title: Retrieve term calendar
+      url: "#retrieve-term-calendar"
+    - depth: 2
+      title: List all calendars
+      url: "#list-all-calendars"
+    - depth: 2
+      title: Retrieve current week
+      url: "#retrieve-current-week"
+  structuredData:
+    headings:
+      - content: Retrieve term calendar
+        id: retrieve-term-calendar
+      - content: List all calendars
+        id: list-all-calendars
+      - content: Retrieve current week
+        id: retrieve-current-week
+    contents:
+      - content: Retrieves key dates for the provided term.
+        heading: retrieve-term-calendar
+      - content: Retrieves all data for all terms that are currently available.
+        heading: list-all-calendars
+      - content: >-
+          Retrieves week data for the provided date, or today if one is not
+          provided.
+        heading: retrieve-current-week
 ---
 
-import { Tabs, Tab } from "fumadocs-ui/components/tabs";
-
-The calendar endpoint allows users to fetch important dates for the given quarter, such as when instruction begins and ends, and when final exams begin and end.
-
-## Query parameters
-
-#### `year` string <span style={{ color: "#ff86b4" }}>Required</span>
-
-The year to query.
-
-#### `quarter` Fall | Winter | Spring | Summer1 | Summer10wk | Summer2 <span style={{ color: "#ff86b4" }}>Required</span>
-
-The quarter to query. Case-sensitive.
-
-<Tabs items={["cURL"]}>
-  <Tab value="cURL">
-    ```bash curl
-    "https://api-next.peterportal.org/v1/rest/calendar?year=2023&quarter=Spring"
-    ```
-  </Tab>
-</Tabs>
-
-### Response
-
-<Tabs items={['Example response', "Payload schema"]}>
-  <Tab value='Example response'>
-    ```json
-    {
-      "instructionStart": "2023-04-03T00:00:00.000Z",
-      "instructionEnd": "2023-06-09T00:00:00.000Z",
-      "finalsStart": "2023-06-10T00:00:00.000Z",
-      "finalsEnd": "2023-06-15T00:00:00.000Z"
-    }
-    ```
-  </Tab>
-  <Tab value='Payload schema'>
-    ```typescript
-    // https://github.com/icssc/peterportal-api-next/blob/main/packages/peterportal-api-next-types/types/calendar.ts
-    type QuarterDates = {
-      instructionStart: string;
-      instructionEnd: string;
-      finalsStart: string;
-      finalsEnd: string;
-    };
-    ```
-  </Tab>
-</Tabs>
+<APIPage
+  document={"https://anteaterapi.com/openapi.json"}
+  operations={[
+    { method: "get", path: "/v2/rest/calendar" },
+    { method: "get", path: "/v2/rest/calendar/all" },
+    { method: "get", path: "/v2/rest/week" },
+  ]}
+  hasHead={true}
+/>

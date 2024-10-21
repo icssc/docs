@@ -1,13 +1,12 @@
 {
-  "name": "Reference",
+  "title": "Reference",
   "pages": [
-    "calendar",
+    "websoc",
+    "grades",
     "courses",
     "enrollment-history",
-    "grades",
     "instructors",
-    "larc",
-    "websoc",
-    "week"
+    "calendar",
+    "other"
   ]
 }

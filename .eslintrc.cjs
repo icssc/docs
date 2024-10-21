@@ -38,7 +38,7 @@ const config = {
       },
     ],
   },
-  ignorePatterns: ["*.cjs", "next.config.mjs"],
+  ignorePatterns: ["*.cjs", "next.config.mjs", "scripts"],
   env: {
     es2022: true,
     node: true,

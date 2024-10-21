@@ -7,6 +7,6 @@
     "api-versioning",
     "rest-api",
     "graphql-api",
-    "[Sandbox](https://studio.apollographql.com/sandbox/explorer?endpoint=https://api-next.peterportal.org/v1/graphql)"
+    "[Sandbox](https://studio.apollographql.com/sandbox/explorer?endpoint=https://anteaterapi.com/v2/graphql)"
   ]
 }
