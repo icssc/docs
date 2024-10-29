@@ -1,4 +1,4 @@
-import type { HomeLayoutProps } from "fumadocs-ui/home-layout";
+import type { HomeLayoutProps } from "fumadocs-ui/layouts/home";
 
 import { ICSSC } from "@/components/logos/ICSSC";
 
