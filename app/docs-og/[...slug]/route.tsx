@@ -4,11 +4,13 @@ import { ImageResponse } from "next/og";
 import { getBreadcrumbItems } from "fumadocs-core/breadcrumb";
 import { source } from "@/app/source";
 
-const monaSansMedium = readFileSync("./app/docs-og/[...slug]/MonaSans-Medium.ttf");
-const monaSansNormalWide = readFileSync("./app/docs-og/[...slug]/MonaSans-wdth-110-wght-400.ttf");
+export const dynamicParams = false;
 
 export const GET = metadataImage.createAPI((page) => {
   const items = getBreadcrumbItems(page.url, source.pageTree).slice(0, -1);
+
+  const monaSansMedium = readFileSync("./app/docs-og/[...slug]/MonaSans-Medium.ttf");
+  const monaSansNormalWide = readFileSync("./app/docs-og/[...slug]/MonaSans-wdth-110-wght-400.ttf");
 
   return new ImageResponse(
     <div
