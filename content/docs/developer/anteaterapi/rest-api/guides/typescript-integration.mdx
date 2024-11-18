@@ -1,0 +1,37 @@
+---
+title: TypeScript Integration
+---
+
+import { Callout } from "fumadocs-ui/components/callout";
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+
+<Callout type="warn">
+This guide is still under construction. We apologize for the inconvenience.
+</Callout>
+
+Our API comes fully equipped with an automatically generated OpenAPI specification. This means that with the right tools, you can ensure that your requests are being made with the correct parameters, and that your responses have what you expect - and all without hardcoding any types.
+
+## Getting Started
+
+For this guide, we'll be using [`openapi-typescript`](https://github.com/openapi-ts/openapi-typescript/tree/main/packages/openapi-typescript), an open-source library that consumes OpenAPI specifications and outputs TypeScript type definitions. We'll need to install that first.
+
+Run the following command in your project:
+
+<Tabs items={["npm", "yarn", "pnpm"]}>
+<Tab value="npm">
+    ```shell
+    npm install -D openapi-typescript
+    ```
+</Tab>
+    <Tab value="yarn">
+        ```shell
+        yarn add -D openapi-typescript
+        ```
+    </Tab>
+    <Tab value="pnpm">
+        ```shell
+        pnpm add -D openapi-typescript
+        ```
+    </Tab>
+    </Tabs>
+
