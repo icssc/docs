@@ -1,3 +1,0 @@
----
-title: Anteater API
----

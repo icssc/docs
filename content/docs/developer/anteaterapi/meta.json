@@ -1,5 +1,5 @@
 {
   "title": "Anteater API",
   "icon": "Workflow",
-  "pages": ["getting-started", "fair-use-policy", "api-versioning", "rest-api", "graphql-api"]
+  "pages": ["fair-use-policy", "api-versioning", "rest-api", "graphql-api"]
 }
