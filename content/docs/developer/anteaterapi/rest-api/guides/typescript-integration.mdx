@@ -18,11 +18,11 @@ For this guide, we'll be using [`openapi-typescript`](https://github.com/openapi
 Run the following command in your project:
 
 <Tabs items={["npm", "yarn", "pnpm"]}>
-<Tab value="npm">
-    ```shell
-    npm install -D openapi-typescript
-    ```
-</Tab>
+    <Tab value="npm">
+        ```shell
+        npm install -D openapi-typescript
+        ```
+    </Tab>
     <Tab value="yarn">
         ```shell
         yarn add -D openapi-typescript
@@ -33,5 +33,28 @@ Run the following command in your project:
         pnpm add -D openapi-typescript
         ```
     </Tab>
-    </Tabs>
+</Tabs>
 
+Next, you'll want to generate the type definitions, like so:
+
+<Tabs items={["npm", "yarn", "pnpm"]}>
+    <Tab value="npm">
+        ```shell
+        npx openapi-typescript https://anteaterapi.com/openapi.json --output src/types/generated/anteater-api-types.ts
+        ```
+    </Tab>
+    <Tab value="yarn">
+        ```shell
+        yarn openapi-typescript https://anteaterapi.com/openapi.json --output src/types/generated/anteater-api-types.ts
+        ```
+    </Tab>
+    <Tab value="pnpm">
+        ```shell
+        pnpm openapi-typescript https://anteaterapi.com/openapi.json --output src/types/generated/anteater-api-types.ts
+        ```
+    </Tab>
+</Tabs>
+
+I've chosen to output the types into `src/types/generated` for convenience, but you can put the output anywhere that makes sense. Regardless of where you put it, you should add it to your project's `.gitignore` if you're using version control.
+
+Now that you have the type definitions, you can create type aliases for the types you'll be using.
