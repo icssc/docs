@@ -14,13 +14,15 @@ With that being said, we ask that all developers refrain from purposefully sendi
 
 If you do believe you have discovered a security vulnerability in Anteater API, please open an issue [here](https://github.com/icssc/anteater-api/issues). Since we do not serve sensitive data, there is no need to report such issues confidentially, nor is there an email address for such purposes.
 
-## Setting the `Referer` header
+## Using your API key
 
-While not required to use the API, we would greatly appreciate it if you could set the `Referer` header to the homepage of the application making the requests. For example, if your web application lives at https://example.com, or if you are hosting documentation for your non-web application there, we ask that you set that as the `Referer`.
+Anteater API offers two types of keys, **publishable** keys and **secret** keys.
 
-Setting the `Referer` header allows us to determine which endpoints are most used by which applications, allowing us to increase the capacity if necessary, or make further optimizations if we note that these endpoints are slow. If we have determined that your application is making too many requests, the header will make it easier for us to determine who to contact and speed up the resolution process. Providing a meaningful `Referer` header is mutually beneficial.
+Publishable keys are intended to be used in client-side code and as such can be safely exposed in source code. We verify the identity of the client making the request using a publishable key by comparing the `Origin` header with the set of allowed `Origin` headers, which is provided by the user when requesting a publishable key. The `Origin` header is automatically provided by your HTTP library and cannot be modified.
 
-The following is a non-exhaustive list of code snippets for doing so using various HTTP libraries. If the library you're using isn't present below, please don't hesitate to open a pull request!
+Secret keys are intended to be used in server-side code, and should not be exposed since no additional verification is performed.
+
+Regardless of the type of key, you'll have to send the key to the API in order to take advantage of its benefits. The following is a non-exhaustive list of code snippets for doing so using various HTTP libraries. If the library you're using isn't present below, please don't hesitate to open a pull request!
 
 <Tabs items={["Fetch API", "Axios", "Requests"]}>
   <Tab value="Fetch API">
@@ -37,7 +39,7 @@ The following is a non-exhaustive list of code snippets for doing so using vario
         }),
       {
         headers: {
-          Referer: "https://example.com",
+          Authorization: "Bearer YOUR_API_KEY_HERE",
           // other headers
         },
         // other options
@@ -58,7 +60,7 @@ The following is a non-exhaustive list of code snippets for doing so using vario
         department: "COMPSCI",
       },
       headers: {
-        Referer: "https://example.com",
+        Authorization: "Bearer YOUR_API_KEY_HERE",
         // other headers
       },
       // other options
@@ -74,7 +76,7 @@ The following is a non-exhaustive list of code snippets for doing so using vario
       "https://anteaterapi.com/v2/rest/websoc",
       params={"year": "2023", "quarter": "Spring", "department": "COMPSCI"},
       headers={
-        "referer": "https://example.com",
+        "authorization": "Bearer YOUR_API_KEY_HERE",
         # other headers
       }
       # other options

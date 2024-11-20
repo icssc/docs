@@ -2,20 +2,9 @@
 title: Rest API
 ---
 
-import { TypeTable } from "fumadocs-ui/components/type-table";
-
 ## Request Schema
 
 All requests to the REST API should be made using the base URL https://anteaterapi.com/v2/rest.
-
-Some endpoints have query parameters with the type `string | string[]`. This means that it is permitted to pass multiple values to the parameter in question, by repeating the parameter name and/or passing in a comma-delimited string.
-
-For example, if `arg` is such a parameter, then the following query strings are all valid inputs and have the same result.
-
-- `?arg=foo&arg=bar&arg=baz&arg=quux`
-- `?arg=foo,bar&arg=baz&arg=quux`
-- `?arg=foo,bar&arg=baz,quux`
-- `?arg=foo,bar,baz,quux`
 
 ## Response Schema
 
