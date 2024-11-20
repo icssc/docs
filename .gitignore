@@ -29,3 +29,6 @@ next-env.d.ts
 
 .worker-next
 .wrangler
+
+# jetbrains
+.idea/

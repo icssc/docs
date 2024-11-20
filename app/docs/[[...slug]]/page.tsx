@@ -1,5 +1,6 @@
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import { DocsPage, DocsBody, DocsDescription, DocsTitle } from "fumadocs-ui/page";
+import { Popup, PopupContent, PopupTrigger } from "fumadocs-twoslash/ui";
 import { notFound } from "next/navigation";
 
 import { source } from "@/app/source";
@@ -24,6 +25,9 @@ export default async function Page({
         <MDX
           components={{
             ...defaultMdxComponents,
+            Popup,
+            PopupContent,
+            PopupTrigger,
           }}
         />
       </DocsBody>
