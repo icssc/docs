@@ -5,10 +5,6 @@ title: TypeScript Integration
 import { Callout } from "fumadocs-ui/components/callout";
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 
-<Callout type="warn">
-This guide is still under construction. We apologize for the inconvenience.
-</Callout>
-
 Our API comes fully equipped with an automatically generated OpenAPI specification. This means that with the right tools, you can ensure that your requests are being made with the correct parameters, and that your responses have what you expect - and all without hardcoding any types.
 
 ## Getting Started
@@ -40,21 +36,236 @@ Next, you'll want to generate the type definitions, like so:
 <Tabs items={["npm", "yarn", "pnpm"]}>
     <Tab value="npm">
         ```shell
-        npx openapi-typescript https://anteaterapi.com/openapi.json --output src/types/generated/anteater-api-types.ts
+        npx openapi-typescript https://anteaterapi.com/openapi.json \
+        --output src/types/generated/anteater-api-types.ts
         ```
     </Tab>
     <Tab value="yarn">
         ```shell
-        yarn openapi-typescript https://anteaterapi.com/openapi.json --output src/types/generated/anteater-api-types.ts
+        yarn openapi-typescript https://anteaterapi.com/openapi.json \
+        --output src/types/generated/anteater-api-types.ts
         ```
     </Tab>
     <Tab value="pnpm">
         ```shell
-        pnpm openapi-typescript https://anteaterapi.com/openapi.json --output src/types/generated/anteater-api-types.ts
+        pnpm openapi-typescript https://anteaterapi.com/openapi.json \
+        --output src/types/generated/anteater-api-types.ts
         ```
     </Tab>
 </Tabs>
 
 I've chosen to output the types into `src/types/generated` for convenience, but you can put the output anywhere that makes sense. Regardless of where you put it, you should add it to your project's `.gitignore` if you're using version control.
 
-Now that you have the type definitions, you can create type aliases for the types you'll be using.
+Now that you have the type definitions, you can create type aliases for the types you'll be using. Let's say you want to manipulate course data, so you'll need the types of the request object and of the response objects. This can be accomplished like so:
+
+```ts twoslash title="src/types/course.ts"
+interface components {
+  schemas: {
+        prereq: {
+            /** @enum {string} */
+            prereqType: "course";
+            /** @enum {boolean} */
+            coreq: false;
+            courseId: string;
+            minGrade?: string;
+        } | {
+            /** @enum {string} */
+            prereqType: "course";
+            /** @enum {boolean} */
+            coreq: true;
+            courseId: string;
+        } | {
+            /** @enum {string} */
+            prereqType: "exam";
+            examName: string;
+            minGrade?: string;
+        };
+        prereqTree: {
+            /** @description All of these prerequisites must have been fulfilled before this course can be taken. */
+            AND?: (components["schemas"]["prereq"] | components["schemas"]["prereqTree"])[];
+            /** @description At least one of these prerequisites must have been fulfilled before this course can be taken. */
+            OR?: (components["schemas"]["prereq"] | components["schemas"]["prereqTree"])[];
+            /** @description None of these prerequisites must have been fulfilled before this course can be taken. */
+            NOT?: (components["schemas"]["prereq"] | components["schemas"]["prereqTree"])[];
+        };
+    };
+}
+interface operations {
+  coursesByFilters: {
+        parameters: {
+            query?: {
+                department?: string;
+                courseNumber?: string;
+                courseNumeric?: number | null;
+                titleContains?: string;
+                courseLevel?: "LowerDiv" | "UpperDiv" | "Graduate";
+                minUnits?: number | null;
+                maxUnits?: number | null;
+                descriptionContains?: string;
+                geCategory?: "GE-1A" | "GE-1B" | "GE-2" | "GE-3" | "GE-4" | "GE-5A" | "GE-5B" | "GE-6" | "GE-7" | "GE-8";
+                take?: number;
+                skip?: number | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @enum {boolean} */
+                        ok: true;
+                        /** @description The data that was requested */
+                        data: {
+                            /** @example COMPSCI161 */
+                            id: string;
+                            /** @example COMPSCI */
+                            department: string;
+                            /** @example 161 */
+                            courseNumber: string;
+                            /** @example 161 */
+                            courseNumeric: number;
+                            /** @example Donald Bren School of Information and Computer Sciences */
+                            school: string;
+                            /** @example Design and Analysis of Algorithms */
+                            title: string;
+                            /**
+                             * @example Upper Division (100-199)
+                             * @enum {string}
+                             */
+                            courseLevel: "Lower Division (1-99)" | "Upper Division (100-199)" | "Graduate/Professional Only (200+)";
+                            /** @example 4 */
+                            minUnits: number;
+                            /** @example 4 */
+                            maxUnits: number;
+                            description: string;
+                            /** @example Computer Science */
+                            departmentName: string;
+                            instructors: {
+                                /** @example mikes */
+                                ucinetid: string;
+                                /** @example Michael Shindler */
+                                name: string;
+                                /** @example Associate Professor of Teaching */
+                                title: string;
+                                /** @example mikes@uci.edu */
+                                email: string | "";
+                                /** @example Computer Science */
+                                department: string;
+                                /** @example [
+                                 *       "SHINDLER, M."
+                                 *     ] */
+                                shortenedNames: string[];
+                            }[];
+                            prerequisiteTree: {
+                                /** @description All of these prerequisites must have been fulfilled before this course can be taken. */
+                                AND?: (components["schemas"]["prereq"] | components["schemas"]["prereqTree"])[];
+                                /** @description At least one of these prerequisites must have been fulfilled before this course can be taken. */
+                                OR?: (components["schemas"]["prereq"] | components["schemas"]["prereqTree"])[];
+                                /** @description None of these prerequisites must have been fulfilled before this course can be taken. */
+                                NOT?: (components["schemas"]["prereq"] | components["schemas"]["prereqTree"])[];
+                            };
+                            prerequisiteText: string;
+                            prerequisites: {
+                                /** @example COMPSCI161 */
+                                id: string;
+                                /** @example Design and Analysis of Algorithms */
+                                title: string;
+                                /** @example COMPSCI */
+                                department: string;
+                                /** @example 161 */
+                                courseNumber: string;
+                            }[];
+                            dependencies: {
+                                /** @example COMPSCI161 */
+                                id: string;
+                                /** @example Design and Analysis of Algorithms */
+                                title: string;
+                                /** @example COMPSCI */
+                                department: string;
+                                /** @example 161 */
+                                courseNumber: string;
+                            }[];
+                            repeatability: string;
+                            gradingOption: string;
+                            concurrent: string;
+                            sameAs: string;
+                            restriction: string;
+                            overlap: string;
+                            corequisites: string;
+                            geList: ("GE Ia: Lower Division Writing" | "GE Ib: Upper Division Writing" | "GE II: Science and Technology" | "GE III: Social & Behavioral Sciences" | "GE IV: Arts and Humanities" | "GE Va: Quantitative Literacy" | "GE Vb: Formal Reasoning" | "GE VI: Language Other Than English" | "GE VII: Multicultural Studies" | "GE VIII: International/Global Issues")[];
+                            geText: string;
+                            terms: string[];
+                        }[];
+                    };
+                };
+            };
+            /** @description Parameters failed validation */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @enum {boolean} */
+                        ok: false;
+                        /** @description Details on why the request may have failed */
+                        message: string;
+                    };
+                };
+            };
+            /** @description Server error occurred */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /** @enum {boolean} */
+                        ok: false;
+                        /** @description Details on why the request may have failed */
+                        message: string;
+                    };
+                };
+            };
+        };
+    };
+}
+interface paths {
+    "/v2/rest/courses": {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            /**
+             * Filter courses
+             * @description Retrieves courses matching the given filters.
+             */
+            get: operations["coursesByFilters"];
+            put?: never;
+            post?: never;
+            delete?: never;
+            options?: never;
+            head?: never;
+            patch?: never;
+            trace?: never;
+    };
+}
+// ---cut---
+// @noErrors: 2307
+import type { paths } from "./generated/anteater-api-types";
+
+type CourseParams = paths["/v2/rest/courses"]["get"]["parameters"]["query"];
+
+type CourseResponse = paths["/v2/rest/courses"]["get"]["responses"][200]["content"]["application/json"];
+```
+
+As you can see by hovering over the `CourseParams` and `CourseResponse` type aliases, they have the shape that you would expect, and you can use them to ensure the type-safety when interacting with the API.
