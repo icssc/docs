@@ -66,21 +66,40 @@ export const GET = metadataImage.createAPI((page) => {
           </div>
         ))}
       </div>
-      <span
+      <div
         style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 16,
           marginTop: 58,
           marginBottom: 16,
           width: "100%",
           flexGrow: 1,
-          // Next.js dev server hangs on some (empty?) titles when wordBreak: "break-word"
           overflow: "hidden",
           fontFamily: "'Mona Sans'",
-          fontSize: 96,
-          fontWeight: 400,
         }}
       >
-        {page.data.title}
-      </span>
+        <span
+          style={{
+            // Next.js dev server hangs on some (empty?) titles when wordBreak: "break-word"
+            fontSize: 96,
+            fontWeight: 400,
+          }}
+        >
+          {page.data.title}
+        </span>
+        <span
+          style={{
+            fontSize: 24,
+            fontWeight: 400,
+            lineHeight: 1.35,
+            maxWidth: 800,
+            color: "#666",
+          }}
+        >
+          {page.data.description}
+        </span>
+      </div>
 
       {/* biome-ignore lint/a11y/noSvgWithoutTitle: img gen */}
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" height={48} viewBox="0 0 2307 459">
