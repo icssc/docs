@@ -1,0 +1,47 @@
+---
+title: Code Quality
+description: Working toward consistently high code quality and its unique importance in ICSSC.
+---
+
+Good code quality and practices are generally regarded as important for most projects. However, do the nature of our organization, it is especailly critical.
+
+## Importance
+
+### 1. Growing / Changing Team
+
+As a student organization, our team is constantly changing. Realistically, most members are only at UCI for 4 years and may only be in ICSSC for 2 or 3. With this in mind, it's important that knowledge is able to efficiently transfer between leaving and joining members. To facilitate effective knowledge transfer, we need clean, self-documenting code (explaining implementation), and well-written documentation (explaining processes and decisions).
+
+### 2. Long Term Project
+
+Most, if not all, of the projects we work on are long-term. This necessitates the ability to effectively fix bugs, add features, and perform migrations for many years. Well-crafted code, with good separation of concerns and reusability, ensures we can accomplish this efficiently with the limited time we have to dedicate to a student org.
+
+### 3. Open Source
+
+One of the core pillars of Projects is open source. Our projects are almost all released under [OSI approved licenses](https://opensource.org/licenses), and we regularly accept members via contributions (outside of normal recruitment). This means our code also has to be generally understandable for those without direct access to the author.
+
+### 4. Good Practice
+
+Projects is also a community to grow in and an incubator for talent. Many of our members join to learn and grow, while having the opportunity to give back to our community. We want to ensure that we honor this by following good practices, and cultivating important skills.
+
+## Implementation
+
+With this being said, we employ a three prong approach to facilitate good code quality.
+
+### 1. Path Of Least Resistance
+
+<Callout title="Important" type="warn">
+  This is probably the most important principle. If you read anything on this
+  page, let it be this.
+</Callout>
+
+While we all understand the importance of code quality, it's only natural to be tempted by the easiest approach. Whenever possible, the path of least resistance should also be the correct approach. This allows us to save our willpower for more important decisions.
+
+In practice, this means trivial items like formatting and linting should always be easy. Refer to our [common toolchain](/docs/contributor/common/code-quality/toolchain) for what tools we use where. This ensures that feedback is instant and automatic, while keeping our code review cycles for more meaningful discussions.
+
+### 2. Code Review
+
+Code review is a critical part of our development process. This is where design decisions and implementation can be discussed, helping us ensure quality, transfer knowledge, and learn from each other. All teams and leads should ensure that code review is meaningful, rather than a rubber stamp to merge.
+
+### 3. Continuous Automation
+
+As with the path of least resistance, it's also critical to identify new pain points and implement solutions on top of our [common toolchain](/docs/contributor/common/code-quality/toolchain). Most importantly, new automations allow us to make lasting improvements, mitigating against our high attrition rate (due to members graduating and leaving).
