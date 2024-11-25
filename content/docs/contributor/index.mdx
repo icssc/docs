@@ -1,0 +1,39 @@
+---
+title: Contributor
+description: Documentation for internal members, or contributors interested in working on ICSSC projects.
+---
+
+{/* the word projects is intentionally lowercase. referring to projects, rather than the committee ICSSC Project. */}
+
+This section is intended for internal members, or open source contributors interested in working on ICSSC projects. It will cover organizational principles, local setup, and design decisions.
+
+## Projects
+
+import AntAlmanac from "@/components/logos/AntAlmanac";
+import PeterPortal from "@/components/logos/PeterPortal";
+import Zotistics from "@/components/logos/Zotistics";
+import { Workflow, UtensilsCrossed, Bird, CalendarRange } from "lucide-react";
+
+<Cards>
+  <Card icon={<AntAlmanac />} href="/" title="AntAlmanac">
+    Schedule Planner
+  </Card>
+  <Card icon={<PeterPortal />} href="/" title="PeterPortal">
+    Course Discovery and Planning
+  </Card>
+  <Card icon={<Workflow />} href="/" title="Anteater API">
+    Unified API for UCI Related Data
+  </Card>
+  <Card icon={<Zotistics />} href="/" title="Zotistics">
+    Historical Grade Distribution Viewer
+  </Card>
+  <Card icon={<UtensilsCrossed />} href="/" title="ZotMeal">
+    Dining Hall Menus
+  </Card>
+  <Card icon={<Bird />} href="/" title="ZotNFound">
+    Lost and Found Platform
+  </Card>
+  <Card icon={<CalendarRange />} href="/" title="ZotMeet">
+    Meeting Planner
+  </Card>
+</Cards>
