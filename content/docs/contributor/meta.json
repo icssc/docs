@@ -1,6 +1,8 @@
 {
   "pages": [
     "index",
+    "---General---",
+    "...common",
     "---Projects---",
     "antalmanac",
     "peterportal",
