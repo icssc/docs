@@ -13,13 +13,13 @@ Anteater API is the successor to PeterPortal API. The sole upgrade path from eit
 
 Over the past few years, we've learned a great deal about the data we work with through developing PeterPortal API. In these past iterations, we have made some assumptions about this data that no longer hold water.
 
-We believe that sunsetting PeterPortal API in favor of Anteater API will allow us to make this data more accessible, in a way that is more efficient and correct, and will allow us to maintain access to this data long into the future.
+We believe that sunsetting PeterPortal API in favor of Anteater API will allow us to make the data more accessible and correct, in a manner that is efficient and sustainable for many years into the future.
 
 ## How to Migrate
 
 <Steps>
     <Step>
-        Please make sure you have read the [Attribution Policy](/docs/developer/anteaterapi/attribution-policy) in its entirety.
+        Please make sure you have read the [Attribution Policy](/docs/developer/anteaterapi/attribution-policy) in its entirety. By continuing, you represent that you have done so and accept its provisions.
     </Step>
     <Step>
         Change the base URL used in your API calls to https://anteaterapi.com/v2/rest (for the REST API) or https://anteaterapi.com/v2/graphql (for the GraphQL API).
@@ -52,7 +52,7 @@ This section applies to you if you are using the base URLs https://api.peterport
 ### Courses (REST)
 * The `/courses/all` endpoint is no longer available. It has been replaced by the `/courses` endpoint, which is paginated.
 * The `department_alias` field is no longer available. At this time, there is no replacement for this field.
-* The `units` field is no longer available. It has been replaced by the `minUnits` and `maxUnits` field, which correspond to `units[0]` and `units[1]`, respectively.
+* The `units` field is no longer available. It has been replaced by the `minUnits` and `maxUnits` fields, which correspond to `units[0]` and `units[1]`, respectively.
 * The `professor_history` field is no longer available. The data can still be accessed by taking the `id` field of each object in the `instructors` field.
 * The `prerequisite_tree` field is now an object, rather than a string containing a serialized object.
 * The `prerequisite_list` and `prerequisite_for` fields are no longer available. The data can still be accessed by taking the `id` field of each object in the `prerequisites` and `dependencies` fields, respectively.
