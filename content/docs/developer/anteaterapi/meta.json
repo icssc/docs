@@ -3,10 +3,10 @@
   "icon": "Workflow",
   "pages": [
     "attribution-policy",
-    "migrating",
     "best-practices",
     "api-versioning",
     "rest-api",
-    "graphql-api"
+    "graphql-api",
+    "migrating"
   ]
 }
