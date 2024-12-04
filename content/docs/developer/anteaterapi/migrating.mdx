@@ -1,0 +1,106 @@
+---
+title: Migrating from PeterPortal API
+description: Anteater API is our new API for UCI related data, and represents the culmination of years of knowledge we've gained from developing PeterPortal API. Migrate now, before PeterPortal API is sunset.
+---
+
+import { Steps, Step } from "fumadocs-ui/components/steps";
+
+PeterPortal API will be sunset **on Friday, January 31st, 2025, at 11:59 pm Pacific Standard Time**. After this time, requests made to either version of PeterPortal API will no longer be served.
+
+Anteater API is the successor to PeterPortal API. The sole upgrade path from either version of PeterPortal API is to Anteater API.
+
+## Why?
+
+Over the past few years, we've learned a great deal about the data we work with through developing PeterPortal API. In these past iterations, we have made some assumptions about this data that no longer hold water.
+
+We believe that sunsetting PeterPortal API in favor of Anteater API will allow us to make the data more accessible and correct, in a manner that is efficient and sustainable for many years into the future.
+
+## How to Migrate
+
+<Steps>
+    <Step>
+        Please make sure you have read the [Attribution Policy](/docs/developer/anteaterapi/attribution-policy) in its entirety. By continuing, you represent that you have done so and accept its provisions.
+    </Step>
+    <Step>
+        Change the base URL used in your API calls to https://anteaterapi.com/v2/rest (for the REST API) or https://anteaterapi.com/v2/graphql (for the GraphQL API).
+    </Step>
+    <Step>
+        Optional, but highly recommended: Request an API key at https://dashboard.anteaterapi.com, and use that API key in all of your API calls. More details can be found [here](/docs/developer/anteaterapi/best-practices#using-your-api-key).
+    </Step>
+    <Step>
+        Read the section below that corresponds to your current usecase, and apply any modifications to your code.
+    </Step>
+</Steps>
+
+We are happy to assist developers in the migration process. If you would like assistance, or have any questions regarding the migration, please contact us at [icssc@uci.edu](mailto:icssc@uci.edu).
+
+Please note however that our resources are limited, and as a result we may not be able to respond to all such requests. As an organization founded on the principle of open source, we will prioritize requests based on the project's license terms and usage.
+
+## Breaking Changes Since v0
+
+This section applies to you if you are using the base URLs https://api.peterportal.org/rest/v0 (for the REST API) or https://api.peterportal.org/graphql (for the GraphQL API).
+
+### All endpoints
+* All field names in the response object(s) are now in `camelCase` rather than `snake_case`.
+
+### All REST endpoints
+* The object returned in a response now contains an `ok` boolean field. If `ok` is `true`, then the data is guaranteed to be in the `data` field. Otherwise, the `message` field contains an error message.
+
+### All GraphQL queries
+* It is no longer possible to query course offerings directly from a `Course` object. At this time, there is no replacement for this functionality.
+
+### Courses (REST)
+* The `/courses/all` endpoint is no longer available. It has been replaced by the `/courses` endpoint, which is paginated.
+* The `department_alias` field is no longer available. At this time, there is no replacement for this field.
+* The `units` field is no longer available. It has been replaced by the `minUnits` and `maxUnits` fields, which correspond to `units[0]` and `units[1]`, respectively.
+* The `professor_history` field is no longer available. The data can still be accessed by taking the `id` field of each object in the `instructors` field.
+* The `prerequisite_tree` field is now an object, rather than a string containing a serialized object.
+* The `prerequisite_list` and `prerequisite_for` fields are no longer available. The data can still be accessed by taking the `id` field of each object in the `prerequisites` and `dependencies` fields, respectively.
+
+### Instructors (REST)
+* The `/instructors/all` endpoint is no longer available. It has been replaced by the `/instructors` endpoint, which is paginated.
+* The `schools` and `related_departments` fields are no longer available. At this time, there is no replacement for these fields.
+* The `shortened_name` field is no longer available. It has been replaced by a `shortenedNames` field, which is an array containing each WebSoc name associated with the instructor.
+* The `course_history` field is no longer available. The data can still be accessed by taking the `id` field of each object in the `courses` field.
+
+### Grades (REST)
+* The path to the endpoint which aggregates the grades is now `/grades/aggregate` instead of `/grades/calculated`.
+* The `year` field/parameter is now a string containing one year number, and the `quarter` field/parameter is now a string containing one of the six terms (Fall, Winter, Spring, Summer1, Summer10wk, Summer2).
+* The `department_name`, `section`, `title`, and `type` fields are no longer available. At this time, there is no replacement for these fields.
+* The `instructor` field has been replaced by the `instructors` field, which is an array containing all instructors associated with the section.
+* The `number` and `number_int` fields/parameters have been renamed to `courseNumber` and `courseNumeric` respectively.
+* The `code` field/parameter has been renamed to `sectionCode` and is now a string containing the section code.
+
+### WebSoc (REST)
+* The path to this resource is now `/websoc` instead of `/schedule/soc`.
+* The `term` parameter has been replaced by the `year` and `quarter` parameters which together make up the two space-delimited parts of the `term` parameter. For example, if your original query used `term=2021%20Fall`, you should use `year=2021&quarter=Fall` instead.
+* The `meetings` and `finalExam` fields now contain additional metadata. See the [API Reference](https://anteaterapi.com/reference#tag/websoc/GET/v2/rest/websoc) for more details.
+
+## Breaking Changes Since v1
+
+This section applies to you if you are using the base URLs https://api-next.peterportal.org/v1/rest (for the REST API) or https://api-next.peterportal.org/v1/graphql (for the GraphQL API).
+
+### All REST endpoints
+* The top-level `statusCode`, `timestamp`, and `requestId` fields are no longer available.
+* The `success` and `payload` fields have been renamed to `ok` and `data` respectively.
+
+### Courses
+* The `/courses/all` endpoint is no longer available. It has been replaced by the `/courses` endpoint, which is paginated.
+* The `instructorHistory` field is no longer available. The data can still be accessed by taking the `id` field of each object in the `instructors` field.
+* The `shortenedName` field of the Instructor object is no longer available. It has been replaced by a `shortenedNames` field, which is an array containing each WebSoc name associated with that instructor.
+* The `prerequisiteList` and `prerequisiteFor` fields are no longer available. The data can still be accessed by taking the `id` field of each object in the `prerequisites` and `dependencies` fields, respectively.
+
+### Instructors
+* The `/instructors/all` endpoint is no longer available. It has been replaced by the `/instructors` endpoint, which is paginated.
+* The `shortenedName` field is no longer available. It has been replaced by a `shortenedNames` field, which is an array containing each WebSoc name associated with the instructor.
+* The `schools` and `relatedDepartments` fields are no longer available. At this time, there is no replacement for these fields.
+* The `courseHistory` field is no longer available. It has been consolidated into the `courses` field. Each object in the `courses` field now contains a `terms` field, which contains all terms in which the course was or will be taught.
+
+### Grades
+* If a section has only Pass and/or Not Pass grades, the `averageGPA` field will be `null`, rather than `0`.
+
+### WebSoc
+* The `cache` option is no longer available.
+  * Previously, if `cache` was set to `false`, this endpoint proxied requests directly to the University Registrar's Web Schedule of Classes (WebSoc).
+  * In the interest of preventing WebSoc from getting too many requests, at this time there is no replacement for this functionality. To remedy this, objects at most levels have an `updatedAt` field to indicate when WebSoc was last fetched.
+  * If real-time access to WebSoc data is critical for your application, consider hosting your own proxy and using [libwebsoc-next](https://www.npmjs.com/package/@icssc/libwebsoc-next) to normalize the data from WebSoc. However, please note that the format returned from this library will not contain some of the metadata returned by Anteater API's WebSoc endpoint.
