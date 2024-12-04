@@ -1,5 +1,6 @@
 ---
 title: Migrating from PeterPortal API
+description: Anteater API is our new API for UCI related data, and represents the culmination of years of knowledge we've gained from developing PeterPortal API. Migrate now, before PeterPortal API is sunset.
 ---
 
 import { Steps, Step } from "fumadocs-ui/components/steps";
@@ -8,15 +9,18 @@ PeterPortal API will be sunset **on Friday, January 31st, 2025, at 11:59 pm Paci
 
 Anteater API is the successor to PeterPortal API. The sole upgrade path from either version of PeterPortal API is to Anteater API.
 
-We are happy to assist developers in the migration process. If you would like assistance, or have any questions regarding the migration, please contact us at [icssc@uci.edu](mailto:icssc@uci.edu). Please note however that our resources are limited, and as a result we may not be able to respond to all such requests.
+## Why?
 
-## Before Migrating
+Over the past few years, we've learned a great deal about the data we work with through developing PeterPortal API. In these past iterations, we have made some assumptions about this data that no longer hold water.
 
-Please make sure you have read the [Attribution Policy](/docs/developer/anteaterapi/attribution-policy) in its entirety.
+We believe that sunsetting PeterPortal API in favor of Anteater API will allow us to make this data more accessible, in a way that is more efficient and correct, and will allow us to maintain access to this data long into the future.
 
 ## How to Migrate
 
 <Steps>
+    <Step>
+        Please make sure you have read the [Attribution Policy](/docs/developer/anteaterapi/attribution-policy) in its entirety.
+    </Step>
     <Step>
         Change the base URL used in your API calls to https://anteaterapi.com/v2/rest (for the REST API) or https://anteaterapi.com/v2/graphql (for the GraphQL API).
     </Step>
@@ -27,6 +31,10 @@ Please make sure you have read the [Attribution Policy](/docs/developer/anteater
         Read the section below that corresponds to your current usecase, and apply any modifications to your code.
     </Step>
 </Steps>
+
+We are happy to assist developers in the migration process. If you would like assistance, or have any questions regarding the migration, please contact us at [icssc@uci.edu](mailto:icssc@uci.edu).
+
+Please note however that our resources are limited, and as a result we may not be able to respond to all such requests. As an organization founded on the principle of open source, we will prioritize requests based on their license terms and usage.
 
 ## Breaking Changes Since v0
 
@@ -92,4 +100,7 @@ This section applies to you if you are using the base URLs https://api-next.pete
 * If a section has only Pass and/or Not Pass grades, the `averageGPA` field will be `null`, rather than `0`.
 
 ### WebSoc
-* The `cache` option is no longer available. In the interest of preventing WebSoc (the service managed by the school) from getting too many requests, at this time there is no replacement for the functionality derived from setting `cache` to `false`. To remedy this, objects at most levels have an `updatedAt` field to indicate when WebSoc was last fetched.
+* The `cache` option is no longer available.
+  * Previously, if `cache` was set to `false`, this endpoint proxied requests directly to the University Registrar's Web Schedule of Classes (WebSoc).
+  * In the interest of preventing WebSoc from getting too many requests, at this time there is no replacement for the functionality derived from setting `cache` to `false`. To remedy this, objects at most levels have an `updatedAt` field to indicate when WebSoc was last fetched.
+  * If real-time access to WebSoc data is critical for your application, consider hosting your own proxy and using [libwebsoc-next](https://www.npmjs.com/package/@icssc/libwebsoc-next) to normalize the data from WebSoc. However, please note that the format returned from this library will not contain some of the metadata returned by Anteater API's WebSoc endpoint.
