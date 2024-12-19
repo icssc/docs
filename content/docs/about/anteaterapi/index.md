@@ -36,6 +36,6 @@ If there's more publicly available data that you'd like to see us provide for re
 
 ## Contributing to Anteater API
 
-Anteater API is free and open-source software (FOSS). The word "free" in this context is as in free speech, though there is also no monetary cost to use Anteater API. This means that everyone can view its source code to see how it works, and everyone is allowed to contribute to Anteater API and/or redistribute its source code.
+Anteater API is free and open-source software (FOSS). The word "free" in this context is as in free speech, though there is also no monetary cost to use Anteater API. This means that everyone can view its [source code](https://github.com/icssc/anteater-api) to see how it works, and everyone is allowed to contribute to Anteater API and/or redistribute its source code.
 
 For more information on contributing to Anteater API, see the [contributor section](/docs/contributor/anteaterapi) of the Anteater API documentation.
