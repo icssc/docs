@@ -40,6 +40,7 @@ If the library you're using isn't present below, please don't hesitate to open a
     // const fetch = require("cross-fetch"); // CJS import
 
     const res = await fetch(
+      // or another endpoint
       "https://anteaterapi.com/v2/rest/websoc" +
         new URLSearchParams({
           year: "2023",
@@ -62,7 +63,7 @@ If the library you're using isn't present below, please don't hesitate to open a
     import axios from "axios"; // ESM import
     // const axios = require("axios"); // CJS import
 
-    const res = await axios.get("https://anteaterapi.com/v2/rest/websoc", {
+    const res = await axios.get(/* or another endpoint */ "https://anteaterapi.com/v2/rest/websoc", {
       params: {
         year: "2023",
         quarter: "Spring",
@@ -82,6 +83,7 @@ If the library you're using isn't present below, please don't hesitate to open a
     import requests
 
     res = requests.get(
+      # or another endpoint
       "https://anteaterapi.com/v2/rest/websoc",
       params={"year": "2023", "quarter": "Spring", "department": "COMPSCI"},
       headers={
