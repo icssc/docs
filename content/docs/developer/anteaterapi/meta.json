@@ -3,6 +3,7 @@
   "icon": "Workflow",
   "pages": [
     "getting-started",
+    "[Attribution Policy](/docs/about/anteaterapi/attribution-policy)",
     "keys-limits",
     "api-versioning",
     "rest-api",
