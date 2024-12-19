@@ -27,7 +27,11 @@ Publishable keys are intended to be used in client-side code and as such can be 
 
 Secret keys are intended to be used in server-side code, and should not be exposed since no additional verification is performed.
 
-Regardless of the type of key, you'll have to send the key to the API in order to take advantage of its benefits. The following is a non-exhaustive list of code snippets for doing so using various HTTP libraries. If the library you're using isn't present below, please don't hesitate to open a pull request!
+Regardless of the type of key, you'll have to send the key to the API in order to take advantage of its benefits.
+You must provide your API key as a bearer token in your requests.
+If you don't know what that means, that's okay.
+The following is a non-exhaustive list of code snippets for doing so using common HTTP libraries.
+If the library you're using isn't present below, please don't hesitate to open a pull request!
 
 <Tabs items={["Fetch API", "Axios", "Requests"]}>
   <Tab value="Fetch API">
