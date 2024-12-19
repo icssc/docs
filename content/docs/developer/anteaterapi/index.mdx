@@ -22,7 +22,9 @@ For general introductory information about Anteater API, see the [About Docs](/d
   <Accordion title="What is the difference between REST and GraphQL?">
     Anteater API offers both a REST API and a GraphQL API.
 
-    REST stands for **RE**presentational **S**tate **T**ransfer. A REST API has endpoints, each of which represents a resource. When a request is made to an endpoint, the server responds with a representation of the state of the resource, hence the name. Each HTTP verb (`GET`, `POST`, etc.) represents a different action on the resource being requested.
+    REST stands for **RE**presentational **S**tate **T**ransfer. A REST API has endpoints, each of which represents a resource (e.g. which week of school a certain date is in).
+    When a request is made to an endpoint, the server responds with a representation of the state of the resource (e.g. week 4 of winter), hence the name.
+    Each HTTP verb (`GET`, `POST`, etc.) represents a different action on the resource being requested.
 
     GraphQL is a query language for APIs. It is more flexible than REST, since you can query multiple endpoints in the same request, and also include only fields from the endpoint(s) that are relevant. However, it does have a slightly higher learning curve, and may require additional work to integrate into your application.
 
