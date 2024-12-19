@@ -13,7 +13,7 @@ It is akin to the choice of which programming language to use.
 ## Authorization
 
 Unlike some other Web APIs, Anteater API does not require API keys or authentication, so you can start using this API immediately.
-However, there are still advantages to seeking an API key; learn how to obtain and use one [here](./best-practices).
+However, there are still advantages to seeking an API key; learn how to obtain and use one [here](./keys-limits).
 
 ## Choosing your stack
 

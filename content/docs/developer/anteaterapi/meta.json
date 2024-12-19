@@ -3,7 +3,7 @@
   "icon": "Workflow",
   "pages": [
     "getting-started",
-    "best-practices",
+    "keys-limits",
     "api-versioning",
     "rest-api",
     "graphql-api",
