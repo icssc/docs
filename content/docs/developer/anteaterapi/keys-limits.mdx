@@ -10,7 +10,7 @@ You may use most features of Anteater API without requesting an API key.
 Requests made without keys are ratelimited on a per-IP basis and also draw from a global quota that is replenished on an hourly basis.
 If the global quota is exhausted, only requests with valid API keys will be accepted, so we recommend that you request an API key [here](https://dashboard.anteaterapi.com).
 
-Rate limits for Anteater API are enforced on a per-key basis otherwise.
+When using a key to access Anteater API, you are bound by your own key-specific ratelimit instead of the global quota.
 Our goal with these rate limits is to support almost all applications while preventing abuse.
 We understand that student projects, especially those made for a hackathon, may experience sudden traffic spikes, and have ensured our rate limits are much higher than what is necessary for almost all applications.
 If your application requires a higher rate limit, we will evaluate your use case and may choose to increase your rate limit.
