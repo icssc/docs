@@ -7,7 +7,7 @@ import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 ## Rate Limits
 
 You may use most features of Anteater API without requesting an API key.
-Requests made without keys are subject to a per-IP basis and also draws from a global quota that is replenished on an hourly basis.
+Requests made without keys are ratelimited on a per-IP basis and also draw from a global quota that is replenished on an hourly basis.
 If the global quota is exhausted, only requests with valid API keys will be accepted, so we recommend that you request an API key [here](https://dashboard.anteaterapi.com).
 
 Rate limits for Anteater API are enforced on a per-key basis otherwise.
