@@ -2,7 +2,6 @@
   "title": "Anteater API",
   "icon": "Workflow",
   "pages": [
-    "attribution-policy",
     "best-practices",
     "api-versioning",
     "rest-api",
