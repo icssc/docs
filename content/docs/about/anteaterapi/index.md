@@ -32,7 +32,7 @@ Anteater API contains a wealth of historical data of potential research interest
 - **Letter grade distributions** for course offerings not earlier than summer 2014.
 - **Course enrollment trends** for course sections held not earlier than winter 2022.
 
-If there's more data that you'd like to see us provide for your research project, and such data can be obtained publicly, please don't hesitate to reach out.
+If there's more publicly available data that you'd like to see us provide for research, please don't hesitate to reach out.
 
 ## Contributing to Anteater API
 
