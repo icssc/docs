@@ -8,8 +8,8 @@ import { baseOptions } from "../layout.config";
 import { source } from "@/app/source";
 import { categories } from "@/lib/categories";
 
-export function generateViewport() {
-  const userAgent = headers().get("user-agent");
+export async function generateViewport() {
+  const userAgent = (await headers()).get("user-agent");
 
   return userAgent?.includes("Discordbot")
     ? {
