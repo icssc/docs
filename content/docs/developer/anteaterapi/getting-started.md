@@ -2,7 +2,7 @@
 title: Getting Started
 ---
 
-**This page is for Anteater API users. Potential contributors should look at the [Contributor Docs](/docs/contributor/anteaterapi).**
+**This page is for Anteater API users. Potential contributors refer to the [Contributor Docs](/docs/contributor/anteaterapi).**
 
 ## REST or GraphQL?
 
