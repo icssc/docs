@@ -1,14 +1,20 @@
 ---
-title: Best Practices
+title: Keys and Ratelimits
+description: The ratelimits on Anteater API and how to obtain and use an API key
 ---
 
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 
 ## Rate Limits
 
-You may use most features of Anteater API without requesting an API key. Requests made without keys are subject to a per-IP basis and also draws from a global quota that is replenished on an hourly basis. If the global quota is exhausted, only requests with valid API keys will be accepted, so we recommend that you request an API key [here](https://dashboard.anteaterapi.com).
+You may use most features of Anteater API without requesting an API key.
+Requests made without keys are ratelimited on a per-IP basis and also draw from a global quota that is replenished on an hourly basis.
+If the global quota is exhausted, only requests with valid API keys will be accepted, so we recommend that you request an API key [here](https://dashboard.anteaterapi.com).
 
-Rate limits for Anteater API are enforced on a per-key basis otherwise. However, our goal with these rate limits is to support almost all applications while preventing abuse. We understand that student projects, especially those made for a hackathon, may experience sudden traffic spikes, and have ensured our rate limits are much higher than what is necessary for almost all applications. If your application requires a higher rate limit, we will evaluate your use case and may choose to increase your rate limit.
+When using a key to access Anteater API, you are bound by your own key-specific ratelimit instead of the global quota.
+Our goal with these rate limits is to support almost all applications while preventing abuse.
+We understand that student projects, especially those made for a hackathon, may experience sudden traffic spikes, and have ensured our rate limits are much higher than what is necessary for almost all applications.
+If your application requires a higher rate limit, we will evaluate your use case and may choose to increase your rate limit.
 
 With that being said, we ask that all developers refrain from purposefully sending large amounts of requests in a short interval, or making malicious requests with the intent to exploit vulnerabilities in the API. We reserve the right to blacklist IP addresses making such requests.
 
@@ -22,15 +28,17 @@ Publishable keys are intended to be used in client-side code and as such can be 
 
 Secret keys are intended to be used in server-side code, and should not be exposed since no additional verification is performed.
 
-Regardless of the type of key, you'll have to send the key to the API in order to take advantage of its benefits. The following is a non-exhaustive list of code snippets for doing so using various HTTP libraries. If the library you're using isn't present below, please don't hesitate to open a pull request!
+Regardless of the type of key, you'll have to send the key to the API in order to take advantage of its benefits.
+You must provide your API key as a bearer token in your requests.
+If you don't know what that means, that's okay.
+The following is a non-exhaustive list of code snippets for doing so using common HTTP libraries.
+If the library you're using isn't present below, please don't hesitate to open a pull request!
 
-<Tabs items={["Fetch API", "Axios", "Requests"]}>
+<Tabs items={["Fetch API", "Axios", "Requests (Python)"]}>
   <Tab value="Fetch API">
     ```js
-    import fetch from "cross-fetch"; // ESM import
-    // const fetch = require("cross-fetch"); // CJS import
-
     const res = await fetch(
+      // or another endpoint
       "https://anteaterapi.com/v2/rest/websoc" +
         new URLSearchParams({
           year: "2023",
@@ -53,7 +61,7 @@ Regardless of the type of key, you'll have to send the key to the API in order t
     import axios from "axios"; // ESM import
     // const axios = require("axios"); // CJS import
 
-    const res = await axios.get("https://anteaterapi.com/v2/rest/websoc", {
+    const res = await axios.get(/* or another endpoint */ "https://anteaterapi.com/v2/rest/websoc", {
       params: {
         year: "2023",
         quarter: "Spring",
@@ -68,11 +76,12 @@ Regardless of the type of key, you'll have to send the key to the API in order t
     ```
 
   </Tab>
-  <Tab value="Requests">
+  <Tab value="Requests (Python)">
     ```py
     import requests
 
     res = requests.get(
+      # or another endpoint
       "https://anteaterapi.com/v2/rest/websoc",
       params={"year": "2023", "quarter": "Spring", "department": "COMPSCI"},
       headers={

@@ -2,8 +2,9 @@
   "title": "Anteater API",
   "icon": "Workflow",
   "pages": [
+    "getting-started",
     "attribution-policy",
-    "best-practices",
+    "keys-limits",
     "api-versioning",
     "rest-api",
     "graphql-api",

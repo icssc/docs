@@ -6,7 +6,9 @@ import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 
 Anteater API is an API maintained by ICSSC Projects that provides various UCI related data. All the data served through Anteater API is publicly accessible, or derived from historically publicly accessible data. If you use data obtained though Anteater API in your project, please give us credit in accordance with our [Attribution Policy](/docs/developer/anteaterapi/attribution-policy).
 
-You are currently reading the **Developer Docs** for Anteater API. This part of the documentation covers how to properly integrate Anteater API into your own projects. If you're a developer who's interested in helping to improve Anteater API, please refer to the Anteater API [Contributor Docs](/docs/contributor/anteaterapi/getting-started-contributor).
+You are currently reading the **Developer Docs** for Anteater API. This part of the documentation covers how to properly integrate Anteater API into your own projects.
+If you're a developer who's interested in helping to improve Anteater API, please refer to the Anteater API [Contributor Docs](/docs/contributor/anteaterapi/).
+For general introductory information about Anteater API, see the [About Docs](/docs/about/anteaterapi).
 
 ## FAQ
 
@@ -18,15 +20,21 @@ You are currently reading the **Developer Docs** for Anteater API. This part of 
 
   </Accordion>
   <Accordion title="What is the difference between REST and GraphQL?">
-    REST stands for **RE**presentational **S**tate **T**ransfer. A REST API has endpoints, each of which represents a resource. When a request is made to an endpoint, the server responds with a representation of the state of the resource, hence the name. Each HTTP verb (`GET`, `POST`, etc.) represents a different action on the resource being requested.
+    Anteater API offers both a REST API and a GraphQL API.
 
-    GraphQL is a query language for APIs. It is more flexible than REST, since you can query multiple endpoints in the same request, and also include only fields from the endpoint(s) that are relevant. However, it does have a slightly higher learning curve, and may require additional work to integrate into your application.
+    REST stands for **RE**presentational **S**tate **T**ransfer. A REST API has endpoints, each of which represents a resource (e.g. which week of school a certain date is in).
+    When a request is made to an endpoint, the server responds with a representation of the state of the resource (e.g. week 4 of winter), hence the name.
+    Each HTTP verb (`GET`, `POST`, etc.) represents a different action on the resource being requested.
+
+    GraphQL is a query language for APIs. It is more flexible than REST, since you can query multiple endpoints in the same request and/or selected parts of the data (e.g. when the schedule of classes is posted for a quarter instead of all the important dates).
+    However, it does have a slightly higher learning curve, and may require additional work to integrate into your application.
 
     The correct API to use will almost always depend on your use case; there is no single correct answer.
 
   </Accordion>
   <Accordion title="How do I start using Anteater API?">
-    Unlike some other Web APIs, Anteater API does not require API keys or authentication, so you can start using this API immediately. However, in order to ensure a good experience for all users of the API, we ask that you read and abide by the [Attribution Policy](attribution-policy).
+    Take a look at the [Getting Started](./anteaterapi/getting-started) page.
+    In order to ensure a good experience for all users of the API, we ask that you read and abide by the [Attribution Policy](/docs/developer/anteaterapi/attribution-policy).
 
   </Accordion>
 </Accordions>
