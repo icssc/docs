@@ -26,7 +26,7 @@ We have a guide on integrating our REST API with TypeScript [here](/docs/develop
 
 ## Attribution
 
-If you use Anteater API, you **must** follow the [Attribution Policy](./docs/about/attribution-policy).
+If you use Anteater API, you **must** follow the [Attribution Policy](./attribution-policy).
 
 ## Reading documentation
 

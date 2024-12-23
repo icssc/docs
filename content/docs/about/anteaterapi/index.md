@@ -23,7 +23,7 @@ If you're building an application that manipulates public data provided by the s
 
 You can learn about the capabilities of Anteater API, and how to use it, [here](/docs/developer/anteaterapi).
 
-Any use of Anteater API for any purpose is bound by the [attribution policy](/docs/about/anteaterapi/attribution-policy).
+Any use of Anteater API for any purpose is bound by the [attribution policy](/docs/developer/anteaterapi/attribution-policy).
 
 ## Using Anteater API for Research
 
