@@ -3,6 +3,8 @@ title: Setting up
 description: Setting up to contribute to Anteater API
 ---
 
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+
 Thank you for your interest in contributing to Anteater API!
 
 ## ✅ Getting Started
@@ -18,26 +20,35 @@ Thank you for your interest in contributing to Anteater API!
 
 ### 🧑‍💻 Setting Up
 
-1. Clone the repository and change into it. In your command line:
+<Steps>
+
+<Step>
+Clone the repository and change into it. In your command line:
 
    ```shell
    git clone git@github.com:icssc/anteater-api.git
    cd anteater-api
    ```
+</Step>
 
-2. Make a copy of the `.env.example`.
+<Step>
+Make a copy of the `.env.example`.
 
    ```shell
    cp .env.example .env
    ```
+</Step>
 
-3. Install the dependencies.
+<Step>
+Install the dependencies.
 
    ```shell
    pnpm i
    ```
+</Step>
 
-4. Download the latest version of the database dump [here](https://anteater-api-dump.s3.us-west-1.amazonaws.com/db.sql.gz), and move it into the `packages/db` directory.
+<Step>
+Download the latest version of the database dump [here](https://anteater-api-dump.s3.us-west-1.amazonaws.com/db.sql.gz), and move it into the `packages/db` directory.
 
    _Optional_: Verify the integrity of the database dump.
 
@@ -48,14 +59,18 @@ Thank you for your interest in contributing to Anteater API!
    ```
 
    If the checksum does not match, the database dump may be corrupt or have been tampered with. You should delete it immediately and try downloading it again.
+</Step>
 
-5. Start the local Postgres database. If you are using Docker Compose, as we recommend above, this is simple:
+<Step>
+Start the local Postgres database. If you are using Docker Compose, as we recommend above, this is simple:
 
    ```shell
    docker-compose up -d
    ```
+</Step>
 
-6. Start the development server.
+<Step>
+Start the development server.
 
    ```shell
    pnpm dev
@@ -64,3 +79,6 @@ Thank you for your interest in contributing to Anteater API!
    The process of database seeding (importing data from the database dump) can take a while. If at first this fails, wait a few minutes before trying again.
 
    The development server will automatically reload upon any changes to the codebase. This will aid in your testing.
+</Step>
+
+</Steps>
