@@ -1,5 +1,6 @@
 ---
 title: Getting Started
+description: What you need to do in order to start using Anteater API
 ---
 
 **This page is for Anteater API users. Potential contributors refer to the [Contributor Docs](/docs/contributor/anteaterapi).**

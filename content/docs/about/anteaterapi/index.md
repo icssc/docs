@@ -1,5 +1,6 @@
 ---
 title: Anteater API
+description: Basic information about Anteater API
 ---
 
 ## What is Anteater API?
