@@ -10,7 +10,9 @@
     "zotistics",
     "zotmeal",
     "zotnfound",
-    "zotmeet"
+    "zotmeet",
+    "---Special Projects---",
+    "unified-auth"
   ],
   "root": true
 }
