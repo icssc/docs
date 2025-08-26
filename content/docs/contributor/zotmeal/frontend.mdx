@@ -2,6 +2,8 @@
 title: Frontend
 ---
 
+import { File, Folder, Files } from "fumadocs-ui/components/files";
+
 ZotMeal's frontend -- written in the [Next.js](https://nextjs.org) framework.
 
 ## Table of Contents
@@ -24,19 +26,20 @@ ZotMeal's frontend -- written in the [Next.js](https://nextjs.org) framework.
 
 The web app is contained in apps/next, which should look something like:
 
-```
-📦apps/next
- ┣ 📂.next
- ┣ 📂node_modules
- ┣ 📂public
- ┣ 📂src
- ┃ ┣ 📂app
- ┃ ┣ 📂components
- ┃ ┣ 📂context
- ┃ ┣ 📂hooks
- ┃ ┗ 📂utils
- ...
-```
+<Files>
+<Folder name="apps/next" defaultOpen>
+  <Folder name=".next" />
+  <Folder name="node_modules" />
+  <Folder name="public" />
+  <Folder name="src" defaultOpen>
+    <Folder name="app" />
+    <Folder name="components" />
+    <Folder name="context" />
+    <Folder name="hooks" />
+    <Folder name="utils" />
+  </Folder>
+</Folder>
+</Files>
 
 > A quick aside about `📂node_modules` and `📂public`: 
 > - `📂public` is for static data that needs serving, like images.
@@ -46,18 +49,19 @@ We will now go into detail about each subdirectory of `📂src`, which
 comprise the whole of the frontend.
 
 ## 📂 App
-In `📂app`, we use Next.js file router to establish **pages**, which are web 
+In `📂app`, we use the Next.js page router to establish **pages**, which are web 
 pages rendered individually from one another, each with a unique URL.
 
-```
-📂app
- ┣ 📂about
- ┣ 📂events
- ┣ favicon.ico
- ┣ globals.css
- ┣ layout.tsx
- ┣ page.tsx
-```
+<Files>
+<Folder name="app" defaultOpen>
+ <Folder name="about"/>
+ <Folder name="events"/>
+ <File name="favicon.ico"/>
+ <File name="globals.css"/>
+ <File name="layout.tsx"/>
+ <File name="page.tsx"/>
+</Folder>
+</Files>
 
 Without going too far into the weeds of the [Next.js page router](https://nextjs.org/docs/pages/building-your-application/routing/pages-and-layouts), 
 let's breakdown each element:

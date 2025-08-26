@@ -3,6 +3,7 @@ title: Getting Started
 ---
 
 import { Steps, Step } from "fumadocs-ui/components/steps";
+import { File, Folder, Files } from "fumadocs-ui/components/files";
 
 ## Prerequisites
 
@@ -131,25 +132,25 @@ nvm use 20
 
 The following directory tree outlines the major folders in the ZotMeal repository:
 
-```
-📦ZotMeal
- ┣ 📂node_modules
- ┣ 📂apps
- ┃ ┣ 📂expo
- ┃ ┣ 📂next
- ┃ ┗ 📂server
- ┣ 📂packages
- ┃ ┣ 📂api
- ┃ ┣ 📂db
- ┃ ┗ 📂validators
- ┣ 📜package.json
- ...
-```
+<Files>
+<Folder name="ZotMeal" defaultOpen>
+<Folder name="node_modules" />
+   <Folder name="apps" defaultOpen>
+      <Folder name="next" />
+      <Folder name="server" />
+   </Folder>
+ <Folder name="packages" defaultOpen>
+    <Folder name="api" />
+    <Folder name="db" />
+    <Folder name="validators" />
+   <File name="package.json" />
+ </Folder>
+</Folder>
+</Files>
 
 The `node_modules` folder contains all ***Node.js*** packages that the repository uses.
 
 The `apps` folder contains major endpoints that ZotMeal uses:
-- `apps/expo` contains all the frontend scripts used to build the mobile app, written in **React Native**.
 - `apps/next` contains all of the frontend components and scripts used to build the web app, written in **Next.js**.
 - `apps/server` contains the scripts used to connect backend functions to AWS Lambda Serverless procedures.
 
