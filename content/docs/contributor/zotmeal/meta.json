@@ -1,5 +1,5 @@
 {
   "title": "ZotMeal",
   "icon": "UtensilsCrossed",
-  "pages": ["getting-started"]
+  "pages": ["getting-started", "frontend", "trpc", "serverless"]
 }
