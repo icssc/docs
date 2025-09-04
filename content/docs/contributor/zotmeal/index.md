@@ -24,7 +24,7 @@ ZotMeal consists of two separate front end applications with a shared backend. A
 ### Frontend
 
 - [Next.js](https://nextjs.org) - Full-stack React framework used for the website.
-- [Expo](https://expo.dev) - Universal framework for React Native.
+- [shad/cn](https://ui.shadcn.com/) - A library of fully customizable, plug-n-play components for use with React.
 
 ### Backend
 - [Drizzle](https://drizzle.dev/) - ORM for Postgres.

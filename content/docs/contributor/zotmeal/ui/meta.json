@@ -1,0 +1,15 @@
+{
+  "title": "UI",
+  "icon": "Palette",
+  "pages": [
+    "contributor",
+    "event-card",
+    "event-card-skeleton",
+    "event-dialog",
+    "food-card",
+    "food-card-skeleton",
+    "food-dialog",
+    "pin-button",
+    "rating-button"
+  ]
+}
