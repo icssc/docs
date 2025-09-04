@@ -6,21 +6,6 @@ import { File, Folder, Files } from "fumadocs-ui/components/files";
 
 ZotMeal's frontend -- written in the [Next.js](https://nextjs.org) framework.
 
-## Table of Contents
-1. [App Structure](#app-structure)
-
-    a. [📂 App](#-app)
-
-    b. [📂 Components](#-components)
-
-    c. [📂 Context](#-context)
-
-    d. [📂 Hooks](#-hooks)
-
-    e. [📂 Utils](#-utils)
-
-2. [Components Breakdown](#components)
-2. [Backend Integration](#backend-integration)
 
 # App Structure
 
@@ -117,9 +102,12 @@ out whether a new folder needs to be created for organization.
 ![Image of contributor.](./component-images/contributor.png)
 
 ### Summary
-Contributor represents a contributor to the project. The images, user name, and link to their profile is directly pulled from [GitHub's developer API](https://docs.github.com/en/rest?apiVersion=2022-11-28).
+Contributor represents a contributor to the project. The images, user name, 
+and link to their profile is directly pulled from 
+[GitHub's developer API](https://docs.github.com/en/rest?apiVersion=2022-11-28).
 
-Extends [Avatar](https://ui.shadcn.com/docs/components/avatar), [Hover Card](https://ui.shadcn.com/docs/components/hover-card).
+Extends [Avatar](https://ui.shadcn.com/docs/components/avatar), 
+[Hover Card](https://ui.shadcn.com/docs/components/hover-card).
 
 ### Props
 
@@ -135,9 +123,11 @@ Extends [Avatar](https://ui.shadcn.com/docs/components/avatar), [Hover Card](htt
 ![Image of Event Card.](./component-images/event-card.png)
 
 ### Summary
-Event Card represents a dining hall's upcoming event. This card is clickable, popping up [Event Dialog](#event-dialog).
+Event Card represents a dining hall's upcoming event. This card is clickable, 
+popping up [Event Dialog](#event-dialog).
 
-Extends [Dialog](https://ui.shadcn.com/docs/components/dialog), [Card](https://ui.shadcn.com/docs/components/card).
+Extends [Dialog](https://ui.shadcn.com/docs/components/dialog), 
+[Card](https://ui.shadcn.com/docs/components/card).
 
 ### Props
 
@@ -158,14 +148,17 @@ Extends [Dialog](https://ui.shadcn.com/docs/components/dialog), [Card](https://u
 ### Summary
 Represents a [Event Card](#event-card) that is still loading.
 
-Extends [Skeleton](https://ui.shadcn.com/docs/components/skeleton), [Card](https://ui.shadcn.com/docs/components/card).
+Extends [Skeleton](https://ui.shadcn.com/docs/components/skeleton), 
+[Card](https://ui.shadcn.com/docs/components/card).
 
 ## Event Dialog
 
 ![Image of Event Dialog.](./component-images/event-dialog.png) 
 
 ### Summary
-A focused view of an event, incorporating a hero image, time and place, and long description. Auto-generates an "Add to Google Calendar" link based on `props`.
+A focused view of an event, incorporating a hero image, time and place, and 
+long description. Auto-generates an "Add to Google Calendar" link based on 
+`props`.
 
 ### Props
 See [Event Card's props](#props-1).
@@ -175,9 +168,11 @@ See [Event Card's props](#props-1).
 ![Image of Food Card.](./component-images/food-card.png)
 
 ### Summary
-Food Card represents a dining hall's upcoming event. This card is clickable, popping up [Food Dialog](#food-dialog).
+Food Card represents a dining hall's upcoming event. This card is clickable, 
+popping up [Food Dialog](#food-dialog).
 
-Extends [Dialog](https://ui.shadcn.com/docs/components/dialog), [Card](https://ui.shadcn.com/docs/components/card).
+Extends [Dialog](https://ui.shadcn.com/docs/components/dialog), 
+[Card](https://ui.shadcn.com/docs/components/card).
 
 ### Props
 
@@ -204,7 +199,9 @@ Represents a [Food Card](#food-card) that is still loading.
 ![Image of Food Dialog.](./component-images/food-dialog.png)
 
 ### Summary
-A focused view of a dish, incorporating a hero image, nutritional info, and a description. Contains interactive elements [Rating Buttons](#rating-buttons) and [Pin Button](#pin-button).
+A focused view of a dish, incorporating a hero image, nutritional info, and a 
+description. Contains interactive elements [Rating Buttons](#rating-buttons) 
+and [Pin Button](#pin-button).
 
 ### Props
 See [Food Card props](#props-3).
@@ -219,6 +216,10 @@ Not yet implemented.
 # Backend Integration
 
 ZotMeal leverages a tRPC backend, which queries a local Postgres database. 
-This database has cron jobs run on it that pull CampusDish data daily and weekly for dishes and events.
+This database has cron jobs run on it that pull CampusDish data daily and 
+weekly for dishes and events.
 
-Most of the tRPC calls in the frontend (as of writing) are performed in the `side.tsx` file (Side component). For more information on the tRPC functions, check out `docs/Serverless Functions.md`, `docs/tRPC Procedures`, and the `packages/api/src` folder.
+Most of the tRPC calls in the frontend (as of writing) are performed in the 
+`side.tsx` file (Side component). For more information on the tRPC functions, 
+check out `docs/Serverless Functions.md`, `docs/tRPC Procedures`, and the 
+`packages/api/src` folder.
