@@ -2,32 +2,35 @@
 title: tRPC
 ---
 
+import { File, Folder, Files } from "fumadocs-ui/components/files";
+
 Taking a look inside the `./packages/api/src` folder we find something like this:
 
-```
-📂packages/src  
- ┣ 📂dishes  
- ┣ 📂events  
- ┣ 📂menus    
- ┣ 📂periods  
- ┣ 📂ratings  
- ┣ 📂restaurants  
- ┣ 📂stations
- ┣ 📂users
- ...
-```
+<Files>
+<Folder name="packages/src" defaultOpen>
+	<Folder name="dishes"/>
+	<Folder name="events"/>
+	<Folder name="menus"/>
+	<Folder name="periods"/>
+	<Folder name="ratings"/>
+	<Folder name="restaurants"/>
+	<Folder name="stations"/>
+	<Folder name="users"/>
+</Folder>
+</Files>
 
 Each folder corresponds to a set of tRPC procedures that handles one major feature.
 
 Within each subfolder, we find 2-4 `.ts` files that looks something like this:
 
-```
-📂dishes  
- ┣ 📜router.test.ts  
- ┣ 📜router.ts  
- ┣ 📜services.test.ts  
- ┗ 📜services.ts
-```
+<Files>
+<Folder name="dishes" defaultOpen>
+ <File name="router.test.ts"/>
+ <File name="router.ts"/>
+ <File name="services.test.ts"/>
+ <File name="services.ts"/>
+</Folder>
+</Files>
 
 - The `router.ts` file contains tRPC procedures that exported via the tRPC router.
 - The `services.ts` file contains helper functions that are used in the tRPC procedures mentioned above
