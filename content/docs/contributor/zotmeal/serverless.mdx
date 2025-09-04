@@ -2,28 +2,35 @@
 title: Serverless Functions
 ---
 
+import { File, Folder, Files } from "fumadocs-ui/components/files";
+
+
 ## Cron Jobs
 
-Inside the `./apps/server` you will see something like this:
+Inside the `./apps/server` folder you will see something like this:
 
-```
-📦apps/server  
- ┣ 📂node_modules
- ┣ 📂src/functions
- ┃   ┣ 📂cron
- ┃   ┗ 📂trpc    
- ...
-```
+<Files>
+<Folder name="apps/server" defaultOpen>
+ <Folder name="node_modules" defaultOpen/>
+ <Folder name="src" defaultOpen>
+  <Folder name="functions" defaultOpen>
+    <Folder name="cron"/>
+    <Folder name="trpc"/>   
+  </Folder>
+</Folder>
+</Folder>
+</Files>
 
 The `src/functions/trpc` directory is used for creating API endpoints for our tRPC functions (for future work)
 
-Inside the `src/functions/cron` we can find:
+Inside the `src/functions/cron` folder we can find:
 
-```
-📂cron  
- ┣ 📜daily.ts    
- ┗ 📜weekly.ts
-```
+<Files>
+<Folder name="cron" defaultOpen>
+ <File name="daily.ts"/>
+ <File name="weekly.ts"/>
+</Folder>
+</Files>
 
 Each of these `.ts` functions corresponds to a specific **cron** job that 
 our app performs.
