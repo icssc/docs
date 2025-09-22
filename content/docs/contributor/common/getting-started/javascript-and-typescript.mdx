@@ -122,8 +122,16 @@ numbers.sort((a, b) => a - b);
 console.log(numbers) // [1, 2, 3, 4, 11] - yay!
 ```
 
-### Array functions
-Suppose you have an array of numbers, and you want to write a function that returns the sum of all the even numbers in the array. You could probably accomplish this task with loops, like so:
+### Array methods
+JavaScript arrays also come with a multitude of methods that can be used to do things with the array's contents. The most commonly used method is `.map()`:
+```js
+const numbers = [1, 2, 3, 4];
+const double = (x) => x * 2;
+const doubled = numbers.map(double);
+console.log(doubled) // [2, 4, 6, 8]
+```
+
+That's cool and all, but let's look at a problem that's a bit more complicated. Suppose you have an array of numbers, and you want to write a function that returns the sum of all the even numbers in the array. You could probably accomplish this task with loops, like so:
 ```js
 const numbers = [1, 2, 3, 4];
 function sumOfEvens(nums) {
@@ -144,9 +152,9 @@ const numbers = [1, 2, 3, 4];
 const sumOfEvens = (nums) => nums.filter((num) => num % 2 === 0).reduce((acc, i) => acc + i, 0);
 console.log(sumOfEvens(numbers)); // 6
 ```
-Don't just take my word for it - paste this into your browser console or Node.js window, and see if it's true. This is the power of JavaScript's array functions, and more broadly, functional programming. For this reason, array function chaining is used quite a bit throughout our codebases.
+Don't just take my word for it - paste this into your browser console or Node.js window, and see if it's true. This is the power of JavaScript's array methods, and more broadly, functional programming. For this reason, array method chaining is used quite a bit throughout our codebases.
 
-However, it's important to recall that **functional programming is not a cure-all**: there are some places where loops may be more readable and make more sense than chaining array functions, and that's fine!
+However, it's important to recall that **functional programming is not a cure-all**: there are some places where loops may be more readable and make more sense than chaining array methods, and that's fine!
 
 ### Objects
 Objects in JavaScript are commonly used in a similar way to dictionaries or hash maps in other languages. Unlike some other languages, however, you don't need quotes around the keys. Also, you can access the values using either bracket or dot notation. This makes objects in JavaScript function similar to data classes or data transfer objects in other languages.
@@ -174,7 +182,7 @@ TypeScript understands that JavaScript has a few built-in types, even if it does
 Let's look at a few examples:
 * `boolean` and `string` are as you would expect in any other language.
 * `number` represents any number, integer or floating-point - JavaScript doesn't make a distinction, so neither does TypeScript.
-* `undefined` and `null` are special types that represent a value that doesn't exist. The two fulfill similar roles but are not interchangeable.
+* `undefined` and `null` are special types that represent a value which doesn't exist. `undefined` is the default value of any variable that hasn't been initialized while `null` must be assigned deliberately. However, a variable of type `undefined` cannot have the value `null`, and vice versa.
 * `void` is the return type of a function that doesn't return anything.
 * `never` is the return type of a function that never returns, i.e. always throws an error or terminates the program.
 * `unknown` is used to denote data whose type and structure are not known.
@@ -187,6 +195,21 @@ Generally, TypeScript is smart enough to figure out the types of new variables b
 However, if you use a `let` declared variable with no initial value, TypeScript will likely require you to explicitly declare the type.
 
 Function parameters should almost always have types, since that's how you can provide information to whoever is using your function on what types the arguments of your function takes.
+
+```ts
+const aNumber: number = 42;
+const anotherNumber = 100; // the type of `anotherNumber` is automatically inferred as `number`
+
+let x; // no type inference going on here
+x = 2;
+
+function addNumbers(
+  a: number,
+  b: number // parameters should have types...
+) { // but return types don't necessarily need to be explicitly declared
+  return a + b;
+}
+```
 
 ### Object types
 
@@ -219,7 +242,7 @@ type PrimaryColors = "Red" | "Yellow" | "Blue";
     You may or may not have noticed that `enum`s do exist in TypeScript! However, like with `var`, their use is not recommended.
 </Callout>
 
-Another pattern that is commonly seen in some of our projects is the *tagged union*. The tagged union is commonly implemented as a union of several objects that are otherwise different, but which share one property. It is extremely powerful because it's extremely easy to discern which object you're dealing with just by checking the property.
+Another pattern that is commonly seen in some of our projects is the *tagged union*. The tagged union is commonly implemented as a union of several objects that are otherwise different, but which share one property. It is extremely powerful because it's extremely easy to discern which object you're dealing with just by checking the shared property.
 ```ts
 type SuccessResponse = { success: true, message: string };
 type FailureResponse = { success: false, error: string };
