@@ -1,4 +1,4 @@
 {
   "title": "Common",
-  "pages": ["code-quality"]
+  "pages": ["getting-started", "code-quality", "toolchain"]
 }
