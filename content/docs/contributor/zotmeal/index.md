@@ -4,7 +4,7 @@ title: ZotMeal
 
 ## About
 
-Navigating UCI's dining options at Brandywine and the Anteatery is now simpler and more informed with ZotMeal. This comprehensive menu viewer, available as a website and mobile app, is designed to enhance your campus dining experience.
+Navigating UCI's dining options at Brandywine and the Anteatery is now simpler and more informed with ZotMeal. This comprehensive menu viewer, available as a website and mobile app, is designed to enhance your campus dining experience. UCI students use ZotMeal to plan their daily meals and track progress toward their nutritional goals.
 
 Key features of ZotMeal include:
 
@@ -19,12 +19,13 @@ access to comprehensive ingredient and allergen details for every meal.
 
 ## Technology
 
-ZotMeal consists of two separate front end applications with a shared backend. A summary of the libraries used in each are listed below.
+ZotMeal consists of a Next.JS frontend with a shared backend. A summary of the libraries used in each are listed below.
 
 ### Frontend
 
 - [Next.js](https://nextjs.org) - Full-stack React framework used for the website.
 - [shad/cn](https://ui.shadcn.com/) - A library of fully customizable, plug-n-play components for use with React.
+- [Zustand](https://github.com/pmndrs/zustand) - State management library for React apps. 
 
 ### Backend
 - [Drizzle](https://drizzle.dev/) - ORM for Postgres.

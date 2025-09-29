@@ -51,11 +51,11 @@ git clone https://github.com/icssc/ZotMeal.git
 </Step>
 
 <Step>
-Change your node version to the one specified in the .nvmrc by running `nvm use` or `fnm use`.
+Navigate to the root directory and change your node version to the one specified in the .nvmrc by running `nvm use` or `fnm use`.
 </Step>
    
 <Step>
-Navigate to the root directory and install the dependencies by running `cd ZotMeal && pnpm install`.
+While still in the root directory, install the dependencies by running `cd ZotMeal && pnpm install`.
 </Step>
 
 <Step>
@@ -71,7 +71,7 @@ Run `pnpm db:push` to push the schema to the docker database.
 </Step>
 
 <Step>
-Start local development by running `pnpm dev` in the root directory.
+Start local development by running `pnpm dev:next` in the root directory.
 The tRPC procedures are available on `http://localhost:3000/router.procedure?input={field: value}`
 
 ```sh
@@ -85,9 +85,9 @@ Pull the latest CampusDish data into your local database by `cd`'ing into the `a
 </Step>
 
 <Step>
-View the local website at [http://localhost:3001](http://localhost:3000) 
+View the local website at [http://localhost:8080](http://localhost:8080) 
 As you make changes to the Next.js application, those changes will be automatically
-reflected on the local website as well as the mobile app.
+reflected on the local website.
 </Step>
 </Steps>
 
@@ -161,7 +161,7 @@ Run `turbo test` at the root of the project.
 
 **Database**
 
-Run the following commands to pull data into your local database. 
+Run the following commands to pull data into your local database. Your local website may display no meals without this step.
 
 ```sh
 cd apps/server
