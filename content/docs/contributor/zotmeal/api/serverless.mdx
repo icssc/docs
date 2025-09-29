@@ -4,6 +4,7 @@ title: Serverless Functions
 
 import { File, Folder, Files } from "fumadocs-ui/components/files";
 
+As opposed to managing a server backend, ZotMeal uses serverless functions that are ran on-demand in the cloud, with AWS Lambda as our cloud service.
 
 ## Cron Jobs
 
@@ -21,7 +22,7 @@ Inside the `./apps/server` folder you will see something like this:
 </Folder>
 </Files>
 
-The `src/functions/trpc` directory is used for creating API endpoints for our tRPC functions (for future work)
+The `src/functions/trpc` directory is used for creating API endpoints for our tRPC functions (for future work). tRPC helps us write APIs with autocomplete and type checking.
 
 Inside the `src/functions/cron` folder we can find:
 
