@@ -1,0 +1,5 @@
+{
+  "title": "API",
+  "icon": "Server",
+  "pages": ["serverless", "trpc"]
+}
