@@ -1,5 +1,5 @@
 {
   "title": "PeterPlate",
   "icon": "UtensilsCrossed",
-  "pages": ["getting-started", "ui", "api"]
+  "pages": ["getting-started", "code-quality", "ui", "api"]
 }

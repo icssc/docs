@@ -1,0 +1,39 @@
+---
+title: Committing & Code Quality
+description: Keeping PeterPlate clean and maintainable for your team and the future.
+icon: Braces
+---
+
+PeterPlate follows the [code quality practices](/docs/contributor/common/code-quality) 
+established by the ICSSC projects board. To maintain a readable, maintainable, 
+and extensible codebase, we utilize specific technologies and standards.
+
+## Code Quality
+### Biome
+
+Like many other ICSSC projects, we use [Biome.js](https://biomejs.dev/) to 
+lint and format our code. We leverage [Husky](https://github.com/typicode/husky) 
+to automatically run Biome, which lints and formats your code before it is 
+committed and pushed.
+
+#### Rules
+
+Our Biome configuration can be found 
+[here](https://github.com/icssc/ZotMeal/blob/main/biome.json). Here's a quick 
+overview of our current rules, which are subject to change:
+
+- Indent by two spaces 
+- Line width is 80 characters
+- Double quote style
+- Always use semicolons
+- Organize imports
+
+If you would like to suggest a new rule, please reach out to a PeterPlate project lead.
+
+## Commits
+
+We follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+specification for readable and consistent commit messages.
+
+To ensure compliance, we use [commitlint](https://commitlint.js.org/). Similar to
+our code formatting, commit message format is enforced by Husky before each commit.
