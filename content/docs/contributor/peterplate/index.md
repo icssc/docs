@@ -15,7 +15,7 @@ access to comprehensive ingredient and allergen details for every meal.
 - **_Event Calendar_**: Stay updated on special dining hall events and limited-time offerings.
 - **_Dish Ratings_**: Contribute your own feedback to help fellow Anteaters discover the best of campus dining.
 
-![A screenshot of the PeterPlate website homepage.](./zotmeal-screenshot.jpg)
+![A screenshot of the PeterPlate website homepage.](./peterplate-screenshot.jpg)
 
 ## Technology
 
@@ -41,4 +41,4 @@ PeterPlate consists of a Next.JS frontend with a shared backend. A summary of th
 
 ## Contributing
 
-We'd be happy to have your contributions to PeterPlate -- we're always looking to grow and change! Please see [Getting Started](/docs/contributor/zotmeal/getting-started) to learn how to contribute effectively.
+We'd be happy to have your contributions to PeterPlate -- we're always looking to grow and change! Please see [Getting Started](/docs/contributor/peterplate/getting-started) to learn how to contribute effectively.
