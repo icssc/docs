@@ -1,0 +1,5 @@
+{
+  "title": "PeterPlate",
+  "icon": "UtensilsCrossed",
+  "pages": ["getting-started", "code-quality", "ui", "api"]
+}
