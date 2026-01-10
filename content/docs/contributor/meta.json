@@ -10,7 +10,9 @@
     "zotistics",
     "peterplate",
     "zotnfound",
-    "zotmeet"
+    "zotmeet",
+    "---Special Projects---",
+    "unified-auth"
   ],
   "root": true
 }
