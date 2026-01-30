@@ -17,8 +17,8 @@ the best tools our campus offers for setting up individuals to succeed academica
 enter in courses/exams they've already taken, plan out every quarter at UCI, and create schedules for each term.
 
 Recently, ICS Student Council developers have made tremendous developments to modernize both apps.
-Additionally, AntAlmanac now warns you if you have a missing Lab or Lecture for a course, and PeterPortal
-made course and instructor information accessible without leaving the main "roadmap" page.
+Additionally, AntAlmanac now shows when courses aren't offered *before* you click into search results, and PeterPortal
+has made course and instructor information accessible without leaving the main "roadmap" page.
 
 ## The Inspiration: A Sum Greater Than its Two Parts
 
