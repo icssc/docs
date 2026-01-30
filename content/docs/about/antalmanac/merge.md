@@ -24,16 +24,16 @@ made course and instructor information accessible without leaving the main "road
 
 With two great apps and a thriving organization, we realized that we could create a result that defines the next
 decade of course planning at UCI.
-AntAlmanac (Scheduler) has ammassed a consistent, dependable user base <3, and
+AntAlmanac (Scheduler) has amassed a consistent, dependable user base <3, and
 PeterPortal (Planner) has much-needed features to cover aspects of course planning that live beyond just the current term.
 
-Because AntAlmanac (Scheduler) and PeterPortal (Planner) are both under ICS Student Council, we have the unqiue
+Because AntAlmanac (Scheduler) and PeterPortal (Planner) are both under ICS Student Council, we have the unique
 combination of a large existing user base and the organizational structure to establish long-lasting collaborative
 efforts between teams.
 This led us to realize that we can enhance the course planning experience by creating experiences
 that persist between the previously separate apps.
 
-As of Feburary 1st, 2026, PeterPortal will henceforth be known as *AntAlmanac Planner*, while AntAlamanc's quarter-planning
+As of February 1st, 2026, PeterPortal will henceforth be known as *AntAlmanac Planner*, while AntAlmanac's quarter-planning
 capability will remain unchanged as *AntAlmanac Scheduler*.
 Throughout this merge, we also aim to empower our developers to
 collaborate across teams and on initiatives that help students plan courses in both the short term and the long term.
