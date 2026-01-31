@@ -6,13 +6,13 @@ description: As of February, two great planning apps are now unified into one pl
 ## The Foundation: Two Great Planning Apps
 
 Since its founding in 2018, AntAlmanac has been the go-to application for tens of thousands of
-students to plan their courses every quarter.
+students to schedule their courses every quarter.
 
 Seeing that additional course information, such as reviews, past quarter offerings, and long-term course planning
 were previously fragmented across various official and unofficial resources, PeterPortal emerged in 2020 as a new
 home for all UCI course and instructor information.
 
-Both the AntAlmanac (Scheduler) and PeterPortal (Planner) platform have evolved over the past few years to become
+Both the AntAlmanac (Scheduler) and PeterPortal (Planner) platforms have evolved over the past few years to become
 the best tools our campus offers for setting up individuals to succeed academically, as we allow students to
 enter in courses/exams they've already taken, plan out every quarter at UCI, and create schedules for each term.
 
@@ -34,7 +34,7 @@ We believe we can enhance the course planning process by creating experiences th
 
 As of February 1st, 2026, PeterPortal will henceforth be known as *AntAlmanac Planner*, while AntAlmanac's quarter-planning
 capability will remain unchanged under the name *AntAlmanac Scheduler*.
-Throughout this merge, we aim to empower our developers to collaborate across teams and on initiatives that help students
+Throughout this merge, we aim to empower our developers to collaborate across teams on initiatives that help students
 plan courses in both the short term and the long term.
 If any of this interests you, we'd love to hear your ideas, questions, and feedback in the [ICSSC Projects Discord Server](https://discord.gg/MxZqH4Zz4b).
 
@@ -48,7 +48,7 @@ in the future, you will be able to:
 
 - Filter search results in Scheduler to exclude courses you've taken in previous quarters of your (Planner) Roadmap.
 - Import entire quarters from a Planner Roadmap into Scheduler
-- Faster access to course and instructor information
+- More quickly access course and instructor information
 
 As we're actively developing both platforms, we'd love to hear your thoughts!
 You can contact our Projects Committee Chairs, team leads, and developer teams in the [ICSSC Projects Discord Server](https://discord.gg/MxZqH4Zz4b)
