@@ -42,7 +42,7 @@ AntAlmanac Planner is a web application designed to aid UCI students with course
 - [Express](https://expressjs.com/) - Minimalist backend framework for Node.js.
 - [tRPC](https://trpc.io/) - Library for type-safe APIs.
 - [PostgreSQL](https://www.postgresql.org/) - Relational database for storing user data and planners.
-- [Drizzle ORM](https://orm.drizzle.team/) - high-performance type-safe SQL-like access layer.
+- [Drizzle ORM](https://orm.drizzle.team/) - High-performance type-safe SQL-like access layer.
 
 ### Tooling
 - [SST](https://sst.dev/) - Infrastructure as code framework for AWS deployment.
