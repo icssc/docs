@@ -1,0 +1,29 @@
+---
+title: Unified Auth
+description: ICSSC's unified authentication service for all projects.
+---
+
+Across many of our projects, authentication is a common prerequisite for other features. To bring together our fragmented authentication experince, for both developers and users, Unified Auth allows all projects to easily authenticate users.
+
+## Core Features
+
+Unified Auth allows users to sign in with Google OAuth. Only supporting Google OAuth is an intentional decision, as all UCI students to provisioned accounts. We've currently opted not to request access to UCI SSO/Shibboleth to reduce complexity and development time. After sign in, users are redirected through all projects to authenticate them on each domain. This ensures that users are signed into _all_ projects whenever they sign into _any_ project.
+
+## Architecture
+
+Unified Auth can be roughly broken down into two parts — handing user verification, and "universal" sign in. More specifically, it is a Hono project running on Cloudflare Workers.
+
+<Cards>
+  <Card
+    href="/docs/contributor/unified-auth/init-authentication"
+    title="Initialization & User Authentication"
+  >
+    Redirecting to Unified Auth and verifying user identities.
+  </Card>
+  <Card
+    href="/docs/contributor/unified-auth/universal-sign-in"
+    title="Universal Sign In"
+  >
+    Unified Auth's redirect loop mechanism for signing user's into all projects.
+  </Card>
+</Cards>
