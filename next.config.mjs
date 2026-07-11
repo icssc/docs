@@ -8,8 +8,18 @@ const config = {
   async redirects() {
     return [
       {
+        source: "/docs/contributor/peterportal",
+        destination: "/docs/contributor/antalmanac-planner",
+        permanent: true,
+      },
+      {
         source: "/docs/contributor/peterportal/:path*",
         destination: "/docs/contributor/antalmanac-planner/:path*",
+        permanent: true,
+      },
+      {
+        source: "/docs/contributor/antalmanac",
+        destination: "/docs/contributor/antalmanac-scheduler",
         permanent: true,
       },
       {
