@@ -1,10 +1,10 @@
 ---
-title: AntAlmanac
+title: AntAlmanac Scheduler
 ---
 
 ## About
 
-AntAlmanac is a schedule planner website for classes at UC Irvine. These are some of its features:
+AntAlmanac Scheduler is a schedule planner website for classes at UC Irvine. These are some of its features:
 
 -   **_Search bar_** to easily find classes by department (e.g COMPSCI), course code (e.g. ICS 31), and keywords (e.g. artificial intelligence).
 -   **_Integrated calendar_** to preview class times.

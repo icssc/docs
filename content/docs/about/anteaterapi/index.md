@@ -15,7 +15,7 @@ ICS Student Council is a far-reaching organization that aims to improve student 
 
 Feel free to join us at our [events](https://icssc.club/events). All UCI affiliates are welcome.
 
-Learn more about how you can get involved with us [here](https://icssc.club/get-involved).
+Learn more about how you can get involved with us [on our website](https://icssc.club).
 
 ## Using Anteater API in Your Software
 

@@ -60,7 +60,8 @@ In February 2026, PeterPortal [merged](https://docs.icssc.club/docs/about/antalm
 | 2022 - 2023    | [@ethanwong16](https://github.com/ethanwong16)       |
 | 2023 - 2024    | [@js0mmer](https://github.com/js0mmer)               |
 | 2024 - 2025    | [@Awesome-E](https://github.com/Awesome-E)           |
-| 2025 - Present | [@CadenLee2](https://github.com/CadenLee2)           |
+| 2025 - 2026    | [@CadenLee2](https://github.com/CadenLee2)           |
+| 2026 - Present | [@anthonyj33](https://github.com/anthonyj33)         |
 
 ## Contributing
 We welcome all open-source contributions! A guide on how to contribute can be found on the Getting Started tab.

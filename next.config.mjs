@@ -12,6 +12,11 @@ const config = {
         destination: "/docs/contributor/antalmanac-planner/:path*",
         permanent: true,
       },
+      {
+        source: "/docs/contributor/antalmanac/:path*",
+        destination: "/docs/contributor/antalmanac-scheduler/:path*",
+        permanent: true,
+      },
     ];
   },
 };

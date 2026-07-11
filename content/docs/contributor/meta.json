@@ -4,12 +4,10 @@
     "---General---",
     "...common",
     "---Projects---",
-    "antalmanac",
+    "antalmanac-scheduler",
     "antalmanac-planner",
     "anteaterapi",
-    "zotistics",
     "peterplate",
-    "zotnfound",
     "zotmeet"
   ],
   "root": true
