@@ -53,7 +53,7 @@ If you ever need help, feel free to ask around on our [Discord server](https://d
 
 <Steps>
 <Step>
-Install `Node.js` (version 22 or higher). This allows you to run JavaScript on your computer (outside of a browser).
+Install `Node.js`. This allows you to run JavaScript on your computer (outside of a browser). The required version is pinned in the repo's `.nvmrc`, so a version manager can read it automatically (`nvm use` / `fnm use`).
 This is best done with a version manager that allows you to easily switch between
 Node.js versions based on the requirements of different projects.
 Try using any of the following.
@@ -67,7 +67,7 @@ package manager or [the downloads from the official website](https://nodejs.org/
 
 </Step>
 <Step>
-Install `pnpm` (version 10 or higher). This is our package manager of choice for this project.
+Install `pnpm`. This is our package manager of choice for this project. The exact version we use is pinned in the root `package.json` (the `packageManager` field).
 It's responsible for installing, uninstalling, and keeping track of the app's dependencies.
 
 ```bash
@@ -109,7 +109,7 @@ Start the local PostgreSQL database using Docker Compose.
 docker compose up -d --build
 ```
 
-This starts a PostgreSQL database on port 5432 with the credentials specified in `docker-compose.yml`.
+This starts a PostgreSQL database with the port and credentials defined in `docker-compose.yml`.
 
 </Step>
 <Step>
@@ -144,7 +144,7 @@ pnpm dev
 
 </Step>
 <Step>
-View the local website at http://localhost:3000. As you make changes to the
+View the local website at the URL printed in your terminal (by default http://localhost:3000). As you make changes to the
 application, those changes will be automatically reflected on the local website
 with hot reloading.
 </Step>
