@@ -20,7 +20,7 @@ import { Steps, Step } from "fumadocs-ui/components/steps";
         or create a branch if you have the permission to do so.
     </Step>
     <Step>
-        [Setup your development environment](#get-setup-to-develop-locally).
+        [Setup your development environment](#development-environment).
     </Step>
     <Step>
         Create a draft pull request with your new branch to track your progress.
@@ -53,27 +53,32 @@ If you ever need help, feel free to ask around on our [Discord server](https://d
 
 <Steps>
 <Step>
-Install `Node.js`. This allows you to run JavaScript on your computer (outside of a browser).
+Install `Node.js` (version 22 or higher). This allows you to run JavaScript on your computer (outside of a browser).
 This is best done with a version manager that allows you to easily switch between
 Node.js versions based on the requirements of different projects.
 Try using any of the following.
 
 -   [nvm](https://github.com/nvm-sh/nvm) - Node-Version-Manager.
 -   [fnm](https://github.com/Schniz/fnm) - Fast-Node-Manager.
--   [nvm-widows](https://github.com/coreybutler/nvm-windows)
+-   [nvm-windows](https://github.com/coreybutler/nvm-windows)
 
 If none of those work for any reason, you can defer to your Operating System's
 package manager or [the downloads from the official website](https://nodejs.org/en/download).
-We will be using the latest LTS version, 20.10.0, lts/iron.
 
 </Step>
 <Step>
-Install `pnpm`. This is our package manager of choice for this project.
+Install `pnpm` (version 10 or higher). This is our package manager of choice for this project.
 It's responsible for installing, uninstalling, and keeping track of the app's dependencies.
 
 ```bash
 npm install --global pnpm
 ```
+
+</Step>
+<Step>
+Install `Docker`. This is required to run the local PostgreSQL database.
+
+-   [Docker Desktop](https://www.docker.com/products/docker-desktop) - Available for macOS, Windows, and Linux.
 
 </Step>
 </Steps>
@@ -98,59 +103,85 @@ cd AntAlmanac && pnpm install
 
 </Step>
 <Step>
-Start the development server for the frontend.
+Start the local PostgreSQL database using Docker Compose.
 
 ```bash
-pnpm start:aa
+docker compose up -d --build
 ```
 
-or
+This starts a PostgreSQL database on port 5432 with the credentials specified in `docker-compose.yml`.
+
+</Step>
+<Step>
+Set up your environment variables.
+
+-   Copy `apps/antalmanac/.env.example` to `apps/antalmanac/.env` and fill in the values.
+-   Copy `packages/db/.env.example` to `packages/db/.env` (the same `DB_URL` as above is fine).
+
+</Step>
+<Step>
+Run the database migrations to set up the schema.
 
 ```bash
-cd apps/antalmanac && pnpm dev
+pnpm db:migrate
 ```
 
 </Step>
 <Step>
-View the local website at http://localhost:5173. As you make changes to
-the React application, those changes will be automatically reflected on
-the local website.
+Fetch the static data (course information, term data, etc.).
+
+```bash
+cd apps/antalmanac && pnpm get-data
+```
+
+</Step>
+<Step>
+Start the development server.
+
+```bash
+pnpm dev
+```
+
+</Step>
+<Step>
+View the local website at http://localhost:3000. As you make changes to the
+application, those changes will be automatically reflected on the local website
+with hot reloading.
 </Step>
 </Steps>
 
-This is all that is required to develop the frontend project locally.
+### What about the backend?
 
-### But I also want to work with the backend locally...
+AntAlmanac Scheduler is a single Next.js application — the API lives inside the app as a
+[tRPC](https://trpc.io) layer, so there's no separate backend server to run. `pnpm dev` starts everything.
 
-Typically, you won't need to start the backend server locally
-because an active development server is available for usage.
+Course and instructor data comes from the [Anteater API](https://docs.icssc.club/docs/developer/anteaterapi).
+For most local work you won't need credentials, but some features (such as the interactive map or authenticated
+features) require environment variables.
 
-However, if you would like to start both the frontend and the backend locally,
-you can run `pnpm start` from the project root.
+ICSSC Project Committee members can request `.env` files with real credentials (database, Mapbox, an Anteater API
+key, etc.) from a project lead. External contributors can develop with the example values and reach out in the
+[Discord server](https://discord.gg/Zu8KZHERtJ) if they need access to a specific resource.
 
-#### Non-Privileged
+### Additional Commands
 
-When developing as a non-privileged member,
-the environment variables won't reflect real credentials to resources such as the database.
+-   **Database Studio** — open Drizzle Studio to view and manage your local database.
 
-The backend should still work, but with limited functionality.
-Please request credentials from a project lead if you need them.
+    ```bash
+    pnpm db:studio
+    ```
 
-<Steps>
-    <Step>
-        Ensure that you're in the backend project. i.e. `cd apps/backend` from
-        the project root.
-    </Step>
-    <Step>Change the `.env.sample` to `.env`.</Step>
-    <Step>Start the server with `pnpm start`.</Step>
-</Steps>
+-   **Generate Migrations** — after modifying the database schema, generate a new migration.
 
-#### Privileged
+    ```bash
+    pnpm db:generate
+    ```
 
-ICSSC Project Committee Members can be given `.env` files with real credentials upon request.
-These can be used to access real resources such as DynamoDB, MapBox, etc.
+-   **Run Tests** — execute the test suite.
 
-Remove any `.env.*` files in the project root, and insert the `.env` you were given.
+    ```bash
+    pnpm test
+    ```
 
 ### Testing
 
@@ -168,16 +199,15 @@ these sorts of permissions. Here are the different version managers again.
 
 -   [nvm](https://github.com/nvm-sh/nvm) - Node-Version-Manager.
 -   [fnm](https://github.com/Schniz/fnm) - Fast-Node-Manager.
--   [nvm-widows](https://github.com/coreybutler/nvm-windows)
+-   [nvm-windows](https://github.com/coreybutler/nvm-windows)
 
 A more convenient, but less secure way to resolve this is to run the command with admin privileges, e.g with `sudo`.
 
-### The React website doesn't seem to load at all
+### The website doesn't seem to load at all
 
-Try disabling your adblocker.
+Try disabling your adblocker or browser extensions that might interfere with local development.
 
-### I need the env variables for the backend!
+### I need environment variables!
 
-An example `.env.sample` is provided and can be used by renaming it to `.env`
-If you need real credentials to access the database or private resources,
-please contact a project lead.
+Please reference the `.env.example` files provided.
+If you need production credentials to access the database or other private resources, please contact a project lead.

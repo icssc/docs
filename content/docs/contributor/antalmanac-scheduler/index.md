@@ -16,11 +16,12 @@ AntAlmanac Scheduler is a schedule planner website for classes at UC Irvine. The
 
 ## Technology
 
-Our website is a single page React application hosted on Github Pages.
+Our website is a Next.js application deployed on AWS using SST (Serverless Stack).
 A summary of the libraries we use are listed below.
 
 ### Frontend
 
+-   [Next.js](https://nextjs.org) - React framework with server-side rendering.
 -   [MUI](https://mui.com) - React UI library.
 -   [React Big Calendar](https://github.com/jquense/react-big-calendar) - React calendar component.
 -   [Recharts](https://recharts.org/en-US) - React chart component.
@@ -30,13 +31,15 @@ A summary of the libraries we use are listed below.
 ### Backend
 
 -   [tRPC](https://trpc.io) - type-safe API access layer for the AntAlmanac API.
--   [PeterPortal API](https://api.peterportal.org) - API maintained by ICSSC for retrieving UCI data.
+-   [Anteater API](https://docs.icssc.club/docs/developer/anteaterapi) - API maintained by ICSSC for retrieving UCI data.
+-   [Drizzle ORM](https://orm.drizzle.team/) - type-safe SQL-like access layer.
+-   [PostgreSQL](https://www.postgresql.org) - Relational database for storing user data and schedules.
 
 ### Tooling
 
--   [Vite](https://vitejs.dev) - Blazingly fast, modern bundler.
+-   [SST](https://sst.dev) - Infrastructure as code framework for AWS deployment.
+-   [Docker](https://www.docker.com) - Containerization for local database development.
 -   [Vitest](https://vitest.dev) - Test runner.
--   [AWS](https://aws.amazon.com) - Website deployment and hosting.
 -   [TypeScript](https://www.typescriptlang.org) - JavaScript with type-checking.
 
 ## History
@@ -59,9 +62,11 @@ Since then, the project has continued to evolve and grow with successive generat
 | 2019 - 2021    | [@devsdevsdevs](https://github.com/devsdevsdevs)     |
 | 2021 - 2022    | [@ChaseC99](https://github.com/chasec99)             |
 | 2022 - 2024    | [@EricPedley](https://github.com/EricPedley)         |
-| 2023 - Present | [@ap0nia](https://github.com/ap0nia)                 |
-| 2024 - Present | [@MinhxNguyen7](https://github.com/MinhxNguyen7)     |
-| 2024 - Present | [@adcockdalton](https://github.com/adcockdalton)     |
+| 2023 - 2024    | [@ap0nia](https://github.com/ap0nia)                 |
+| 2024 - 2025    | [@MinhxNguyen7](https://github.com/MinhxNguyen7)     |
+| 2024 - 2025    | [@adcockdalton](https://github.com/adcockdalton)     |
+| 2025 - 2026    | [@alexespejo](https://github.com/alexespejo)         |
+| 2026 - Present | [@sicn4rf](https://github.com/sicn4rf)               |
 
 ## Contributing
 
