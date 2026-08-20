@@ -24,3 +24,6 @@ resources:
   features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 - [Fumadocs](https://fumadocs.vercel.app) - learn about Fumadocs
+
+## Reorganizing docs
+If you rename or move any content, make sure to include a redirect from the original path in `next.config.mjs`

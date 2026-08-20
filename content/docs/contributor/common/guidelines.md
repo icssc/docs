@@ -4,8 +4,6 @@ title: Contributor Guidelines
 
 Open-source contributions to our projects are encouraged, and are an excellent way to build technical skills while improving tools used by real students. By respecting the following guidelines, you can help ensure your own contribution is meaningful.
 
-Contributions that violate these policies may be rejected. If you have questions, reach out on our [Discord server](https://discord.gg/MxZqH4Zz4b).
-
 ## GitHub Courtesy
 
 Our internal teams are often hard at work on quarterly initiatives, and some of our GitHub issues may be part of these timelines. To prevent collisions with other developers, please:
@@ -24,3 +22,5 @@ ICSSC Projects, as per [ICSSC's constitution](https://docs.google.com/document/d
 - Comments on issues and PRs must start with and mostly consist of human writing
 - AI-generated writing in descriptions or comments must be disclosed as such
 - Many of our repositories include AI code reviewers, but a human will review each line of code before a PR is merged. Before putting up a PR, the author should also review any AI-generated code themselves
+
+Contributions that violate this policy may be rejected.
