@@ -27,6 +27,11 @@ const config = {
         destination: "/docs/contributor/antalmanac-scheduler/:path*",
         permanent: true,
       },
+      {
+        source: "/docs/contributor/common/getting-started/:path*",
+        destination: "/docs/contributor/common/development-guide/:path*",
+        permanent: true,
+      },
     ];
   },
 };
