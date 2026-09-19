@@ -1,0 +1,180 @@
+---
+title: Getting Started
+---
+
+import { Callout } from "fumadocs-ui/components/callout";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+
+# Contributing
+
+We welcome open-source contributions!
+
+<Callout>
+  Before contributing, please read [ICSSC's contributor guidelines](../../common/guidelines.md).
+</Callout>
+
+Here is a rough guide on how to contribute:
+
+<Steps>
+<Step>
+### Find or create an issue
+
+Look through the [issue tracker](https://github.com/icssc/AntAlmanac/issues) to find an open issue (one that hasn't been assigned to anybody) or create your own that describes the problem you want to fix.
+Before starting work on an issue, please leave a comment expressing your interest and wait for a member of our team to assign it to you.
+This helps avoid duplicate work and ensures that your contribution is aligned with the project's goals.
+</Step>
+
+<Step>
+### Fork or branch the repository
+
+[Fork the repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo) or create a branch if you have the permission to do so.
+</Step>
+
+<Step>
+### Set up your development environment
+
+[Setup your development environment](#development-environment).
+</Step>
+
+<Step>
+### Open a draft PR
+
+Create a draft pull request with your new branch to track your progress.
+</Step>
+
+<Step>
+### Make your changes and iterate
+
+Make any desired changes, commit, and push them. Repeat until the selected issue has been addressed.
+</Step>
+
+<Step>
+### Request review and merge
+
+Change the pull request from draft to open. If possible, request a review from a member of our team.
+Wait for your pull request to get reviewed and address any requested changes until it is approved.
+Once your PR is approved, a member of our team will merge it and your changes will appear on the live website shortly! 🥳
+</Step>
+</Steps>
+
+## Additional Help
+
+If you ever need help, feel free to get in touch on the [ICSSC Projects Discord server](https://discord.gg/Zu8KZHERtJ).
+
+# Development Environment
+
+## Pre-requisites
+
+1. Install `Node.js`. This allows you to run JavaScript on your computer (outside of a browser).
+   The required version is pinned in the repo's `.nvmrc`, so a version manager can read it automatically (`nvm use` / `fnm use`).
+   We recommend using any of the following version managers to easily switch between Node.js versions.
+    - [nvm](https://github.com/nvm-sh/nvm) - Node-Version-Manager.
+    - [fnm](https://github.com/Schniz/fnm) - Fast-Node-Manager.
+    - [nvm-windows](https://github.com/coreybutler/nvm-windows)
+
+    Otherwise, download the correct version from [the official website](https://nodejs.org/en/download).
+
+2. Install `pnpm`, our package manager.
+   The exact version we use is pinned in the [root `package.json`](https://github.com/icssc/AntAlmanac/blob/main/package.json) (the `packageManager` field).
+
+    ```bash
+    npm install --global pnpm
+    ```
+
+3. Install `Docker`. This is required to run the local PostgreSQL database.
+    - [Docker Desktop](https://www.docker.com/products/docker-desktop) - Available for macOS, Windows, and Linux.
+
+## Developing
+
+### Quick Start
+
+<Steps>
+<Step>
+### Clone the repository
+
+```bash
+git clone https://github.com/icssc/AntAlmanac.git
+```
+</Step>
+
+<Step>
+### Install dependencies
+
+```bash
+cd AntAlmanac && pnpm install
+```
+</Step>
+
+<Step>
+### Start the database
+
+```bash
+docker compose up -d --build
+```
+
+This will start a PostgreSQL database with the port and credentials defined in `docker-compose.yml`.
+</Step>
+
+<Step>
+### Set up environment variables
+
+- Copy `apps/antalmanac/.env.example` to `apps/antalmanac/.env` and fill in values.
+- Copy `apps/antalmanac-scheduler/db/.env.example` to `apps/antalmanac-scheduler/db/.env` (same `DB_URL` as above is fine).
+- For AANTS local runs, use `apps/aants/.env.example` as a template.
+</Step>
+
+<Step>
+### Run migrations and fetch data
+
+```bash
+pnpm sched:db:migrate
+pnpm get-data
+```
+</Step>
+
+<Step>
+### Start the development server
+
+```bash
+pnpm dev
+```
+
+View the local website at the URL printed in your terminal (by default http://localhost:3000).
+As you make changes to the application, those changes will be automatically reflected on the local website with hot reloading.
+</Step>
+</Steps>
+
+### Additional Commands
+
+- **Database Studio**: Open Drizzle Studio to view and manage your local database.
+
+    ```bash
+    pnpm sched:db:studio
+    ```
+
+- **Refer to `package.json` for all available commands.**
+
+### Environment Variables
+
+The variables below configure a full production/staging **deployment** and are set in your AWS environment or CI/CD pipeline.
+**For local development you only need the variables in `apps/antalmanac/.env.example` and `apps/antalmanac-scheduler/db/.env.example`;**
+anything tagged _(optional locally)_ - maps, analytics, and the Planner integration - can be left unset when running locally.
+
+- Shared
+    - `OIDC_ISSUER_URL` - OAuth issuer URL
+    - `ANTEATER_API_KEY` - API key for Anteater API
+    - `PLANNER_CLIENT_API_KEY` _(optional locally)_ - API key for the AntAlmanac Planner integration
+    - `NEXT_PUBLIC_POSTHOG_KEY` _(optional locally)_ - PostHog project key for product analytics
+    - `NEXT_PUBLIC_POSTHOG_HOST` _(optional locally)_ - PostHog host for product analytics
+- Scheduler
+    - `DB_URL` - Database connection string
+    - `MAPBOX_ACCESS_TOKEN` _(optional locally)_ - Mapbox API token for map features
+    - `NEXT_PUBLIC_TILES_ENDPOINT` _(optional locally)_ - Endpoint for map tiles
+    - `OIDC_CLIENT_ID` - OAuth client ID for Google authentication
+    - `BETTER_AUTH_URL` - URL used for OAuth (automatically set based on stage)
+    - `BETTER_AUTH_SECRET` - OAuth secret key, you can [generate one here](https://better-auth.com/docs/installation#set-environment-variables)
+    - `NEXT_PUBLIC_BASE_URL` - Base URL of the site (automatically set based on stage)
+
+If you need access to development credentials, please contact a project lead in [our Discord](https://discord.gg/Zu8KZHERtJ).
+
+**⚠️ Note: Anteater API requires a special API key in order for search functionality to work. If you'd like to work on a feature relating to this, please send a message in [our Discord](https://discord.gg/Zu8KZHERtJ).**

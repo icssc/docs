@@ -9,22 +9,17 @@ const config = {
     return [
       {
         source: "/docs/contributor/peterportal",
-        destination: "/docs/contributor/antalmanac-planner",
+        destination: "/docs/contributor/antalmanac/planner",
         permanent: true,
       },
       {
         source: "/docs/contributor/peterportal/:path*",
-        destination: "/docs/contributor/antalmanac-planner/:path*",
+        destination: "/docs/contributor/antalmanac/planner/:path*",
         permanent: true,
       },
       {
-        source: "/docs/contributor/antalmanac",
-        destination: "/docs/contributor/antalmanac-scheduler",
-        permanent: true,
-      },
-      {
-        source: "/docs/contributor/antalmanac/:path*",
-        destination: "/docs/contributor/antalmanac-scheduler/:path*",
+        source: "/docs/contributor/antalmanac/:path((?!planner(?:/|$)|scheduler(?:/|$)).*)",
+        destination: "/docs/contributor/antalmanac/scheduler/:path",
         permanent: true,
       },
       {
