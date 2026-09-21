@@ -23,6 +23,26 @@ const config = {
         permanent: true,
       },
       {
+        source: "/docs/contributor/antalmanac-scheduler",
+        destination: "/docs/contributor/antalmanac/scheduler",
+        permanent: true,
+      },
+      {
+        source: "/docs/contributor/antalmanac-scheduler/:path*",
+        destination: "/docs/contributor/antalmanac/scheduler/:path*",
+        permanent: true,
+      },
+      {
+        source: "/docs/contributor/antalmanac-planner",
+        destination: "/docs/contributor/antalmanac/planner",
+        permanent: true,
+      },
+      {
+        source: "/docs/contributor/antalmanac-planner/:path*",
+        destination: "/docs/contributor/antalmanac/planner/:path*",
+        permanent: true,
+      },
+      {
         source: "/docs/contributor/common/getting-started/:path*",
         destination: "/docs/contributor/common/development-guide/:path*",
         permanent: true,
