@@ -1,0 +1,154 @@
+---
+title: "AntAlmanac"
+---
+![AntAlmanac](./antalmanac-banner.png)
+
+# About
+
+AntAlmanac is a course-planning platform for courses at UC Irvine.
+It includes two powerful planning tools: AntAlmanac Scheduler, for quarterly schedules, and AntAlmanac Planner, for multi-year roadmaps and course discovery.
+Features include:
+
+| AntAlmanac Scheduler                                              | AntAlmanac Planner                                                                                                                                |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Search** for classes by department, section code, and keywords. | **Show requirements** for multiple majors and minors                                                                                              |
+| **Preview** class times on the _integrated calendar_.             | **View completion** of your _major_, _specialization_, _minor_, and _GE_ requirements                                                             |
+| **Quickly access** course statistics, reviews, and prerequisites. | **Import** your unofficial transcript via [StudentAccess](https://www.reg.uci.edu/access/student/transcript/?seg=U) to populate previous courses. |
+| **Locate** your class locations on the _interactive map_.         | **Add credits** from any _transferred courses_, _AP exams_, and _GE/Elective credits_                                                             |
+| ![Scheduler screenshot](./scheduler/scheduler.jpeg)                    | ![Planner screenshot](./planner/planner.jpeg)                                                                                                        |
+
+## Technology
+
+Our website is a Next.js application deployed on AWS using SST (Serverless Stack).
+A summary of the libraries we use are listed below.
+
+### Frontend
+
+- Shared
+    - [React](https://react.dev/) - Library to build dynamic, component-based UIs.
+    - [Next.js](https://nextjs.org) - React framework with server-side rendering.
+    - [Material UI (MUI)](https://mui.com/material-ui/) - React component library that implements Google's Material Design.
+- Scheduler
+    - [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) - State management.
+- Planner
+    - [Redux](https://redux.js.org/) - State management.
+
+### Backend
+
+- [tRPC](https://trpc.io) - type-safe API access layer for the AntAlmanac API.
+- [Anteater API](https://docs.icssc.club/docs/about/anteaterapi) - API maintained by ICSSC for retrieving UCI data.
+- [Drizzle ORM](https://orm.drizzle.team/) - [high-performance](https://orm.drizzle.team/benchmarks) type-safe SQL-like access layer compatible with all major SQL dialects.
+- [PostgreSQL](https://www.postgresql.org) - Relational database for storing user data and schedules.
+
+### Tooling
+
+- Shared
+    - [SST](https://sst.dev) - Infrastructure as code framework for AWS deployment.
+    - [TypeScript](https://www.typescriptlang.org) - JavaScript with type-checking.
+- Scheduler
+    - [Docker](https://www.docker.com) - Containerization for local database development.
+    - [Vitest](https://vitest.dev) - Test runner.
+
+## Repository Structure
+
+This is a [pnpm](https://pnpm.io) monorepo:
+
+```
+antalmanac
+├── apps
+│    ├── aants/ - the class notification service (AWS Lambda + SQS + SES) for enrollment status changes.
+│    ├── antalmanac/ - the main Next.js app, unifying AntAlmanac Scheduler and AntAlmanac Planner.
+│    ├── antalmanac-planner/ - AntAlmanac Planner frontend and backend.
+│    ├── antalmanac-scheduler - AntAlmanac Scheduler frontend and backend.
+│    │   ├── db/ - Drizzle schema, migrations, and the database client.
+│    │   └── types/ - shared internal TypeScript types.
+│    └── ios/ - the native iOS wrapper (Swift WebView + push notifications).
+└── packages
+     └── anteater-api/ - Anteater API types, client, and utilities.
+```
+
+## History
+
+AntAlmanac (now AntAlmanac Scheduler) was created in 2018 by a small group of students under the leadership of @the-rango.
+They formed an AntAlmanac club for ongoing development and, in 2019, @devsdevsdevs directed a massive rewrite of the codebase as project lead.
+
+In 2020, AntAlmanac was adopted by the ICSSC Projects Committee.
+Meanwhile, PeterPortal (now AntAlmanac Planner) was created by another team on the Projects Committee led
+by @uci-mars, aiming to unify fragmented course information and long-term planning resources in one application.
+
+In February 2026, AntAlmanac and PeterPortal unified into a single course-planning platform at [antalmanac.com](https://antalmanac.com).
+This repository now powers both tools. The legacy [PeterPortal repository](htttps://github.com/icssc/peterportal-client) is available as a public archive.
+Read more in the [merge announcement](https://docs.icssc.club/docs/about/antalmanac/merge).
+
+ICSSC continues to provide funding, marketing, and engineering to support the growing number of users and open-source developers that make up our AntAlmanac Community.
+
+Since then, the project has continued to evolve and grow with successive generations of projects committee members!
+
+| Year           | Scheduler (_AntAlmanac_) Lead | Planner (_PeterPortal_) Lead |
+| -------------- | ----------------------------- | ---------------------------- |
+| 2018 - 2019    | @the-rango (founder)          |                              |
+| 2019 - 2020    | @devsdevsdevs                 |                              |
+| 2020 - 2021    | @devsdevsdevs                 | @uci-mars                    |
+| 2021 - 2022    | @ChaseC99                     | @chenaaron3                  |
+| 2022 - 2023    | @EricPedley                   | @ethanwong16                 |
+| 2023 - 2024    | @EricPedley, @ap0nia          | @js0mmer                     |
+| 2024 - 2025    | @MinhxNguyen7, @adcockdalton  | @Awesome-E                   |
+| 2025 - 2026    | @alexespejo                   | @CadenLee2                   |
+| 2026 - Present | @sicn4rf                      | @anthonyj33                  |
+
+## Deployment
+
+AntAlmanac is deployed to AWS using [SST (Serverless Stack)](https://sst.dev). The deployment process is automated and managed through the `sst.config.ts` file.
+
+### Deployment Environments
+
+- **Production**: Deployed to `antalmanac.com` (with a `www.antalmanac.com` alias)
+- **Staging**: Each pull request gets a preview deploy at `staging-{PR_NUMBER}.antalmanac.com`
+- **Shared staging**: `staging-shared.antalmanac.com` is a persistent environment for cross-team (Scheduler ⇄ Planner) integration testing; deployed manually
+
+### Environment Variables
+
+The variables below configure a full production/staging **deployment** and are set in your AWS environment or CI/CD pipeline.
+**For local development you only need the variables in `apps/antalmanac/.env.example` and `apps/antalmanac-scheduler/db/.env.example`;**
+anything tagged _(optional locally)_ - maps, analytics, and the Planner integration - can be left unset when running locally.
+
+- Shared
+    - `OIDC_ISSUER_URL` - OAuth issuer URL
+    - `ANTEATER_API_KEY` - API key for Anteater API
+    - `PLANNER_CLIENT_API_KEY` _(optional locally)_ - API key for the AntAlmanac Planner integration
+    - `NEXT_PUBLIC_POSTHOG_KEY` _(optional locally)_ - PostHog project key for product analytics
+    - `NEXT_PUBLIC_POSTHOG_HOST` _(optional locally)_ - PostHog host for product analytics
+- Scheduler
+    - `DB_URL` - Database connection string
+    - `MAPBOX_ACCESS_TOKEN` _(optional locally)_ - Mapbox API token for map features
+    - `NEXT_PUBLIC_TILES_ENDPOINT` _(optional locally)_ - Endpoint for map tiles
+    - `OIDC_CLIENT_ID` - OAuth client ID for Google authentication
+    - `BETTER_AUTH_URL` - URL used for OAuth (automatically set based on stage)
+    - `BETTER_AUTH_SECRET` - OAuth secret key, you can [generate one here](https://better-auth.com/docs/installation#set-environment-variables)
+    - `NEXT_PUBLIC_BASE_URL` - Base URL of the site (automatically set based on stage)
+- Planner
+    - `PUBLIC_API_URL` - Anteater API URL
+    - `PRODUCTION_DOMAIN` - Domain for current deployment
+    - `PLANNER_OIDC_CLIENT_ID` - OAuth client ID for Google authentication
+    - `PLANNER_DATABASE_URL` _(optional locally)_ - Database connection string
+    - `ADMIN_EMAILS` _(optional locally)_ - List of emails with access to administrative actions
+    - `PLANNER_SESSION_SECRET` _(optional locally)_ - Secret key for session management
+
+If you need access to development credentials, please contact a project lead in [our Discord](https://discord.gg/Zu8KZHERtJ).
+
+**⚠️ Note: Anteater API requires a special API key in order for search functionality to work. If you'd like to work on a feature relating to this, please send a message in [our Discord](https://discord.gg/Zu8KZHERtJ).**
+
+# Where Does the Data Come From?
+
+We consolidate our data directly from official UCI sources such as: UCI Catalogue, UCI Public Records Office, and UCI WebReg (courtesy of [Anteater API](https://github.com/icssc/anteater-api)).
+
+# Disclaimer
+
+Although we consolidate our data directly from official UCI sources, this application is by no means an official UCI tool.
+We strive to keep our data as accurate as possible with the limited support we receive from UCI.
+Please take this into consideration while using the website.
+
+# Terms & Conditions
+
+There are no hard policies at the moment for utilizing this tool.
+However, please refrain from abusing the website by methods such as: sending excessive amount of requests in a small period of time or purposely looking to exploit the system.
